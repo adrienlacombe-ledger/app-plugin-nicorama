@@ -27,7 +27,7 @@ static void handle_array_len(const ethPluginProvideParameter_t *msg,
     PRINTF("LIST LEN: %d\n", context->array_len);
 }
 
-static void handle_token_sent(const ethPluginProvideParameter_t *msg,
+static void contract_address_sent(const ethPluginProvideParameter_t *msg,
                               paraswap_parameters_t *context) {
     memset(context->contract_address_sent, 0, sizeof(context->contract_address_sent));
     memcpy(context->contract_address_sent,
@@ -45,159 +45,42 @@ static void handle_token_received(const ethPluginProvideParameter_t *msg,
     PRINTF("TOKEN RECEIVED: %.*H\n", ADDRESS_LENGTH, context->contract_address_received);
 }
 
-static void handle_uniswap_and_forks(ethPluginProvideParameter_t *msg,
-                                     paraswap_parameters_t *context) {
+
+static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
+                                        paraswap_parameters_t *context) {
     switch (context->next_param) {
-        case AMOUNT_SENT:  // amountIn
-            handle_amount_sent(msg, context);
-            context->next_param = AMOUNT_RECEIVED;
-            context->checkpoint = msg->parameterOffset;
-            if (context->selectorIndex == BUY_ON_UNI_FORK ||
-                context->selectorIndex == SWAP_ON_UNI_FORK ||
-                context->selectorIndex == SWAP_ON_UNI_FORK_V4 ||
-                context->selectorIndex == BUY_ON_UNI_FORK_V4) {
-                // Substract two chunks because we've skipped the first two parameters.
-                // No underflow possible because we've skipped the first two chunks, so
-                // msg->parameterOffset >= 2 * PARAMETER_LENGTH.
-                context->checkpoint -= 2 * PARAMETER_LENGTH;
-            }
-            break;
-        case AMOUNT_RECEIVED:  // amountOut
-            handle_amount_received(msg, context);
-            context->next_param = PATHS_OFFSET;
-            break;
-        case PATHS_OFFSET:
-            context->offset = U2BE(msg->parameter, PARAMETER_LENGTH - sizeof(context->offset));
-            context->next_param = PATH;
-            break;
-        case PATH:  // len(path)
-            handle_array_len(msg, context);
+        case INITIAL_OFFSET:
+            // do nothing except skipping 3 lines
+            context->offset = U2BE(msg->parameter, 3);
             context->next_param = TOKEN_SENT;
+            //context->go_to_offset = true;
             break;
-        case TOKEN_SENT:  // path[0]
-            handle_token_sent(msg, context);
-            // -2 because we won't be skipping the first one and the last one.
-            context->skip = context->array_len - 2;
-            context->next_param = TOKEN_RECEIVED;
-            break;
-        case TOKEN_RECEIVED:  // path[len(path) - 1]
-            handle_token_received(msg, context);
-            context->next_param = NONE;
-            break;
-        case NONE:
-            break;
-        default:
-            PRINTF("Unsupported param\n");
-            msg->result = ETH_PLUGIN_RESULT_ERROR;
-            break;
-    }
-}
 
-static void handle_simple_calls(ethPluginProvideParameter_t *msg, paraswap_parameters_t *context) {
-    switch (context->next_param) {
-        case TOKEN_SENT:  // fromToken
+        case TOKEN_SENT:  // tokenA
             handle_token_sent(msg, context);
-            context->next_param = TOKEN_RECEIVED;
-            break;
-        case TOKEN_RECEIVED:  // toToken
-            handle_token_received(msg, context);
             context->next_param = AMOUNT_SENT;
             break;
-        case AMOUNT_SENT:  // fromAmount
+        case AMOUNT_SENT:  // TokenA Min Amount
             handle_amount_sent(msg, context);
-            context->next_param = AMOUNT_RECEIVED;
+            context->next_param = TOKEN_RECEIVED;
             break;
-        case AMOUNT_RECEIVED:  // toAmount
-            handle_amount_received(msg, context);
-            context->next_param = BENEFICIARY;
-            context->skip = 4;  // callees, exchangeData, startIndexes, values.
-            if (context->selectorIndex == SIMPLE_SWAP || context->selectorIndex == SIMPLE_SWAP_V4) {
-                context->skip++;  // skip field expectedAmount for simple swap.
+        case TOKEN_RECEIVED:  // TokenB
+            handle_token_received(msg, context);
+            context->next_param = AMOUNT_RECEIVED;
+
+            // don't know yet the purpose of this
+            if (context->selectorIndex == ADD_LIQUIDITY) {
+                //context->skip = 2;
+            } else {
+                //context->skip = 1;
             }
-            break;
-        case BENEFICIARY:
-            handle_beneficiary(msg, context);
-            context->next_param = NONE;
-            break;
-        case NONE:
-            break;
-        default:
-            PRINTF("Param not supported\n");
-            msg->result = ETH_PLUGIN_RESULT_ERROR;
-            break;
-    }
-}
 
-static void handle_multiswap(ethPluginProvideParameter_t *msg, paraswap_parameters_t *context) {
-    switch (context->next_param) {
-        case TOKEN_SENT:  // fromToken
-            context->checkpoint = msg->parameterOffset;
-            handle_token_sent(msg, context);
-            context->next_param = AMOUNT_SENT;
             break;
-        case AMOUNT_SENT:  // fromAmount
-            handle_amount_sent(msg, context);
-            context->next_param = AMOUNT_RECEIVED;
-            break;
-        case AMOUNT_RECEIVED:  // toAmount
-            handle_amount_received(msg, context);
-            context->next_param = BENEFICIARY;
-            context->skip = 1;  // Skip expectedAmount
-            break;
-        case BENEFICIARY:  // beneficiary
-            handle_beneficiary(msg, context);
-            context->next_param = PATHS_OFFSET;
-            if (context->selectorIndex == MULTI_SWAP_V4) {
-                context->skip = 2;  // Skip referrer and useReduxtoken
-            }
-            break;
-        case PATHS_OFFSET:
-            context->offset = U2BE(msg->parameter, PARAMETER_LENGTH - 2);
-            context->next_param = PATHS_LEN;
-            break;
-        case PATHS_LEN:
-            // We want to access path[-1] so take the length and decrease by one
-            context->skip = msg->parameter[PARAMETER_LENGTH - 1] - 1;
-            context->next_param = OFFSET;
-            context->checkpoint = msg->parameterOffset +
-                                  PARAMETER_LENGTH;  // Offset checkpoint starts after the length
-            break;
-        case OFFSET:
-            context->offset = U2BE(msg->parameter, PARAMETER_LENGTH - 2);
-            context->next_param = TOKEN_RECEIVED;
-            break;
-        case TOKEN_RECEIVED:
-            handle_token_received(msg, context);
-            context->next_param = NONE;
-            break;
-        case NONE:
-            break;
-        default:
-            PRINTF("Param not supported\n");
-            msg->result = ETH_PLUGIN_RESULT_ERROR;
-            break;
-    }
-}
-
-static void handle_buy(ethPluginProvideParameter_t *msg, paraswap_parameters_t *context) {
-    switch (context->next_param) {
-        case TOKEN_SENT:  // fromToken
-            handle_token_sent(msg, context);
-            context->next_param = TOKEN_RECEIVED;
-            break;
-        case TOKEN_RECEIVED:  // toToken
-            handle_token_received(msg, context);
-            context->next_param = AMOUNT_SENT;
-            break;
-        case AMOUNT_SENT:  // fromAmount
-            handle_amount_sent(msg, context);
-            context->next_param = AMOUNT_RECEIVED;
-            break;
-        case AMOUNT_RECEIVED:  // toAmount
+        case AMOUNT_RECEIVED:  // TokenB Min Amount
             handle_amount_received(msg, context);
             context->next_param = BENEFICIARY;
             break;
-        case BENEFICIARY:  // beneficiary
+        case BENEFICIARY:  // to
             handle_beneficiary(msg, context);
             context->next_param = NONE;
             break;
@@ -210,92 +93,24 @@ static void handle_buy(ethPluginProvideParameter_t *msg, paraswap_parameters_t *
     }
 }
 
-static void handle_swap_on_zero(ethPluginProvideParameter_t *msg, paraswap_parameters_t *context) {
+static void handle_add_remove_liquidity_eth(ethPluginProvideParameter_t *msg,
+                                            paraswap_parameters_t *context) {
     switch (context->next_param) {
-        case TOKEN_SENT:  // fromToken
+        case TOKEN_SENT:  // tokenA
             handle_token_sent(msg, context);
-            context->next_param = TOKEN_RECEIVED;
+            context->next_param = AMOUNT_RECEIVED;
+            //context->skip = 1;
             break;
-        case TOKEN_RECEIVED:  // toToken
-            handle_token_received(msg, context);
+        case AMOUNT_RECEIVED:  // TokenA Min Amount
+            handle_amount_received(msg, context);
             context->next_param = AMOUNT_SENT;
             break;
-        case AMOUNT_SENT:  // fromAmount
+        case AMOUNT_SENT:  // ETH Min Amount
             handle_amount_sent(msg, context);
-            context->next_param = AMOUNT_RECEIVED;
-            break;
-        case AMOUNT_RECEIVED:  // toAmount
-            handle_amount_received(msg, context);
-            context->next_param = NONE;
-            break;
-        case BENEFICIARY:  // beneficiary
-            handle_beneficiary(msg, context);
-            context->next_param = NONE;
-            break;
-        case NONE:
-            break;
-        default:
-            PRINTF("Param not supported\n");
-            msg->result = ETH_PLUGIN_RESULT_ERROR;
-            break;
-    }
-}
-
-static void handle_megaswap(ethPluginProvideParameter_t *msg, paraswap_parameters_t *context) {
-    switch (context->next_param) {
-        case TOKEN_SENT:  // fromToken
-            context->checkpoint = msg->parameterOffset;
-            handle_token_sent(msg, context);
-            context->next_param = AMOUNT_SENT;
-            break;
-        case AMOUNT_SENT:
-            handle_amount_sent(msg, context);
-            context->next_param = AMOUNT_RECEIVED;
-            break;
-        case AMOUNT_RECEIVED:
-            handle_amount_received(msg, context);
             context->next_param = BENEFICIARY;
-            context->skip = 1;  // Skip expectedAmount.
             break;
-        case BENEFICIARY:
+        case BENEFICIARY:  // to
             handle_beneficiary(msg, context);
-            context->next_param = MEGA_PATHS_OFFSET;
-            if (context->selectorIndex == MEGA_SWAP_V4) {
-                context->skip = 2;  // Skip referrer and useReduxToken.
-            }
-            break;
-        case MEGA_PATHS_OFFSET:
-            context->offset = U2BE(msg->parameter, PARAMETER_LENGTH - 2);
-            context->next_param = MEGA_PATHS_LEN;
-            break;
-        case MEGA_PATHS_LEN:
-            context->next_param = FIRST_MEGAPATH_OFFSET;
-            break;
-        case FIRST_MEGAPATH_OFFSET:
-            context->checkpoint = msg->parameterOffset;
-            context->offset = U2BE(msg->parameter, PARAMETER_LENGTH - 2);
-            context->next_param = FIRST_MEGAPATH;
-            break;
-        case FIRST_MEGAPATH:
-            context->checkpoint = msg->parameterOffset;
-            context->next_param = PATHS_OFFSET;
-            break;
-        case PATHS_OFFSET:
-            context->offset = U2BE(msg->parameter, PARAMETER_LENGTH - 2);
-            context->next_param = PATHS_LEN;
-            break;
-        case PATHS_LEN:
-            context->skip = U2BE(msg->parameter, PARAMETER_LENGTH - 2);
-            context->skip--;  // Decrease by one because we wish to acces path[-1].
-            context->next_param = PATH;
-            break;
-        case PATH:
-            context->checkpoint = msg->parameterOffset;
-            context->offset = U2BE(msg->parameter, PARAMETER_LENGTH - 2);
-            context->next_param = TOKEN_RECEIVED;
-            break;
-        case TOKEN_RECEIVED:
-            handle_token_received(msg, context);
             context->next_param = NONE;
             break;
         case NONE:
@@ -307,29 +122,6 @@ static void handle_megaswap(ethPluginProvideParameter_t *msg, paraswap_parameter
     }
 }
 
-static void handle_swap_uni_v2(ethPluginProvideParameter_t *msg, paraswap_parameters_t *context) {
-    switch (context->next_param) {
-        case TOKEN_SENT:  // tokenIn
-            context->checkpoint = msg->parameterOffset;
-            handle_token_sent(msg, context);
-            context->next_param = AMOUNT_SENT;
-            break;
-        case AMOUNT_SENT:  // amountIn
-            handle_amount_sent(msg, context);
-            context->next_param = AMOUNT_RECEIVED;
-            break;
-        case AMOUNT_RECEIVED:  // amountOutMin
-            handle_amount_received(msg, context);
-            context->next_param = NONE;
-            break;
-        case NONE:
-            break;
-        default:
-            PRINTF("Param not supported\n");
-            msg->result = ETH_PLUGIN_RESULT_ERROR;
-            break;
-    }
-}
 
 void handle_provide_parameter(void *parameters) {
     ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
@@ -350,50 +142,20 @@ void handle_provide_parameter(void *parameters) {
         }
         context->offset = 0;  // Reset offset
         switch (context->selectorIndex) {
-            case BUY_ON_UNI_FORK:
-            case SWAP_ON_UNI_FORK:
-            case BUY_ON_UNI:
-            case SWAP_ON_UNI:
-            case SWAP_ON_UNI_V4:
-            case SWAP_ON_UNI_FORK_V4:
-            case BUY_ON_UNI_V4:
-            case BUY_ON_UNI_FORK_V4:
-                handle_uniswap_and_forks(msg, context);
-                break;
 
-            case SIMPLE_BUY:
-            case SIMPLE_SWAP:
-            case SIMPLE_SWAP_V4:
-                handle_simple_calls(msg, context);
-                break;
+                    case JOIN_POOL_VIA_0X:
+                    //case REMOVE_LIQUIDITY:
+                        handle_add_remove_liquidity(msg, context);
+                        break;
 
-            case MULTI_SWAP:
-            case MULTI_SWAP_V4:
-                handle_multiswap(msg, context);
-                break;
-
-            case BUY:
-                handle_buy(msg, context);
-                break;
-
-            case MEGA_SWAP:
-            case MEGA_SWAP_V4:
-                handle_megaswap(msg, context);
-                break;
-
-            case SWAP_ON_ZERO_V2:
-            case SWAP_ON_ZERO_V4:
-                handle_swap_on_zero(msg, context);
-                break;
-
-            case SWAP_ON_UNI_V2_FORK:
-                handle_swap_uni_v2(msg, context);
-                break;
-
-            default:
-                PRINTF("Selector Index %d not supported\n", context->selectorIndex);
-                msg->result = ETH_PLUGIN_RESULT_ERROR;
-                break;
-        }
+                    /*case JOIN_POOL_VIA_0X:_ETH:
+                        handle_add_remove_liquidity_eth(msg, context);
+                        break;
+                    */
+                    default:
+                        PRINTF("Selector Index %d not supported\n", context->selectorIndex);
+                        msg->result = ETH_PLUGIN_RESULT_ERROR;
+                        break;
+                }
     }
 }

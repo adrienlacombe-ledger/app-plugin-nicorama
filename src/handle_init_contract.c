@@ -33,39 +33,10 @@ void handle_init_contract(void *parameters) {
 
     // Set `next_param` to be the first field we expect to parse.
     switch (context->selectorIndex) {
-        case BUY_ON_UNI_FORK:
-        case SWAP_ON_UNI_FORK:
-        case BUY_ON_UNI:
-        case SWAP_ON_UNI:
-        case SWAP_ON_UNI_V4:
-        case SWAP_ON_UNI_FORK_V4:
-        case BUY_ON_UNI_V4:
-        case BUY_ON_UNI_FORK_V4:
-            if (context->selectorIndex == SWAP_ON_UNI_FORK ||
-                context->selectorIndex == BUY_ON_UNI_FORK ||
-                context->selectorIndex == SWAP_ON_UNI_FORK_V4 ||
-                context->selectorIndex == BUY_ON_UNI_FORK_V4) {
-                context->skip =
-                    2;  // Skip the first two parameters (factory and initCode) for uni forks.
-            }
-            context->next_param = AMOUNT_SENT;
-            break;
-        case SWAP_ON_ZERO_V4:
-        case SWAP_ON_ZERO_V2:
-        case SWAP_ON_UNI_V2_FORK:
-            context->next_param = TOKEN_SENT;
-            break;
-        case MEGA_SWAP:
-        case BUY:
-        case MULTI_SWAP:
-        case SIMPLE_BUY:
-        case SIMPLE_SWAP:
-        case SIMPLE_SWAP_V4:
-        case MULTI_SWAP_V4:
-        case MEGA_SWAP_V4:
-            context->next_param = TOKEN_SENT;
-            if (context->selectorIndex != SIMPLE_SWAP_V4)
-                context->skip = 1;  // Skipping 0x20 (offset of structure)
+        case JOIN_POOL_VIA_0X:
+            //case JOIN_POOL_VIA_0X_ETH:
+            //case REMOVE_LIQUIDITY:
+            context->next_param = INITIAL_OFFSET;
             break;
         default:
             PRINTF("Missing selectorIndex\n");

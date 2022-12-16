@@ -9,7 +9,7 @@
 
 #define RUN_APPLICATION 1
 
-#define NUM_PARASWAP_SELECTORS 19
+#define NUM_PARASWAP_SELECTORS 1
 #define SELECTOR_SIZE          4
 
 #define PLUGIN_NAME "Paraswap"
@@ -28,25 +28,9 @@ extern const uint8_t NULL_ETH_ADDRESS[ADDRESS_LENGTH];
 #define ADDRESS_IS_NETWORK_TOKEN(_addr) (!memcmp(_addr, PARASWAP_ETH_ADDRESS, ADDRESS_LENGTH))
 
 typedef enum {
-    SWAP_ON_UNI,
-    BUY_ON_UNI,
-    SWAP_ON_UNI_FORK,
-    SWAP_ON_UNI_V2_FORK,
-    BUY_ON_UNI_FORK,
-    SIMPLE_SWAP,
-    SIMPLE_BUY,
-    MULTI_SWAP,
-    BUY,
-    MEGA_SWAP,
-    SWAP_ON_ZERO_V4,
-    SWAP_ON_ZERO_V2,
-    SIMPLE_SWAP_V4,
-    SWAP_ON_UNI_V4,
-    SWAP_ON_UNI_FORK_V4,
-    MULTI_SWAP_V4,
-    MEGA_SWAP_V4,
-    BUY_ON_UNI_V4,
-    BUY_ON_UNI_FORK_V4
+    JOIN_POOL_VIA_0X
+    //JOIN_POOL_VIA_0X_ETH,
+    // REMOVE_LIQUIDITY
 } paraswapSelector_t;
 
 extern const uint8_t *const PARASWAP_SELECTORS[NUM_PARASWAP_SELECTORS];
@@ -69,7 +53,7 @@ typedef enum {
     4  // Path of the different asseths that will get swapped during the trade. First and last
        // tokens are the ones we care about.
 #define BENEFICIARY           5  // Address to which the contract will send the tokens.
-#define OFFSET                6
+#define INITIAL_OFFSET                6
 #define PATHS_OFFSET          7
 #define PATHS_LEN             8
 #define MEGA_PATHS_OFFSET     9
