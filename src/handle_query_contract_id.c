@@ -7,29 +7,13 @@ void handle_query_contract_id(void *parameters) {
     strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
 
     switch (context->selectorIndex) {
-        case MEGA_SWAP:
-        case MULTI_SWAP:
-        case SIMPLE_SWAP:
-        case SIMPLE_SWAP_V4:
-        case SWAP_ON_UNI_FORK:
-        case SWAP_ON_UNI_V2_FORK:
-        case SWAP_ON_UNI:
-        case SWAP_ON_ZERO_V4:
-        case SWAP_ON_ZERO_V2:
-        case SWAP_ON_UNI_V4:
-        case SWAP_ON_UNI_FORK_V4:
-        case MULTI_SWAP_V4:
-        case MEGA_SWAP_V4:
-            strlcpy(msg->version, "Swap", msg->versionLength);
+        case JOIN_POOL_VIA_0X:
+        //case JOIN_POOL_VIA_0X_ETH:
+            strlcpy(msg->version, "Deposit", msg->versionLength);
             break;
-        case SIMPLE_BUY:
-        case BUY_ON_UNI_FORK:
-        case BUY_ON_UNI:
-        case BUY:
-        case BUY_ON_UNI_V4:
-        case BUY_ON_UNI_FORK_V4:
-            strlcpy(msg->version, "Buy", msg->versionLength);
-            break;
+        /*case REMOVE_LIQUIDITY:
+            strlcpy(msg->version, "Withdraw", msg->versionLength);
+            break;*/
         default:
             PRINTF("Selector Index :%d not supported\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;

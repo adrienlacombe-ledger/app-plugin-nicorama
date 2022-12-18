@@ -46,29 +46,33 @@ static void set_send_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *contex
 // Set UI for "Receive" screen.
 static void set_receive_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *context) {
     switch (context->selectorIndex) {
-        case SWAP_ON_UNI_FORK:
-        case SWAP_ON_UNI_V2_FORK:
-        case SWAP_ON_UNI:
-        case SIMPLE_SWAP:
-        case SIMPLE_SWAP_V4:
-        case MEGA_SWAP:
-        case MULTI_SWAP:
-        case SWAP_ON_ZERO_V4:
-        case SWAP_ON_ZERO_V2:
-        case SWAP_ON_UNI_V4:
-        case SWAP_ON_UNI_FORK_V4:
-        case MULTI_SWAP_V4:
-        case MEGA_SWAP_V4:
-            strlcpy(msg->title, "Receive Min", msg->titleLength);
-            break;
-        case BUY_ON_UNI_FORK:
-        case BUY_ON_UNI:
-        case BUY:
-        case SIMPLE_BUY:
-        case BUY_ON_UNI_V4:
-        case BUY_ON_UNI_FORK_V4:
-            strlcpy(msg->title, "Receive", msg->titleLength);
-            break;
+            case SWAP_EXACT_TOKENS_FOR_TOKENS:
+            case SWAP_EXACT_TOKENS_FOR_ETH:
+            case SWAP_EXACT_ETH_FOR_TOKENS:
+            case SWAP_EXACT_TOKENS_FOR_TOKENS_SUPPORTING_FEE_ON_TRANSFER_TOKENS:
+            case SWAP_EXACT_TOKENS_FOR_ETH_SUPPORTING_FEE_ON_TRANSFER_TOKENS:
+            case SWAP_EXACT_ETH_FOR_TOKENS_SUPPORTING_FEE_ON_TRANSFER_TOKENS:
+                set_received_amount_min(msg, context);
+                break;
+            case SWAP_ETH_FOR_EXACT_TOKENS:
+            case SWAP_TOKENS_FOR_EXACT_TOKENS:
+            case SWAP_TOKENS_FOR_EXACT_ETH:
+                set_received_amount(msg, context);
+                break;
+
+            case ADD_LIQUIDITY:
+            case ADD_LIQUIDITY_ETH:
+                set_amount_b_min(msg, context);
+                break;
+
+            case REMOVE_LIQUIDITY:
+            case REMOVE_LIQUIDITY_ETH:
+            case REMOVE_LIQUIDITY_WITH_PERMIT:
+            case REMOVE_LIQUIDITY_ETH_WITH_PERMIT:
+            case REMOVE_LIQUIDITY_ETH_SUPPORTING_FEE_ON_TRANSFER_TOKENS:
+            case REMOVE_LIQUIDITY_ETH_WITH_PERMIT_SUPPORTING_FEE_ON_TRANSFER_TOKENS:
+                set_amount_b_min_remove(msg, context);
+                break;
         default:
             PRINTF("Unhandled selector Index: %d\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;
