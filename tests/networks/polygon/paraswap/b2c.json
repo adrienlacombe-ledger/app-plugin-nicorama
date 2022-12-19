@@ -2,7 +2,7 @@
     "chainId": 137,
     "contracts": [
         {
-            "address": "0xe63e0f7526397a2900F870eF9Df6b52CB6330755",
+            "address": "0xe63e0f7526397a2900f870ef9df6b52cb6330755",
             "contractName": "Swaap Proxy",
             "selectors": {
                 "0x9d0472e2": {

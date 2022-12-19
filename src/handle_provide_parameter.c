@@ -36,6 +36,15 @@ static void contract_address_sent(const ethPluginProvideParameter_t *msg,
     PRINTF("TOKEN SENT: %.*H\n", ADDRESS_LENGTH, context->contract_address_sent);
 }
 
+static void handle_token_sent(const ethPluginProvideParameter_t *msg,
+                              paraswap_parameters_t *context) {
+    memset(context->contract_address_sent, 0, sizeof(context->contract_address_sent));
+    memcpy(context->contract_address_sent,
+           &msg->parameter[PARAMETER_LENGTH - ADDRESS_LENGTH],
+           sizeof(context->contract_address_sent));
+    PRINTF("TOKEN SENT: %.*H\n", ADDRESS_LENGTH, context->contract_address_sent);
+}
+
 static void handle_token_received(const ethPluginProvideParameter_t *msg,
                                   paraswap_parameters_t *context) {
     memset(context->contract_address_received, 0, sizeof(context->contract_address_received));
@@ -69,7 +78,7 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
             context->next_param = AMOUNT_RECEIVED;
 
             // don't know yet the purpose of this
-            if (context->selectorIndex == ADD_LIQUIDITY) {
+            if (context->selectorIndex == JOIN_POOL_VIA_0X) {
                 //context->skip = 2;
             } else {
                 //context->skip = 1;

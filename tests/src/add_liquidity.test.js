@@ -8,7 +8,7 @@ const testNetwork = "polygon";
 const signedPlugin = false;
 
 // Swaap Router
-const contractAddr = "0xe63e0f7526397a2900F870eF9Df6b52CB6330755";
+const contractAddr = "0xe63e0f7526397a2900f870ef9df6b52cb6330755";
 const chainID = 137;
 
 // From : https://polygonscan.com/tx/0x71ac96610fa24ceca7302453813bb3ae2af9e0f3ceb8897ccef0fe1ec7bbef6c
