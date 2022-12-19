@@ -24,6 +24,7 @@
 #include "glyphs.h"
 
 #include "paraswap_plugin.h"
+#include "debug.h"
 
 
 // Function: joinPoolVia0x(address tokenA, address tokenB, uint256 amountADesired, uint256
@@ -84,6 +85,7 @@ void handle_query_ui_exception(unsigned int *args) {
 }
 
 void call_app_ethereum() {
+    debug_write("&&&&&&&&&YOP");
     unsigned int libcall_params[3];
     libcall_params[0] = (unsigned int) "Ethereum";
     libcall_params[1] = 0x100;

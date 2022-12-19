@@ -70,13 +70,13 @@ typedef enum {
 
 // Shared global memory with Ethereum app. Must be at most 5 * 32 bytes.
 typedef struct paraswap_parameters_t {
-    uint8_t amount_sent[INT256_LENGTH];
+    uint8_t amount_sent[INT256_LENGTH];     // 32 bytes aka one line
     uint8_t amount_received[INT256_LENGTH];
-    char beneficiary[ADDRESS_LENGTH];
+    char beneficiary[ADDRESS_LENGTH];   // 20 bytes
     uint8_t contract_address_sent[ADDRESS_LENGTH];
     uint8_t contract_address_received[ADDRESS_LENGTH];
     char ticker_sent[MAX_TICKER_LEN];
-    char ticker_received[MAX_TICKER_LEN];
+    char ticker_received[MAX_TICKER_LEN];  // 12 bytes
 
     // 32 * 2 + 20 * 3 + 12 * 2 == 64 + 60 + 24 == 144
     // 32 * 5 == 160 bytes so there are 160 - 144 == 16 bytes left.

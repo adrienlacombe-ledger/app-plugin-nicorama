@@ -60,7 +60,7 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
     switch (context->next_param) {
         case INITIAL_OFFSET:
             // do nothing except skipping 3 lines
-            context->offset = U2BE(msg->parameter, 3);
+            context->skip=3
             context->next_param = TOKEN_SENT;
             //context->go_to_offset = true;
             break;
@@ -87,7 +87,7 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
             break;
         case AMOUNT_RECEIVED:  // TokenB Min Amount
             handle_amount_received(msg, context);
-            context->next_param = BENEFICIARY;
+            context->next_param = NONE;
             break;
         case BENEFICIARY:  // to
             handle_beneficiary(msg, context);
