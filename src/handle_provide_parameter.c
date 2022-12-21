@@ -57,11 +57,15 @@ static void handle_token_received(const ethPluginProvideParameter_t *msg,
 
 static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
                                         paraswap_parameters_t *context) {
+
+    PRINTF("HANDLE: %d \n", context->skip);
     switch (context->next_param) {
         case INITIAL_OFFSET:
             // do nothing except skipping 3 lines
             context->skip=3
             context->next_param = TOKEN_SENT;
+
+            //context->next_param = NONE;
             //context->go_to_offset = true;
             break;
 
@@ -87,6 +91,7 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
             break;
         case AMOUNT_RECEIVED:  // TokenB Min Amount
             handle_amount_received(msg, context);
+            // For the moment we ignore the beneficiary
             context->next_param = NONE;
             break;
         case BENEFICIARY:  // to
