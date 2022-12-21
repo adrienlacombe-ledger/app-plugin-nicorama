@@ -3,18 +3,15 @@ $ jest src --verbose --runInBand --detectOpenHandles
 [DOCKER] Pulling from zondax/builder-zemu: 
 [DOCKER] Digest: sha256:9c97b921dbba8f0a221c9419b577371540a7afb29727527857ee4de62307cf2f: 
 [DOCKER] Status: Image is up to date for zondax/builder-zemu@sha256:9c97b921dbba8f0a221c9419b577371540a7afb29727527857ee4de62307cf2f: 
-  console.log src/add_liquidity.test.js:23
-    f9013280843b9aca0082520894e63e0f7526397a2900f870ef9df6b52cb633075588016345785d8a0000b901049d0472e20000000000000000000000007f5f7411c2c7ec60e2db946abbe7dc354254870b0000000000000000000000000000000000000000000000005ff25be9d009cd3a00000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000063999f5600000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000b83e67733bb6280000000000000000000000000000000000000000000000000000000003d42adbc00000000000000000000000000000000000000000000000000000000004260a681898080
-
-[ZEMU] 12:48:01.336: Checking ELF
-[ZEMU] 12:48:01.350: Starting Container
+[ZEMU] 16:33:35.455: Checking ELF
+[ZEMU] 16:33:35.466: Starting Container
 [ZEMU] Command: /home/zondax/speculos/speculos.py --log-level speculos:DEBUG --color JADE_GREEN --display headless  -m nanos  /project/app/bin/ethereum_nanos.elf  -l Paraswap:/project/app/bin/plugin_nanos.elf
 [ZEMU] Creating Container
-[ZEMU] Connected eb8ebffbabc613ee8a4ceebfd103c0d7116cc84ffa3c3aa211bf8bd0a6bafa4c
-[ZEMU] Attached eb8ebffbabc613ee8a4ceebfd103c0d7116cc84ffa3c3aa211bf8bd0a6bafa4c
-[ZEMU] Started eb8ebffbabc613ee8a4ceebfd103c0d7116cc84ffa3c3aa211bf8bd0a6bafa4c
-[ZEMU] 12:48:01.613: Started Container
-[ZEMU] 12:48:01.613: Wait for 5000 ms
+[ZEMU] Connected 3766481d845e0ddd746ab0f8f13afcec179961058c7b6fb465d382730817fbb3
+[ZEMU] Attached 3766481d845e0ddd746ab0f8f13afcec179961058c7b6fb465d382730817fbb3
+[ZEMU] Started 3766481d845e0ddd746ab0f8f13afcec179961058c7b6fb465d382730817fbb3
+[ZEMU] 16:33:35.729: Started Container
+[ZEMU] 16:33:35.729: Wait for 5000 ms
 
 --------------------------------------
 Zemu container - zondax.ch
@@ -25,427 +22,334 @@ BOLOS_SDK=/project/deps/nanos-secure-sdk
 BOLOS_ENV=/opt/bolos
 
 serving at port 9998
-12:48:04.156:speculos: executing qemu: ['qemu-arm-static', '/home/zondax/speculos/speculos/resources/launcher', '-m', 'nanos', '-k', '2.1', '-c', '/home/zondax/speculos/speculos/cxlib/nanos-cx-2.1.elf', 'main:/project/app/bin/ethereum_nanos.elf:0x10000:0xecc0:0x20000200:0x1200', 'Paraswap:/project/app/bin/plugin_nanos.elf:0x10000:0x1e40:0x20000200:0x1200']
+16:33:38.318:speculos: executing qemu: ['qemu-arm-static', '/home/zondax/speculos/speculos/resources/launcher', '-m', 'nanos', '-k', '2.1', '-c', '/home/zondax/speculos/speculos/cxlib/nanos-cx-2.1.elf', 'main:/project/app/bin/ethereum_nanos.elf:0x10000:0xecc0:0x20000200:0x1200', 'Paraswap:/project/app/bin/plugin_nanos.elf:0x10000:0x1980:0x20000200:0x1200']
  * Serving Flask app 'speculos.api.api' (lazy loading)
  * Environment: development
  * Debug mode: off
-12:48:04.203:werkzeug:  * Running on all addresses.
+16:33:38.362:werkzeug:  * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
-12:48:04.205:werkzeug:  * Running on http://172.17.0.2:5000/ (Press CTRL+C to quit)
+16:33:38.363:werkzeug:  * Running on http://172.17.0.2:5000/ (Press CTRL+C to quit)
 [*] speculos launcher revision: 52b1a5d
 [*] using SDK version 2.1 on nanos
 [*] loading CXLIB from "/home/zondax/speculos/speculos/cxlib/nanos-cx-2.1.elf"
 [*] patching svc instruction at 0x126358
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-172.17.0.1 - - [20/Dec/2022 12:48:06] "GET / HTTP/1.1" 200 -
-[ZEMU] 12:48:06.668: Get initial snapshot
-12:48:06.706:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:06] "GET /events HTTP/1.1" 200 -
-12:48:07.317:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:07] "GET /screenshot HTTP/1.1" 200 -
+172.17.0.1 - - [21/Dec/2022 16:33:40] "GET / HTTP/1.1" 200 -
+[ZEMU] 16:33:40.765: Get initial snapshot
+16:33:40.786:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:40] "GET /events HTTP/1.1" 200 -
+16:33:41.399:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:41] "GET /screenshot HTTP/1.1" 200 -
 < b'e012000068085061726173776170e63e0f7526397a2900f870ef9df6b52cb63307559d0472e23045022100f6e1a922c745e244fa3ed9a865491672808ef93f492ee0410861d748c5de201f0220160d6522499f3a84fa3e744b3b81e49e129e997b28495e58671a1169b16fa777'
-12:48:07.346:apdu: > e012000068085061726173776170e63e0f7526397a2900f870ef9df6b52cb63307559d0472e23045022100f6e1a922c745e244fa3ed9a865491672808ef93f492ee0410861d748c5de201f0220160d6522499f3a84fa3e744b3b81e49e129e997b28495e58671a1169b16fa777
-12:48:07.361:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:07] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:07.365: Wait for screen change
-[ZEMU] 12:48:07.870: Check [37ms]
-12:48:07.367:seproxyhal: printf: Handling set Plugin
-12:48:07.371:seproxyhal: printf: plugin Name Length: 8
-12:48:07.900:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:07] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:08.413: Check [580ms]
-12:48:08.034:seproxyhal: printf: Check external plugin Paraswap
-[*] patching svc instruction at 0x400012bc
+16:33:41.426:apdu: > e012000068085061726173776170e63e0f7526397a2900f870ef9df6b52cb63307559d0472e23045022100f6e1a922c745e244fa3ed9a865491672808ef93f492ee0410861d748c5de201f0220160d6522499f3a84fa3e744b3b81e49e129e997b28495e58671a1169b16fa777
+16:33:41.443:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:41] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:41.447: Wait for screen change
+[ZEMU] 16:33:41.952: Check [38ms]
+16:33:41.448:seproxyhal: printf: Handling set Plugin
+16:33:41.451:seproxyhal: printf: plugin Name Length: 8
+16:33:41.980:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:41] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:42.492: Check [579ms]
+16:33:42.122:seproxyhal: printf: Check external plugin Paraswap
+[*] patching svc instruction at 0x40000ef0
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:08.055:seproxyhal: printf: Plugin found
-12:48:08.062:apdu: < 9000
+16:33:42.143:seproxyhal: printf: Plugin found
+16:33:42.150:apdu: < 9000
 > b'9000'
-172.17.0.1 - - [20/Dec/2022 12:48:08] "POST / HTTP/1.1" 200 -
+172.17.0.1 - - [21/Dec/2022 16:33:42] "POST / HTTP/1.1" 200 -
 < b'e004000096058000002c8000003c800000000000000000000000f9013280843b9aca0082520894e63e0f7526397a2900f870ef9df6b52cb633075588016345785d8a0000b901049d0472e20000000000000000000000007f5f7411c2c7ec60e2db946abbe7dc354254870b0000000000000000000000000000000000000000000000005ff25be9d009cd3a00000000000000000000000000000000'
-12:48:08.481:apdu: > e004000096058000002c8000003c800000000000000000000000f9013280843b9aca0082520894e63e0f7526397a2900f870ef9df6b52cb633075588016345785d8a0000b901049d0472e20000000000000000000000007f5f7411c2c7ec60e2db946abbe7dc354254870b0000000000000000000000000000000000000000000000005ff25be9d009cd3a00000000000000000000000000000000
-12:48:08.513:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:08] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:09.025: Check [1191ms]
-12:48:08.528:seproxyhal: printf: TxType: c0
-12:48:08.536:seproxyhal: printf: After customprocessor
-12:48:08.537:seproxyhal: printf: Current field: 1
-12:48:08.539:seproxyhal: printf: After customprocessor
-12:48:08.540:seproxyhal: printf: Current field: 3
-12:48:08.541:seproxyhal: printf: After customprocessor
-12:48:08.542:seproxyhal: printf: Current field: 4
-12:48:08.543:seproxyhal: printf: After customprocessor
-12:48:08.544:seproxyhal: printf: Current field: 5
-12:48:08.545:seproxyhal: printf: After customprocessor
-12:48:08.545:seproxyhal: printf: Current field: 6
-12:48:08.546:seproxyhal: printf: After customprocessor
-12:48:08.547:seproxyhal: printf: Current field: 7
-12:48:08.550:seproxyhal: printf: Selector 9D0472E2
-12:48:08.551:seproxyhal: printf: Plugin will be used
-12:48:08.552:seproxyhal: printf: eth_plugin_init
-12:48:08.553:seproxyhal: printf: Trying plugin Paraswap
-12:48:08.554:seproxyhal: printf: -- PLUGIN INIT CONTRACT --
-[*] patching svc instruction at 0x400012bc
+16:33:42.553:apdu: > e004000096058000002c8000003c800000000000000000000000f9013280843b9aca0082520894e63e0f7526397a2900f870ef9df6b52cb633075588016345785d8a0000b901049d0472e20000000000000000000000007f5f7411c2c7ec60e2db946abbe7dc354254870b0000000000000000000000000000000000000000000000005ff25be9d009cd3a00000000000000000000000000000000
+16:33:42.589:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:42] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:43.102: Check [1188ms]
+16:33:42.601:seproxyhal: printf: TxType: c0
+16:33:42.608:seproxyhal: printf: After customprocessor
+16:33:42.609:seproxyhal: printf: Current field: 1
+16:33:42.611:seproxyhal: printf: After customprocessor
+16:33:42.612:seproxyhal: printf: Current field: 3
+16:33:42.613:seproxyhal: printf: After customprocessor
+16:33:42.614:seproxyhal: printf: Current field: 4
+16:33:42.616:seproxyhal: printf: After customprocessor
+16:33:42.616:seproxyhal: printf: Current field: 5
+16:33:42.617:seproxyhal: printf: After customprocessor
+16:33:42.618:seproxyhal: printf: Current field: 6
+16:33:42.618:seproxyhal: printf: After customprocessor
+16:33:42.619:seproxyhal: printf: Current field: 7
+16:33:42.624:seproxyhal: printf: Selector 9D0472E2
+16:33:42.624:seproxyhal: printf: Plugin will be used
+16:33:42.625:seproxyhal: printf: eth_plugin_init
+16:33:42.626:seproxyhal: printf: Trying plugin Paraswap
+16:33:42.627:seproxyhal: printf: -- PLUGIN INIT CONTRACT --
+[*] patching svc instruction at 0x40000ef0
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:08.570:seproxyhal: printf: method: 257
-12:48:08.573:seproxyhal: printf: eth_plugin_init ok Paraswap
-12:48:08.574:seproxyhal: printf: pluginstatus 4
-12:48:08.576:seproxyhal: printf: currentFieldPos 4 copySize 32
-12:48:08.579:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x400012bc
+16:33:42.643:seproxyhal: printf: method: 257
+16:33:42.645:seproxyhal: printf: eth_plugin_init ok Paraswap
+16:33:42.646:seproxyhal: printf: pluginstatus 4
+16:33:42.649:seproxyhal: printf: currentFieldPos 4 copySize 32
+16:33:42.653:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000ef0
+16:33:42.659:seproxyhal: printf: === Skipping: 0 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:08.592:seproxyhal: printf: method: 258
-12:48:08.593:seproxyhal: printf: After customprocessor
-12:48:08.596:seproxyhal: printf: currentFieldPos 36 copySize 32
-12:48:08.600:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x400012bc
+16:33:42.669:seproxyhal: printf: method: 258
+16:33:42.670:seproxyhal: printf: After customprocessor
+16:33:42.672:seproxyhal: printf: currentFieldPos 36 copySize 32
+16:33:42.675:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000ef0
+16:33:42.682:seproxyhal: printf: === Skipping 3
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:08.612:seproxyhal: printf: method: 258
-12:48:08.613:seproxyhal: printf: After customprocessor
-12:48:08.616:seproxyhal: printf: currentFieldPos 68 copySize 16
-12:48:08.618:seproxyhal: printf: After customprocessor
-12:48:08.618:seproxyhal: printf: Command length done
-12:48:08.619:seproxyhal: printf: result: 0
-12:48:08.621:seproxyhal: printf: exception[36864]: LR=0x40000FC9
-12:48:08.627:apdu: < 9000
+16:33:42.691:seproxyhal: printf: method: 258
+16:33:42.692:seproxyhal: printf: After customprocessor
+16:33:42.695:seproxyhal: printf: currentFieldPos 68 copySize 16
+16:33:42.697:seproxyhal: printf: After customprocessor
+16:33:42.698:seproxyhal: printf: Command length done
+16:33:42.698:seproxyhal: printf: result: 0
+16:33:42.700:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+16:33:42.707:apdu: < 9000
 > b'9000'
-172.17.0.1 - - [20/Dec/2022 12:48:08] "POST / HTTP/1.1" 200 -
+172.17.0.1 - - [21/Dec/2022 16:33:42] "POST / HTTP/1.1" 200 -
 < b'e004800096000000000000000000000000000000800000000000000000000000000000000000000000000000000000000063999f5600000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000b83e67733bb6280000000000000000000000000000000000000000000000000000000003d42adbc000000000000'
-12:48:09.053:apdu: > e004800096000000000000000000000000000000800000000000000000000000000000000000000000000000000000000063999f5600000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000b83e67733bb6280000000000000000000000000000000000000000000000000000000003d42adbc000000000000
-12:48:09.089:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:09] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:09.601: Check [1768ms]
-12:48:09.098:seproxyhal: printf: currentFieldPos 84 copySize 16
-12:48:09.109:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x400012bc
+16:33:43.144:apdu: > e004800096000000000000000000000000000000800000000000000000000000000000000000000000000000000000000063999f5600000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000b83e67733bb6280000000000000000000000000000000000000000000000000000000003d42adbc000000000000
+16:33:43.181:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:43] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:43.693: Check [1778ms]
+16:33:43.185:seproxyhal: printf: currentFieldPos 84 copySize 16
+16:33:43.195:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000ef0
+16:33:43.202:seproxyhal: printf: === Skipping 2
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:09.124:seproxyhal: printf: method: 258
-12:48:09.125:seproxyhal: printf: After customprocessor
-12:48:09.128:seproxyhal: printf: currentFieldPos 100 copySize 32
-12:48:09.132:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x400012bc
-12:48:09.141:seproxyhal: printf: offset: 128, checkpoint: 4, parameterOffset: 100
+16:33:43.212:seproxyhal: printf: method: 258
+16:33:43.213:seproxyhal: printf: After customprocessor
+16:33:43.217:seproxyhal: printf: currentFieldPos 100 copySize 32
+16:33:43.220:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000ef0
+16:33:43.226:seproxyhal: printf: === Skipping 1
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:09.151:seproxyhal: printf: method: 258
-12:48:09.152:seproxyhal: printf: After customprocessor
-12:48:09.155:seproxyhal: printf: currentFieldPos 132 copySize 32
-12:48:09.159:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x400012bc
-12:48:09.166:seproxyhal: printf: LIST LEN: 3
+16:33:43.235:seproxyhal: printf: method: 258
+16:33:43.236:seproxyhal: printf: After customprocessor
+16:33:43.239:seproxyhal: printf: currentFieldPos 132 copySize 32
+16:33:43.242:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000ef0
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:09.175:seproxyhal: printf: method: 258
-12:48:09.176:seproxyhal: printf: After customprocessor
-12:48:09.179:seproxyhal: printf: currentFieldPos 164 copySize 32
-12:48:09.183:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x400012bc
-12:48:09.193:seproxyhal: printf: TOKEN SENT: 0000000000000000000000000B83E67733BB6280
+16:33:43.254:seproxyhal: printf: TOKEN SENT: 0000000000000000000000000000000000000003
+16:33:43.261:seproxyhal: printf: method: 258
+16:33:43.262:seproxyhal: printf: After customprocessor
+16:33:43.266:seproxyhal: printf: currentFieldPos 164 copySize 32
+16:33:43.268:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000ef0
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:09.202:seproxyhal: printf: method: 258
-12:48:09.203:seproxyhal: printf: After customprocessor
-12:48:09.206:seproxyhal: printf: currentFieldPos 196 copySize 32
-12:48:09.210:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x400012bc
+16:33:43.281:seproxyhal: printf: method: 258
+16:33:43.282:seproxyhal: printf: After customprocessor
+16:33:43.285:seproxyhal: printf: currentFieldPos 196 copySize 32
+16:33:43.289:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000ef0
 [*] patching svc instruction at 0x40006f9a
+16:33:43.300:seproxyhal: printf: TOKEN RECEIVED: 000000000000000000000000000000003D42ADBC
 [*] patching svc instruction at 0x40006fa8
-12:48:09.223:seproxyhal: printf: method: 258
-12:48:09.224:seproxyhal: printf: After customprocessor
-12:48:09.226:seproxyhal: printf: currentFieldPos 228 copySize 6
-12:48:09.228:seproxyhal: printf: After customprocessor
-12:48:09.229:seproxyhal: printf: Command length done
-12:48:09.229:seproxyhal: printf: result: 0
-12:48:09.231:seproxyhal: printf: exception[36864]: LR=0x40000FC9
-12:48:09.237:apdu: < 9000
+16:33:43.307:seproxyhal: printf: method: 258
+16:33:43.308:seproxyhal: printf: After customprocessor
+16:33:43.311:seproxyhal: printf: currentFieldPos 228 copySize 6
+16:33:43.313:seproxyhal: printf: After customprocessor
+16:33:43.314:seproxyhal: printf: Command length done
+16:33:43.315:seproxyhal: printf: result: 0
+16:33:43.317:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+16:33:43.323:apdu: < 9000
 > b'9000'
-172.17.0.1 - - [20/Dec/2022 12:48:09] "POST / HTTP/1.1" 200 -
+172.17.0.1 - - [21/Dec/2022 16:33:43] "POST / HTTP/1.1" 200 -
 < b'e00480001e00000000000000000000000000000000000000000000004260a681898080'
-12:48:09.635:apdu: > e00480001e00000000000000000000000000000000000000000000004260a681898080
-[*] patching svc instruction at 0x400012bc
-12:48:09.681:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:09] "GET /screenshot HTTP/1.1" 200 -
-12:48:09.682:seproxyhal: printf: currentFieldPos 234 copySize 26
-12:48:09.682:seproxyhal: printf: 
-12:48:09.682:seproxyhal: printf: 
-12:48:09.683:seproxyhal: printf: Incrementing one
-12:48:09.683:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[ZEMU] 12:48:10.190: Check [2360ms]
+16:33:43.742:apdu: > e00480001e00000000000000000000000000000000000000000000004260a681898080
+16:33:43.768:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:43] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:44.279: Check [2367ms]
+16:33:43.775:seproxyhal: printf: currentFieldPos 234 copySize 26
+16:33:43.776:seproxyhal: printf: 
+16:33:43.776:seproxyhal: printf: 
+16:33:43.777:seproxyhal: printf: Incrementing one
+16:33:43.777:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000ef0
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:09.695:seproxyhal: printf: TOKEN RECEIVED: 00000000000000000000000000000000004260A6
-12:48:09.701:seproxyhal: printf: method: 258
-12:48:09.702:seproxyhal: printf: After customprocessor
-12:48:09.705:seproxyhal: printf: After customprocessor
-12:48:09.706:seproxyhal: printf: Current field: 9
-12:48:09.709:seproxyhal: printf: After customprocessor
-12:48:09.709:seproxyhal: printf: Current field: 10
-12:48:09.710:seproxyhal: printf: After customprocessor
-12:48:09.710:seproxyhal: printf: Current field: 11
-12:48:09.710:seproxyhal: printf: parsing is done
-12:48:09.711:seproxyhal: printf: result: 2
-12:48:10.140:seproxyhal: printf: -- PLUGIN FINALIZE --
-[*] patching svc instruction at 0x400012bc
-12:48:10.150:seproxyhal: printf: Setting address sent to: 0000000000000000000000000B83E67733BB6280
+16:33:43.793:seproxyhal: printf: method: 258
+16:33:43.795:seproxyhal: printf: After customprocessor
+16:33:43.797:seproxyhal: printf: After customprocessor
+16:33:43.798:seproxyhal: printf: Current field: 9
+16:33:43.801:seproxyhal: printf: After customprocessor
+16:33:43.802:seproxyhal: printf: Current field: 10
+16:33:43.802:seproxyhal: printf: After customprocessor
+16:33:43.803:seproxyhal: printf: Current field: 11
+16:33:43.803:seproxyhal: printf: parsing is done
+16:33:43.804:seproxyhal: printf: result: 2
+16:33:44.236:seproxyhal: printf: -- PLUGIN FINALIZE --
+[*] patching svc instruction at 0x40000ef0
+16:33:44.245:seproxyhal: printf: Setting address sent to: 0000000000000000000000000000000000000003
+16:33:44.249:seproxyhal: printf: ETH attached to tx when token being swapped is 0000000000000000000000000000000000000003
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:10.156:seproxyhal: printf: ETH attached to tx when token being swapped is 0000000000000000000000000B83E67733BB6280
-12:48:10.160:seproxyhal: printf: Setting address receiving to: 00000000000000000000000000000000004260A6
-12:48:10.163:seproxyhal: printf: method: 259
-12:48:10.171:seproxyhal: printf: Lookup1: 0000000000000000000000000B83E67733BB6280
-[*] patching svc instruction at 0x400012bc
-12:48:10.175:seproxyhal: printf: Lookup2: 00000000000000000000000000000000004260A6
-12:48:10.176:seproxyhal: printf: -- PLUGIN PROVIDE INFO --
-12:48:10.179:seproxyhal: printf: PARASWAP plugin provide token: 0x0, 0x0
+16:33:44.254:seproxyhal: printf: Setting address receiving to: 000000000000000000000000000000003D42ADBC
+16:33:44.257:seproxyhal: printf: method: 259
+16:33:44.265:seproxyhal: printf: Lookup1: 0000000000000000000000000000000000000003
+[*] patching svc instruction at 0x40000ef0
+16:33:44.270:seproxyhal: printf: Lookup2: 000000000000000000000000000000003D42ADBC
+16:33:44.270:seproxyhal: printf: -- PLUGIN PROVIDE INFO --
+16:33:44.273:seproxyhal: printf: PARASWAP plugin provide token: 0x0, 0x0
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:10.189:seproxyhal: printf: method: 260
-12:48:10.191:seproxyhal: printf: RESULT: 4
-12:48:10.210:seproxyhal: printf: Gas price 3B9ACA00
-12:48:10.218:seproxyhal: printf: Gas limit 5208
-12:48:10.219:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:10] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:10.730: Check [2897ms]
-12:48:10.231:seproxyhal: printf: Fees displayed: MATIC 0.000021
-12:48:10.232:seproxyhal: printf: Network: Polygon
-12:48:10.799:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:10] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:10.807: Screen changed
-[ZEMU] 12:48:10.808: ---------------------------
-[ZEMU] 12:48:10.808: Start        /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00000.png
-12:48:10.835:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:10] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:10.842: Instructions 13,0
-12:48:10.867:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:10] "GET /screenshot HTTP/1.1" 200 -
-12:48:10.991:seproxyhal: printf: -- PLUGIN QUERY CONTRACT ID --
-[*] patching svc instruction at 0x400012bc
+16:33:44.285:seproxyhal: printf: method: 260
+16:33:44.287:seproxyhal: printf: RESULT: 4
+16:33:44.306:seproxyhal: printf: Gas price 3B9ACA00
+16:33:44.309:seproxyhal: printf: Gas limit 5208
+16:33:44.310:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:44] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:44.824: Check [2909ms]
+16:33:44.327:seproxyhal: printf: Fees displayed: MATIC 0.000021
+16:33:44.329:seproxyhal: printf: Network: Polygon
+16:33:44.893:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:44] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:44.899: Screen changed
+[ZEMU] 16:33:44.900: ---------------------------
+[ZEMU] 16:33:44.900: Start        /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00000.png
+16:33:44.934:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:44] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:44.938: Instructions 12,0
+16:33:44.963:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:44] "GET /screenshot HTTP/1.1" 200 -
+16:33:45.087:seproxyhal: printf: -- PLUGIN QUERY CONTRACT ID --
+[*] patching svc instruction at 0x40000ef0
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:11.010:seproxyhal: printf: method: 261
-12:48:11.089:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:11.093: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00001.png
-12:48:11.119:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "GET /screenshot HTTP/1.1" 200 -
-12:48:11.144:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "GET /screenshot HTTP/1.1" 200 -
-12:48:11.174:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "GET /screenshot HTTP/1.1" 200 -
-12:48:11.299:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
-[*] patching svc instruction at 0x400012bc
+16:33:45.101:seproxyhal: printf: method: 261
+16:33:45.188:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 16:33:45.193: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00001.png
+16:33:45.218:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
+16:33:45.246:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
+16:33:45.275:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
+16:33:45.399:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
+[*] patching svc instruction at 0x40000ef0
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:11.319:seproxyhal: printf: method: 262
-12:48:11.390:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:11.393: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00002.png
-12:48:11.418:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "GET /screenshot HTTP/1.1" 200 -
-12:48:11.445:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "GET /screenshot HTTP/1.1" 200 -
-12:48:11.474:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "GET /screenshot HTTP/1.1" 200 -
-12:48:11.601:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
-[*] patching svc instruction at 0x400012bc
+16:33:45.418:seproxyhal: printf: method: 262
+16:33:45.493:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 16:33:45.495: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00002.png
+16:33:45.519:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
+16:33:45.541:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
+16:33:45.566:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
+16:33:45.692:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
+[*] patching svc instruction at 0x40000ef0
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:11.635:seproxyhal: printf: method: 262
-12:48:11.693:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:11.698: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00003.png
-12:48:11.722:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "GET /screenshot HTTP/1.1" 200 -
-12:48:11.747:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "GET /screenshot HTTP/1.1" 200 -
-12:48:11.771:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "GET /screenshot HTTP/1.1" 200 -
-12:48:11.988:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:11] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:11.991: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00004.png
-12:48:12.019:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:12.044:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:12.071:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:12.288:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:12.292: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00005.png
-12:48:12.324:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:12.353:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:12.380:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:12.505:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
-[*] patching svc instruction at 0x400012bc
+16:33:45.726:seproxyhal: printf: method: 262
+16:33:45.788:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 16:33:45.792: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00003.png
+16:33:45.815:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
+16:33:45.842:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
+16:33:45.872:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
+16:33:45.995:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
+[*] patching svc instruction at 0x40000ef0
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:12.526:seproxyhal: printf: method: 262
-12:48:12.598:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:12.601: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00006.png
-12:48:12.625:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:12.652:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:12.680:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:12.807:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
-[*] patching svc instruction at 0x400012bc
+16:33:46.016:seproxyhal: printf: method: 262
+16:33:46.088:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 16:33:46.090: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00004.png
+16:33:46.112:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
+16:33:46.134:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
+16:33:46.158:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
+16:33:46.277:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
+[*] patching svc instruction at 0x40000ef0
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-12:48:12.838:seproxyhal: printf: method: 262
-12:48:12.901:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:12.905: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00007.png
-12:48:12.928:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:12.957:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:12.985:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:12] "GET /screenshot HTTP/1.1" 200 -
-12:48:13.208:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:13.213: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00008.png
-12:48:13.244:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "GET /screenshot HTTP/1.1" 200 -
-12:48:13.273:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "GET /screenshot HTTP/1.1" 200 -
-12:48:13.300:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "GET /screenshot HTTP/1.1" 200 -
-12:48:13.520:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:13.527: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00009.png
-12:48:13.560:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "GET /screenshot HTTP/1.1" 200 -
-12:48:13.586:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "GET /screenshot HTTP/1.1" 200 -
-12:48:13.614:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "GET /screenshot HTTP/1.1" 200 -
-12:48:13.835:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:13.838: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00010.png
-12:48:13.878:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "GET /screenshot HTTP/1.1" 200 -
-12:48:13.905:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "GET /screenshot HTTP/1.1" 200 -
-12:48:13.932:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:13] "GET /screenshot HTTP/1.1" 200 -
-12:48:14.148:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:14] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:14.152: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00011.png
-12:48:14.182:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:14] "GET /screenshot HTTP/1.1" 200 -
-12:48:14.209:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:14] "GET /screenshot HTTP/1.1" 200 -
-12:48:14.236:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:14] "GET /screenshot HTTP/1.1" 200 -
-12:48:14.459:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:14] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:14.464: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00012.png
-12:48:14.497:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:14] "GET /screenshot HTTP/1.1" 200 -
-12:48:14.524:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:14] "GET /screenshot HTTP/1.1" 200 -
-12:48:14.552:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:14] "GET /screenshot HTTP/1.1" 200 -
-12:48:14.774:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:14] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 12:48:14.783: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00013.png
-12:48:14.837:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:14] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:14.840: sleep
-[ZEMU] 12:48:15.001: sleep
-12:48:14.997:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:14] "GET /screenshot HTTP/1.1" 200 -
-12:48:15.158:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:15] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:15.163: sleep
-12:48:15.312:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:15] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:15.314: sleep
-12:48:15.466:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:15] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:15.470: sleep
-12:48:15.627:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:15] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:15.633: sleep
-12:48:15.793:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:15] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:15.798: sleep
-12:48:15.930:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:15] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:15.933: sleep
-[ZEMU] 12:48:16.071: sleep
-12:48:16.069:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:16] "GET /screenshot HTTP/1.1" 200 -
-12:48:16.222:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:16] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:16.225: sleep
-12:48:16.374:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:16] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:16.380: sleep
-12:48:16.544:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:16] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:16.549: sleep
-12:48:16.697:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:16] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:16.700: sleep
-12:48:16.864:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:16] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:16.868: sleep
-12:48:16.999:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:16] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:17.003: sleep
-12:48:17.152:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:17] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:17.156: sleep
-12:48:17.308:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:17] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:17.310: sleep
-12:48:17.476:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:17] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:17.483: sleep
-12:48:17.648:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:17] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:17.652: sleep
-12:48:17.811:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:17] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:17.816: sleep
-12:48:17.978:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:17] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:17.980: sleep
-12:48:18.155:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:18] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:18.162: sleep
-12:48:18.328:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:18] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:18.334: sleep
-12:48:18.500:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:18] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:18.506: sleep
-12:48:18.666:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:18] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:18.671: sleep
-12:48:18.838:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:18] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:18.843: sleep
-12:48:19.005:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:19] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:19.009: sleep
-12:48:19.159:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:19] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:19.163: sleep
-12:48:19.319:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:19] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:19.321: sleep
-12:48:19.486:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:19] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:19.494: sleep
-[ZEMU] 12:48:19.662: sleep
-12:48:19.659:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:19] "GET /screenshot HTTP/1.1" 200 -
-12:48:19.823:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:19] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:19.828: sleep
-12:48:19.987:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:19] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:19.991: sleep
-12:48:20.151:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:20] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:20.158: sleep
-12:48:20.312:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:20] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:20.316: sleep
-12:48:20.476:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:20] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:20.480: sleep
-12:48:20.644:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:20] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:20.648: sleep
-12:48:20.805:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:20] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:20.809: sleep
-12:48:20.965:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:20] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:20.969: sleep
-12:48:21.126:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:21] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:21.132: sleep
-12:48:21.291:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:21] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:21.297: sleep
-12:48:21.458:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:21] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:21.461: sleep
-12:48:21.622:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:21] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:21.628: sleep
-12:48:21.786:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:21] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:21.788: sleep
-12:48:21.923:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:21] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:21.926: sleep
-[ZEMU] 12:48:22.068: sleep
-12:48:22.065:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:22] "GET /screenshot HTTP/1.1" 200 -
-12:48:22.219:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:22] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:22.222: sleep
-12:48:22.376:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:22] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:22.378: sleep
-12:48:22.538:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:22] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:22.543: sleep
-12:48:22.707:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:22] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:22.712: sleep
-[ZEMU] 12:48:22.814: Close
+16:33:46.307:seproxyhal: printf: method: 262
+16:33:46.370:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 16:33:46.375: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00005.png
+16:33:46.397:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
+16:33:46.422:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
+16:33:46.447:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
+16:33:46.660:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 16:33:46.665: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00006.png
+16:33:46.696:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
+16:33:46.723:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
+16:33:46.749:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
+16:33:46.874:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
+[*] patching svc instruction at 0x40000ef0
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+16:33:46.894:seproxyhal: printf: method: 262
+16:33:46.969:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 16:33:46.973: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00007.png
+16:33:46.996:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
+16:33:47.024:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
+16:33:47.054:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:47.278: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00008.png
+16:33:47.275:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "POST /button/right HTTP/1.1" 200 -
+16:33:47.305:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
+16:33:47.333:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
+16:33:47.361:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
+16:33:47.580:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 16:33:47.585: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00009.png
+16:33:47.617:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
+16:33:47.644:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
+16:33:47.671:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
+16:33:47.893:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 16:33:47.896: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00010.png
+16:33:47.926:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
+16:33:47.953:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
+16:33:47.980:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
+16:33:48.205:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 16:33:48.210: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00011.png
+16:33:48.242:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
+16:33:48.269:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
+16:33:48.296:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
+16:33:48.518:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 16:33:48.524: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00012.png
+16:33:48.555:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
+16:33:48.578:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
+16:33:48.606:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
+16:33:48.828:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "POST /button/both HTTP/1.1" 200 -
+[ZEMU] 16:33:48.830: Click /button/both -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00013.png
+16:33:48.856:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:48.857: sleep
+16:33:48.990:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:48.994: sleep
+16:33:49.124:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:49] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 16:33:49.127: sleep
+16:33:49.184:apdu: < 35a8f6f7314026ca73c677ed7b7fc2f90364915d25a8fc7d45b1b8b05500037f3d6c7aaac4d6e0bc8e38afefb6f2dd722af248e08c363513e62ba2acfb49083e099000
+> b'35a8f6f7314026ca73c677ed7b7fc2f90364915d25a8fc7d45b1b8b05500037f3d6c7aaac4d6e0bc8e38afefb6f2dd722af248e08c363513e62ba2acfb49083e099000'
+172.17.0.1 - - [21/Dec/2022 16:33:49] "POST / HTTP/1.1" 200 -
+16:33:49.263:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:49] "GET /screenshot HTTP/1.1" 200 -
+16:33:49.295:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:49] "GET /screenshot HTTP/1.1" 200 -
+16:33:49.310:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:49] "GET /events HTTP/1.1" 200 -
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Application","x":35,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"is ready","x":44,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Review","x":41,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"transaction","x":41,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Swaap","x":47,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"2Deposit via 0x","x":25,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"WARNING","x":39,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Unknown token","x":22,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Send","x":51,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"0.8297601560097184","x":11,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"WARNING","x":39,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Unknown token","x":22,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Receive (1/2)","x":32,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"0.00000000000435011","x":8,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Receive (2/2)","x":32,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"8","x":61,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Beneficiary (1/3)","x":23,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"0x00000000000000000","x":7,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Beneficiary (2/3)","x":23,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"0000000000000000000","x":7,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Beneficiary (3/3)","x":23,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"0000","x":52,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Network","x":42,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Polygon","x":43,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Max Fees","x":40,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"MATIC 0.000021","x":23,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Accept","x":41,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"and send","x":41,"y":17}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"Application","x":35,"y":3}
+[ZEMU] 16:33:49.313: [ZEMU] {"text":"is ready","x":44,"y":17}
+[ZEMU] 16:33:49.313: golden      /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots/polygon_nanos_join_pool
+[ZEMU] 16:33:49.314: tmp         /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool
+[ZEMU] 16:33:49.314: Start comparison
+[ZEMU] 16:33:49.314: Checked     /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00000.png
+[ZEMU] 16:33:49.320: Checked     /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00001.png
+[ZEMU] 16:33:49.323: Close
 [ZEMU] Stopping container
-[ZEMU] Stopped
-[ZEMU] Removed
-[ZEMU] 12:48:23.001: Checking ELF
-[ZEMU] 12:48:23.008: Starting Container
-[ZEMU] Command: /home/zondax/speculos/speculos.py --log-level speculos:DEBUG --color JADE_GREEN --display headless  -m nanox  /project/app/bin/ethereum_nanox.elf  -l Paraswap:/project/app/bin/plugin_nanox.elf
-[ZEMU] Creating Container
-[ZEMU] Connected 4a26adfdb90e001eeed9d612dc06121da84685ff4af6666f56e4588859f3fa48
-[ZEMU] Attached 4a26adfdb90e001eeed9d612dc06121da84685ff4af6666f56e4588859f3fa48
-[ZEMU] Started 4a26adfdb90e001eeed9d612dc06121da84685ff4af6666f56e4588859f3fa48
-[ZEMU] 12:48:23.221: Started Container
-[ZEMU] 12:48:23.221: Wait for 5000 ms
-
---------------------------------------
-Zemu container - zondax.ch
---------------------------------------
-
-HTTP proxy started...
-BOLOS_SDK=/project/deps/nanos-secure-sdk
-BOLOS_ENV=/opt/bolos
-
-serving at port 9998
-12:48:25.818:speculos: executing qemu: ['qemu-arm-static', '/home/zondax/speculos/speculos/resources/launcher', '-m', 'nanox', '-k', '2.0.2', '-c', '/home/zondax/speculos/speculos/cxlib/nanox-cx-2.0.2.elf', 'main:/project/app/bin/ethereum_nanox.elf:0x10000:0x17c00:0xda7a0000:0x7800', 'Paraswap:/project/app/bin/plugin_nanox.elf:0x10000:0x2000:0xda7a0000:0x7800']
- * Serving Flask app 'speculos.api.api' (lazy loading)
- * Environment: development
- * Debug mode: off
-12:48:25.866:werkzeug:  * Running on all addresses.
-   WARNING: This is a development server. Do not use it in a production deployment.
-12:48:25.868:werkzeug:  * Running on http://172.17.0.2:5000/ (Press CTRL+C to quit)
-[*] speculos launcher revision: 52b1a5d
-[*] using SDK version 2.0.2 on nanox
-[*] loading CXLIB from "/home/zondax/speculos/speculos/cxlib/nanox-cx-2.0.2.elf"
-[*] patching svc instruction at 0x215d1c
-[*] patching svc instruction at 0x4000bf9e
-[*] patching svc instruction at 0x4000bfac
-[*] patching svc instruction at 0x40016d28
-12:48:26.146:seproxyhal: printf: BLE_power 0
-12:48:26.148:seproxyhal: printf: BLE_power 1
-12:48:26.148:seproxyhal: printf: INIT START
-172.17.0.1 - - [20/Dec/2022 12:48:28] "GET / HTTP/1.1" 200 -
-[ZEMU] 12:48:28.269: Get initial snapshot
-12:48:28.296:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:28] "GET /events HTTP/1.1" 200 -
-12:48:28.951:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:28] "GET /screenshot HTTP/1.1" 200 -
-< b'e012000068085061726173776170e63e0f7526397a2900f870ef9df6b52cb63307559d0472e23045022100f6e1a922c745e244fa3ed9a865491672808ef93f492ee0410861d748c5de201f0220160d6522499f3a84fa3e744b3b81e49e129e997b28495e58671a1169b16fa777'
-12:48:29.001:apdu: > e012000068085061726173776170e63e0f7526397a2900f870ef9df6b52cb63307559d0472e23045022100f6e1a922c745e244fa3ed9a865491672808ef93f492ee0410861d748c5de201f0220160d6522499f3a84fa3e744b3b81e49e129e997b28495e58671a1169b16fa777
-12:48:29.024:werkzeug: 172.17.0.1 - - [20/Dec/2022 12:48:29] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 12:48:29.045: Wait for screen change
-[ZEMU] 12:48:29.547: Check [81ms]
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
