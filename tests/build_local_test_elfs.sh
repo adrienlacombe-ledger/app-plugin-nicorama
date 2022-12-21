@@ -27,19 +27,19 @@ cd - || exit
 cp "${APP_ETHEREUM}/bin/app.elf" "tests/elfs/ethereum_nanos.elf"
 
 
-echo "*Building elfs for Nano X..."
-export BOLOS_SDK="$NANOX_SDK"
-
-echo "**Building app-paraswap for Nano X..."
-make clean
-make -j DEBUG=1
-cp bin/app.elf "tests/elfs/plugin_nanox.elf"
-
-echo "**Building app-ethereum for Nano X..."
-cd $APP_ETHEREUM || exit
-make clean
-make -j DEBUG=1 CHAIN=ethereum BYPASS_SIGNATURES=1 ALLOW_DATA=1
-cd - || exit
-cp "${APP_ETHEREUM}/bin/app.elf" "tests/elfs/ethereum_nanox.elf"
-
-echo "done"
+#echo "*Building elfs for Nano X..."
+#export BOLOS_SDK="$NANOX_SDK"
+#
+#echo "**Building app-paraswap for Nano X..."
+#make clean
+#make -j DEBUG=1
+#cp bin/app.elf "tests/elfs/plugin_nanox.elf"
+#
+#echo "**Building app-ethereum for Nano X..."
+#cd $APP_ETHEREUM || exit
+#make clean
+#make -j DEBUG=1 CHAIN=ethereum BYPASS_SIGNATURES=1 ALLOW_DATA=1
+#cd - || exit
+#cp "${APP_ETHEREUM}/bin/app.elf" "tests/elfs/ethereum_nanox.elf"
+#
+#echo "done"
