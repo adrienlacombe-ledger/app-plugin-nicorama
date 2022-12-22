@@ -58,12 +58,11 @@ static void handle_token_received(const ethPluginProvideParameter_t *msg,
 static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
                                         paraswap_parameters_t *context) {
 
-    PRINTF("===HANDLE: %d \n", context->skip);
     switch (context->next_param) {
         case INITIAL_OFFSET:
-            // do nothing except skipping 3 lines
+            // To skip the 3 first lines, we need to put context->skip=2 because we are already at the first line
+            context->skip=2;
             PRINTF("=== Skipping: %d \n", context->skip);
-            context->skip=3;
             context->next_param = TOKEN_SENT;
 
             //context->next_param = NONE;
@@ -98,6 +97,7 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
             context->next_param = NONE;
             break;
         case BENEFICIARY:  // to
+            PRINTF("=== Beneficiary case, should not happen \n");
             handle_beneficiary(msg, context);
             context->next_param = NONE;
             break;
@@ -150,6 +150,7 @@ void handle_provide_parameter(void *parameters) {
         // Skip this step, and don't forget to decrease skipping counter.
 //        PRINTF("===# Skipping %d\n", context->skip);
         context->skip--;
+        PRINTF("=== Skipping\n");
 
     } else {
         if ((context->offset) && msg->parameterOffset != context->checkpoint + context->offset) {
