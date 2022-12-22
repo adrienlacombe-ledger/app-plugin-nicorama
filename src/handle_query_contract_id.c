@@ -9,7 +9,7 @@ void handle_query_contract_id(void *parameters) {
     switch (context->selectorIndex) {
         case JOIN_POOL_VIA_0X:
         //case JOIN_POOL_VIA_0X_ETH:
-            strlcpy(msg->version, "9Deposit via 0x", msg->versionLength);
+            strlcpy(msg->version, "2Deposit via 0x", msg->versionLength);
             break;
         /*case REMOVE_LIQUIDITY:
             strlcpy(msg->version, "Withdraw", msg->versionLength);

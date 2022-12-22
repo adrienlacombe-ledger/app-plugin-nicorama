@@ -6,7 +6,7 @@
             "contractName": "Swaap Proxy",
             "selectors": {
                 "0x75fed9a0": {
-                    "erc20OfInterest": [ ],
+                    "erc20OfInterest": ["joiningAsset", "pool"],
                     "method": "joinPoolVia0x",
                     "plugin": "Paraswap"
                 }

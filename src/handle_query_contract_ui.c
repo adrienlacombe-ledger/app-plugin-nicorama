@@ -37,7 +37,7 @@ static void set_receive_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *con
     switch (context->selectorIndex) {
         case JOIN_POOL_VIA_0X:
         //case JOIN_POOL_VIA_0X_ETH:
-            strlcpy(msg->title, "Receive", msg->titleLength);
+            strlcpy(msg->title, "Receive min", msg->titleLength);
             break;
 
         /*case REMOVE_LIQUIDITY:
@@ -64,18 +64,6 @@ static void set_receive_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *con
                        msg->msgLength);
 }
 
-// Set UI for "Beneficiary" screen.
-static void set_beneficiary_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *context) {
-    strlcpy(msg->title, "Beneficiary", msg->titleLength);
-
-    msg->msg[0] = '0';
-    msg->msg[1] = 'x';
-
-    getEthAddressStringFromBinary((uint8_t *) context->beneficiary,
-                                  msg->msg + 2,
-                                  msg->pluginSharedRW->sha3,
-                                  0);
-}
 
 // Set UI for "Warning" screen.
 static void set_warning_ui(ethQueryContractUI_t *msg,
@@ -89,66 +77,85 @@ static screens_t get_screen(const ethQueryContractUI_t *msg, const paraswap_para
     uint8_t index = msg->screenIndex;
 
     bool token_sent_found = context->tokens_found & TOKEN_SENT_FOUND;
+
     bool token_received_found = context->tokens_found & TOKEN_RECEIVED_FOUND;
 
-    bool both_tokens_found = token_received_found && token_sent_found;
-    bool both_tokens_not_found = !token_received_found && !token_sent_found;
 
+
+    PRINTF("=== get_screen: Current screen index %d \n", index);
+    //PRINTF("=== token_sent_found %d \n", token_sent_found);
+    PRINTF("=== token_received_found %d \n", token_received_found);
+    //PRINTF("=== both_tokens_found %d \n", both_tokens_found);
+    //PRINTF("=== both_tokens_not_found %d \n", both_tokens_not_found);
+
+    // SEND_SCREEN  0
+    // RECEIVE_SCREEN 1
+    // WARN_SCREEN  2
+    // ERROR  3
     switch (index) {
         case 0:
-            if (both_tokens_found) {
+            if (token_sent_found) {
                 return SEND_SCREEN;
-            } else if (both_tokens_not_found) {
-                return WARN_SCREEN;
-            } else if (token_sent_found) {
-                return SEND_SCREEN;
-            } else if (token_received_found) {
+            } else{
                 return WARN_SCREEN;
             }
             break;
         case 1:
-            if (both_tokens_found) {
-                return RECEIVE_SCREEN;
-            } else if (both_tokens_not_found) {
-                return SEND_SCREEN;
-            } else if (token_sent_found) {
-                return WARN_SCREEN;
-            } else if (token_received_found) {
+            if (token_sent_found) {
+                if (token_received_found){
+                    return RECEIVE_SCREEN;
+                } else {
+                    return WARN_SCREEN;
+                }
+            } else {
                 return SEND_SCREEN;
             }
             break;
 
         case 2:
-            if (both_tokens_found) {
-                return BENEFICIARY_SCREEN;
-            } else if (both_tokens_not_found) {
-                return WARN_SCREEN;
-            } else {
-                return RECEIVE_SCREEN;
-            }
-            break;
+           if (token_sent_found) {
+               if (token_received_found){
+                   PRINTF("=== Error, we already made all screen");
+                   return ERROR; // we made all screen
+               } else {
+                   return RECEIVE_SCREEN;
+               }
+           } else {
+               if (token_received_found){
+                  return RECEIVE_SCREEN;
+              } else {
+                  return WARN_SCREEN;
+              }
+           }
+           break;
         case 3:
-            if (both_tokens_found) {
-                return ERROR;
-            } else if (both_tokens_not_found) {
-                return RECEIVE_SCREEN;
-            } else {
-                return BENEFICIARY_SCREEN;
-            }
-            break;
+           if (token_sent_found) {
+               PRINTF("=== index 3, found sent. Error, we already made all screen");
+               return ERROR; // we made all screen
+           } else {
+               if (token_received_found){
+                  PRINTF("=== index 3, found receive. Error, we already made all screen");
+                  return ERROR;
+              } else {
+                  return RECEIVE_SCREEN;
+              }
+           }
+           break;
         case 4:
-            if (both_tokens_not_found) {
-                return BENEFICIARY_SCREEN;
-            } else {
-                return ERROR;
-            }
-            break;
+            PRINTF("=== Screen index 4, should not happen");
+            return ERROR;
         default:
             return ERROR;
             break;
     }
     return ERROR;
 }
+
+void handle_deposit_screen(){
+
+
+}
+
 
 void handle_query_contract_ui(void *parameters) {
     ethQueryContractUI_t *msg = (ethQueryContractUI_t *) parameters;
@@ -158,7 +165,15 @@ void handle_query_contract_ui(void *parameters) {
     memset(msg->msg, 0, msg->msgLength);
     msg->result = ETH_PLUGIN_RESULT_OK;
 
+    /*switch (context->selectorIndex) {
+        case JOIN_POOL_VIA_0X:
+        default:
+            handle_deposit_screen(msg, context);
+            return;
+    }*/
+
     screens_t screen = get_screen(msg, context);
+    PRINTF("=== Found screen: %d\n", screen);
     switch (screen) {
         case SEND_SCREEN:
             set_send_ui(msg, context);
@@ -166,14 +181,14 @@ void handle_query_contract_ui(void *parameters) {
         case RECEIVE_SCREEN:
             set_receive_ui(msg, context);
             break;
-        case BENEFICIARY_SCREEN:
+       /* case BENEFICIARY_SCREEN:
             set_beneficiary_ui(msg, context);
-            break;
+            break;*/
         case WARN_SCREEN:
             set_warning_ui(msg, context);
             break;
         default:
-            PRINTF("Received an invalid screenIndex\n");
+            PRINTF("=== Received an invalid screenIndex\n");
             msg->result = ETH_PLUGIN_RESULT_ERROR;
             return;
     }

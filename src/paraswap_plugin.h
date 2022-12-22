@@ -39,7 +39,7 @@ typedef enum {
     SEND_SCREEN,
     RECEIVE_SCREEN,
     WARN_SCREEN,
-    BENEFICIARY_SCREEN,
+    //BENEFICIARY_SCREEN,
     ERROR,
 } screens_t;
 
