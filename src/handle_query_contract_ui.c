@@ -181,9 +181,6 @@ void handle_query_contract_ui(void *parameters) {
         case RECEIVE_SCREEN:
             set_receive_ui(msg, context);
             break;
-       /* case BENEFICIARY_SCREEN:
-            set_beneficiary_ui(msg, context);
-            break;*/
         case WARN_SCREEN:
             set_warning_ui(msg, context);
             break;
