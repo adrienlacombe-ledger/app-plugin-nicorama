@@ -33,7 +33,7 @@ static void contract_address_sent(const ethPluginProvideParameter_t *msg,
     memcpy(context->contract_address_sent,
            &msg->parameter[PARAMETER_LENGTH - ADDRESS_LENGTH],
            sizeof(context->contract_address_sent));
-    PRINTF("TOKEN SENT: %.*H\n", ADDRESS_LENGTH, context->contract_address_sent);
+    PRINTF("=== CONTRACT SENT: %.*H\n", ADDRESS_LENGTH, context->contract_address_sent);
 }
 
 static void handle_token_sent(const ethPluginProvideParameter_t *msg,
@@ -42,7 +42,7 @@ static void handle_token_sent(const ethPluginProvideParameter_t *msg,
     memcpy(context->contract_address_sent,
            &msg->parameter[PARAMETER_LENGTH - ADDRESS_LENGTH],
            sizeof(context->contract_address_sent));
-    PRINTF("TOKEN SENT: %.*H\n", ADDRESS_LENGTH, context->contract_address_sent);
+    PRINTF("=== TOKEN SENT: %.*H\n", ADDRESS_LENGTH, context->contract_address_sent);
 }
 
 static void handle_token_received(const ethPluginProvideParameter_t *msg,
@@ -51,18 +51,18 @@ static void handle_token_received(const ethPluginProvideParameter_t *msg,
     memcpy(context->contract_address_received,
            &msg->parameter[PARAMETER_LENGTH - ADDRESS_LENGTH],
            sizeof(context->contract_address_received));
-    PRINTF("TOKEN RECEIVED: %.*H\n", ADDRESS_LENGTH, context->contract_address_received);
+    PRINTF("=== TOKEN RECEIVED: %.*H\n", ADDRESS_LENGTH, context->contract_address_received);
 }
 
 
 static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
                                         paraswap_parameters_t *context) {
 
-    PRINTF("HANDLE: %d \n", context->skip);
+    PRINTF("===HANDLE: %d \n", context->skip);
     switch (context->next_param) {
         case INITIAL_OFFSET:
             // do nothing except skipping 3 lines
-          //  PRINTF("=== Skipping: %d \n", context->skip);
+            PRINTF("=== Skipping: %d \n", context->skip);
             context->skip=3;
             context->next_param = TOKEN_SENT;
 
@@ -76,7 +76,7 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
             break;
         case AMOUNT_SENT:  // TokenA Min Amount
             handle_amount_sent(msg, context);
-            //PRINTF("=== Amount sent:%d \n", context->amount_sent);
+            PRINTF("=== Amount sent:%d \n", context->amount_sent);
             context->next_param = TOKEN_RECEIVED;
             break;
         case TOKEN_RECEIVED:  // TokenB
@@ -93,7 +93,7 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
             break;
         case AMOUNT_RECEIVED:  // TokenB Min Amount
             handle_amount_received(msg, context);
-//            PRINTF("=== Amount received:%d \n", context->amount_received)
+            PRINTF("=== Amount received:%d \n", context->amount_received);
             // For the moment we ignore the beneficiary
             context->next_param = NONE;
             break;

@@ -29,8 +29,8 @@
 
 // Function: joinPoolVia0x(address tokenA, address tokenB, uint256 amountADesired, uint256
 // amountBDesired, uint256 amountAMin, uint256 amountBMin, address to, uint256 deadline)
-// MethodID: 0x9d0472e2
-static const uint8_t JOIN_POOL_VIA_0X_SELECTOR[SELECTOR_SIZE] = {0x9d, 0x04, 0x72, 0xe2};
+// MethodID: 0x75fed9a0
+static const uint8_t JOIN_POOL_VIA_0X_SELECTOR[SELECTOR_SIZE] = {0x75, 0xfe, 0xd9, 0xa0};
 
 // ---------- End Paraswap V4 -------------
 

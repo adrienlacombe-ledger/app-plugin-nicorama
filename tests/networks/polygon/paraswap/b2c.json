@@ -5,7 +5,7 @@
             "address": "0xe63e0f7526397a2900f870ef9df6b52cb6330755",
             "contractName": "Swaap Proxy",
             "selectors": {
-                "0x9d0472e2": {
+                "0x75fed9a0": {
                     "erc20OfInterest": [ ],
                     "method": "joinPoolVia0x",
                     "plugin": "Paraswap"

@@ -3,15 +3,15 @@ $ jest src --verbose --runInBand --detectOpenHandles
 [DOCKER] Pulling from zondax/builder-zemu: 
 [DOCKER] Digest: sha256:9c97b921dbba8f0a221c9419b577371540a7afb29727527857ee4de62307cf2f: 
 [DOCKER] Status: Image is up to date for zondax/builder-zemu@sha256:9c97b921dbba8f0a221c9419b577371540a7afb29727527857ee4de62307cf2f: 
-[ZEMU] 16:33:35.455: Checking ELF
-[ZEMU] 16:33:35.466: Starting Container
+[ZEMU] 13:57:29.050: Checking ELF
+[ZEMU] 13:57:29.071: Starting Container
 [ZEMU] Command: /home/zondax/speculos/speculos.py --log-level speculos:DEBUG --color JADE_GREEN --display headless  -m nanos  /project/app/bin/ethereum_nanos.elf  -l Paraswap:/project/app/bin/plugin_nanos.elf
 [ZEMU] Creating Container
-[ZEMU] Connected 3766481d845e0ddd746ab0f8f13afcec179961058c7b6fb465d382730817fbb3
-[ZEMU] Attached 3766481d845e0ddd746ab0f8f13afcec179961058c7b6fb465d382730817fbb3
-[ZEMU] Started 3766481d845e0ddd746ab0f8f13afcec179961058c7b6fb465d382730817fbb3
-[ZEMU] 16:33:35.729: Started Container
-[ZEMU] 16:33:35.729: Wait for 5000 ms
+[ZEMU] Connected b2d97bf0d9c339a66277c09be544815325e906411567c16bc6da3878b3f460d4
+[ZEMU] Attached b2d97bf0d9c339a66277c09be544815325e906411567c16bc6da3878b3f460d4
+[ZEMU] Started b2d97bf0d9c339a66277c09be544815325e906411567c16bc6da3878b3f460d4
+[ZEMU] 13:57:29.328: Started Container
+[ZEMU] 13:57:29.328: Wait for 5000 ms
 
 --------------------------------------
 Zemu container - zondax.ch
@@ -22,334 +22,2252 @@ BOLOS_SDK=/project/deps/nanos-secure-sdk
 BOLOS_ENV=/opt/bolos
 
 serving at port 9998
-16:33:38.318:speculos: executing qemu: ['qemu-arm-static', '/home/zondax/speculos/speculos/resources/launcher', '-m', 'nanos', '-k', '2.1', '-c', '/home/zondax/speculos/speculos/cxlib/nanos-cx-2.1.elf', 'main:/project/app/bin/ethereum_nanos.elf:0x10000:0xecc0:0x20000200:0x1200', 'Paraswap:/project/app/bin/plugin_nanos.elf:0x10000:0x1980:0x20000200:0x1200']
+13:57:31.913:speculos: executing qemu: ['qemu-arm-static', '/home/zondax/speculos/speculos/resources/launcher', '-m', 'nanos', '-k', '2.1', '-c', '/home/zondax/speculos/speculos/cxlib/nanos-cx-2.1.elf', 'main:/project/app/bin/ethereum_nanos.elf:0x10000:0xecc0:0x20000200:0x1200', 'Paraswap:/project/app/bin/plugin_nanos.elf:0x10000:0x19c0:0x20000200:0x1200']
  * Serving Flask app 'speculos.api.api' (lazy loading)
  * Environment: development
  * Debug mode: off
-16:33:38.362:werkzeug:  * Running on all addresses.
+13:57:31.959:werkzeug:  * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
-16:33:38.363:werkzeug:  * Running on http://172.17.0.2:5000/ (Press CTRL+C to quit)
+13:57:31.961:werkzeug:  * Running on http://172.17.0.2:5000/ (Press CTRL+C to quit)
 [*] speculos launcher revision: 52b1a5d
 [*] using SDK version 2.1 on nanos
 [*] loading CXLIB from "/home/zondax/speculos/speculos/cxlib/nanos-cx-2.1.elf"
 [*] patching svc instruction at 0x126358
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-172.17.0.1 - - [21/Dec/2022 16:33:40] "GET / HTTP/1.1" 200 -
-[ZEMU] 16:33:40.765: Get initial snapshot
-16:33:40.786:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:40] "GET /events HTTP/1.1" 200 -
-16:33:41.399:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:41] "GET /screenshot HTTP/1.1" 200 -
-< b'e012000068085061726173776170e63e0f7526397a2900f870ef9df6b52cb63307559d0472e23045022100f6e1a922c745e244fa3ed9a865491672808ef93f492ee0410861d748c5de201f0220160d6522499f3a84fa3e744b3b81e49e129e997b28495e58671a1169b16fa777'
-16:33:41.426:apdu: > e012000068085061726173776170e63e0f7526397a2900f870ef9df6b52cb63307559d0472e23045022100f6e1a922c745e244fa3ed9a865491672808ef93f492ee0410861d748c5de201f0220160d6522499f3a84fa3e744b3b81e49e129e997b28495e58671a1169b16fa777
-16:33:41.443:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:41] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:41.447: Wait for screen change
-[ZEMU] 16:33:41.952: Check [38ms]
-16:33:41.448:seproxyhal: printf: Handling set Plugin
-16:33:41.451:seproxyhal: printf: plugin Name Length: 8
-16:33:41.980:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:41] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:42.492: Check [579ms]
-16:33:42.122:seproxyhal: printf: Check external plugin Paraswap
-[*] patching svc instruction at 0x40000ef0
+172.17.0.1 - - [22/Dec/2022 13:57:34] "GET / HTTP/1.1" 200 -
+[ZEMU] 13:57:34.383: Get initial snapshot
+13:57:34.415:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:34] "GET /events HTTP/1.1" 200 -
+13:57:34.989:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:34] "GET /screenshot HTTP/1.1" 200 -
+< b'e012000068085061726173776170e63e0f7526397a2900f870ef9df6b52cb633075575fed9a03045022100f6e1a922c745e244fa3ed9a865491672808ef93f492ee0410861d748c5de201f0220160d6522499f3a84fa3e744b3b81e49e129e997b28495e58671a1169b16fa777'
+13:57:35.021:apdu: > e012000068085061726173776170e63e0f7526397a2900f870ef9df6b52cb633075575fed9a03045022100f6e1a922c745e244fa3ed9a865491672808ef93f492ee0410861d748c5de201f0220160d6522499f3a84fa3e744b3b81e49e129e997b28495e58671a1169b16fa777
+13:57:35.031:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:35] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:35.036: Wait for screen change
+[ZEMU] 13:57:35.541: Check [35ms]
+13:57:35.038:seproxyhal: printf: Handling set Plugin
+13:57:35.042:seproxyhal: printf: plugin Name Length: 8
+13:57:35.566:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:35] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:36.077: Check [569ms]
+13:57:35.722:seproxyhal: printf: Check external plugin Paraswap
+[*] patching svc instruction at 0x40000f10
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:42.143:seproxyhal: printf: Plugin found
-16:33:42.150:apdu: < 9000
+13:57:35.746:seproxyhal: printf: Plugin found
+13:57:35.752:apdu: < 9000
 > b'9000'
-172.17.0.1 - - [21/Dec/2022 16:33:42] "POST / HTTP/1.1" 200 -
-< b'e004000096058000002c8000003c800000000000000000000000f9013280843b9aca0082520894e63e0f7526397a2900f870ef9df6b52cb633075588016345785d8a0000b901049d0472e20000000000000000000000007f5f7411c2c7ec60e2db946abbe7dc354254870b0000000000000000000000000000000000000000000000005ff25be9d009cd3a00000000000000000000000000000000'
-16:33:42.553:apdu: > e004000096058000002c8000003c800000000000000000000000f9013280843b9aca0082520894e63e0f7526397a2900f870ef9df6b52cb633075588016345785d8a0000b901049d0472e20000000000000000000000007f5f7411c2c7ec60e2db946abbe7dc354254870b0000000000000000000000000000000000000000000000005ff25be9d009cd3a00000000000000000000000000000000
-16:33:42.589:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:42] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:43.102: Check [1188ms]
-16:33:42.601:seproxyhal: printf: TxType: c0
-16:33:42.608:seproxyhal: printf: After customprocessor
-16:33:42.609:seproxyhal: printf: Current field: 1
-16:33:42.611:seproxyhal: printf: After customprocessor
-16:33:42.612:seproxyhal: printf: Current field: 3
-16:33:42.613:seproxyhal: printf: After customprocessor
-16:33:42.614:seproxyhal: printf: Current field: 4
-16:33:42.616:seproxyhal: printf: After customprocessor
-16:33:42.616:seproxyhal: printf: Current field: 5
-16:33:42.617:seproxyhal: printf: After customprocessor
-16:33:42.618:seproxyhal: printf: Current field: 6
-16:33:42.618:seproxyhal: printf: After customprocessor
-16:33:42.619:seproxyhal: printf: Current field: 7
-16:33:42.624:seproxyhal: printf: Selector 9D0472E2
-16:33:42.624:seproxyhal: printf: Plugin will be used
-16:33:42.625:seproxyhal: printf: eth_plugin_init
-16:33:42.626:seproxyhal: printf: Trying plugin Paraswap
-16:33:42.627:seproxyhal: printf: -- PLUGIN INIT CONTRACT --
-[*] patching svc instruction at 0x40000ef0
+172.17.0.1 - - [22/Dec/2022 13:57:35] "POST / HTTP/1.1" 200 -
+< b'e004000096058000002c8000003c800000000000000000000000f9177280843b9aca0082520894e63e0f7526397a2900f870ef9df6b52cb633075588016345785d8a0000b9174475fed9a00000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000018000000000000000000000000000000000'
+13:57:36.135:apdu: > e004000096058000002c8000003c800000000000000000000000f9177280843b9aca0082520894e63e0f7526397a2900f870ef9df6b52cb633075588016345785d8a0000b9174475fed9a00000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000018000000000000000000000000000000000
+13:57:36.174:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:36] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:36.685: Check [1178ms]
+13:57:36.184:seproxyhal: printf: TxType: c0
+13:57:36.191:seproxyhal: printf: After customprocessor
+13:57:36.192:seproxyhal: printf: Current field: 1
+13:57:36.194:seproxyhal: printf: After customprocessor
+13:57:36.195:seproxyhal: printf: Current field: 3
+13:57:36.196:seproxyhal: printf: After customprocessor
+13:57:36.197:seproxyhal: printf: Current field: 4
+13:57:36.199:seproxyhal: printf: After customprocessor
+13:57:36.200:seproxyhal: printf: Current field: 5
+13:57:36.200:seproxyhal: printf: After customprocessor
+13:57:36.201:seproxyhal: printf: Current field: 6
+13:57:36.201:seproxyhal: printf: After customprocessor
+13:57:36.202:seproxyhal: printf: Current field: 7
+13:57:36.208:seproxyhal: printf: Selector 75FED9A0
+13:57:36.209:seproxyhal: printf: Plugin will be used
+13:57:36.210:seproxyhal: printf: eth_plugin_init
+13:57:36.211:seproxyhal: printf: Trying plugin Paraswap
+13:57:36.212:seproxyhal: printf: -- PLUGIN INIT CONTRACT --
+[*] patching svc instruction at 0x40000f10
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:42.643:seproxyhal: printf: method: 257
-16:33:42.645:seproxyhal: printf: eth_plugin_init ok Paraswap
-16:33:42.646:seproxyhal: printf: pluginstatus 4
-16:33:42.649:seproxyhal: printf: currentFieldPos 4 copySize 32
-16:33:42.653:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x40000ef0
-16:33:42.659:seproxyhal: printf: === Skipping: 0 
+13:57:36.229:seproxyhal: printf: method: 257
+13:57:36.232:seproxyhal: printf: eth_plugin_init ok Paraswap
+13:57:36.233:seproxyhal: printf: pluginstatus 4
+13:57:36.235:seproxyhal: printf: currentFieldPos 4 copySize 32
+13:57:36.238:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:36.245:seproxyhal: printf: ===HANDLE: 0 
+13:57:36.246:seproxyhal: printf: === Skipping: 0 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:42.669:seproxyhal: printf: method: 258
-16:33:42.670:seproxyhal: printf: After customprocessor
-16:33:42.672:seproxyhal: printf: currentFieldPos 36 copySize 32
-16:33:42.675:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x40000ef0
-16:33:42.682:seproxyhal: printf: === Skipping 3
+13:57:36.255:seproxyhal: printf: method: 258
+13:57:36.256:seproxyhal: printf: After customprocessor
+13:57:36.259:seproxyhal: printf: currentFieldPos 36 copySize 32
+13:57:36.262:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:42.691:seproxyhal: printf: method: 258
-16:33:42.692:seproxyhal: printf: After customprocessor
-16:33:42.695:seproxyhal: printf: currentFieldPos 68 copySize 16
-16:33:42.697:seproxyhal: printf: After customprocessor
-16:33:42.698:seproxyhal: printf: Command length done
-16:33:42.698:seproxyhal: printf: result: 0
-16:33:42.700:seproxyhal: printf: exception[36864]: LR=0x40000FC9
-16:33:42.707:apdu: < 9000
+13:57:36.276:seproxyhal: printf: method: 258
+13:57:36.277:seproxyhal: printf: After customprocessor
+13:57:36.280:seproxyhal: printf: currentFieldPos 68 copySize 16
+13:57:36.282:seproxyhal: printf: After customprocessor
+13:57:36.283:seproxyhal: printf: Command length done
+13:57:36.283:seproxyhal: printf: result: 0
+13:57:36.286:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:36.292:apdu: < 9000
 > b'9000'
-172.17.0.1 - - [21/Dec/2022 16:33:42] "POST / HTTP/1.1" 200 -
-< b'e004800096000000000000000000000000000000800000000000000000000000000000000000000000000000000000000063999f5600000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000b83e67733bb6280000000000000000000000000000000000000000000000000000000003d42adbc000000000000'
-16:33:43.144:apdu: > e004800096000000000000000000000000000000800000000000000000000000000000000000000000000000000000000063999f5600000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000b83e67733bb6280000000000000000000000000000000000000000000000000000000003d42adbc000000000000
-16:33:43.181:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:43] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:43.693: Check [1778ms]
-16:33:43.185:seproxyhal: printf: currentFieldPos 84 copySize 16
-16:33:43.195:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x40000ef0
-16:33:43.202:seproxyhal: printf: === Skipping 2
+172.17.0.1 - - [22/Dec/2022 13:57:36] "POST / HTTP/1.1" 200 -
+< b'e004800096000000000000000000000000000002000000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa8417400000000000000000000000000000000000000000000000000000000f7520e560000000000000000000000007f5f7411c2c7ec60e2db946abbe7dc354254870b0000000000000000000000000000000000000000000000008a3252541767c800000000000000'
+13:57:36.725:apdu: > e004800096000000000000000000000000000002000000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa8417400000000000000000000000000000000000000000000000000000000f7520e560000000000000000000000007f5f7411c2c7ec60e2db946abbe7dc354254870b0000000000000000000000000000000000000000000000008a3252541767c800000000000000
+13:57:36.756:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:36] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:37.269: Check [1763ms]
+13:57:36.764:seproxyhal: printf: currentFieldPos 84 copySize 16
+13:57:36.775:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:43.212:seproxyhal: printf: method: 258
-16:33:43.213:seproxyhal: printf: After customprocessor
-16:33:43.217:seproxyhal: printf: currentFieldPos 100 copySize 32
-16:33:43.220:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x40000ef0
-16:33:43.226:seproxyhal: printf: === Skipping 1
+13:57:36.789:seproxyhal: printf: method: 258
+13:57:36.790:seproxyhal: printf: After customprocessor
+13:57:36.793:seproxyhal: printf: currentFieldPos 100 copySize 32
+13:57:36.798:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:43.235:seproxyhal: printf: method: 258
-16:33:43.236:seproxyhal: printf: After customprocessor
-16:33:43.239:seproxyhal: printf: currentFieldPos 132 copySize 32
-16:33:43.242:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x40000ef0
+13:57:36.810:seproxyhal: printf: method: 258
+13:57:36.811:seproxyhal: printf: After customprocessor
+13:57:36.814:seproxyhal: printf: currentFieldPos 132 copySize 32
+13:57:36.817:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:36.824:seproxyhal: printf: ===HANDLE: 0 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:43.254:seproxyhal: printf: TOKEN SENT: 0000000000000000000000000000000000000003
-16:33:43.261:seproxyhal: printf: method: 258
-16:33:43.262:seproxyhal: printf: After customprocessor
-16:33:43.266:seproxyhal: printf: currentFieldPos 164 copySize 32
-16:33:43.268:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x40000ef0
+13:57:36.831:seproxyhal: printf: === TOKEN SENT: 00000000000000000000000000000000F7520E56
+13:57:36.838:seproxyhal: printf: method: 258
+13:57:36.839:seproxyhal: printf: After customprocessor
+13:57:36.843:seproxyhal: printf: currentFieldPos 164 copySize 32
+13:57:36.846:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:36.852:seproxyhal: printf: ===HANDLE: 0 
+13:57:36.858:seproxyhal: printf: === Amount sent:536872376 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:43.281:seproxyhal: printf: method: 258
-16:33:43.282:seproxyhal: printf: After customprocessor
-16:33:43.285:seproxyhal: printf: currentFieldPos 196 copySize 32
-16:33:43.289:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x40000ef0
+13:57:36.869:seproxyhal: printf: method: 258
+13:57:36.870:seproxyhal: printf: After customprocessor
+13:57:36.873:seproxyhal: printf: currentFieldPos 196 copySize 32
+13:57:36.877:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:36.883:seproxyhal: printf: ===HANDLE: 0 
 [*] patching svc instruction at 0x40006f9a
-16:33:43.300:seproxyhal: printf: TOKEN RECEIVED: 000000000000000000000000000000003D42ADBC
 [*] patching svc instruction at 0x40006fa8
-16:33:43.307:seproxyhal: printf: method: 258
-16:33:43.308:seproxyhal: printf: After customprocessor
-16:33:43.311:seproxyhal: printf: currentFieldPos 228 copySize 6
-16:33:43.313:seproxyhal: printf: After customprocessor
-16:33:43.314:seproxyhal: printf: Command length done
-16:33:43.315:seproxyhal: printf: result: 0
-16:33:43.317:seproxyhal: printf: exception[36864]: LR=0x40000FC9
-16:33:43.323:apdu: < 9000
+13:57:36.890:seproxyhal: printf: === TOKEN RECEIVED: 0000000000000000000000008A3252541767C800
+13:57:36.898:seproxyhal: printf: method: 258
+13:57:36.899:seproxyhal: printf: After customprocessor
+13:57:36.902:seproxyhal: printf: currentFieldPos 228 copySize 6
+13:57:36.903:seproxyhal: printf: After customprocessor
+13:57:36.904:seproxyhal: printf: Command length done
+13:57:36.905:seproxyhal: printf: result: 0
+13:57:36.907:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:36.913:apdu: < 9000
 > b'9000'
-172.17.0.1 - - [21/Dec/2022 16:33:43] "POST / HTTP/1.1" 200 -
-< b'e00480001e00000000000000000000000000000000000000000000004260a681898080'
-16:33:43.742:apdu: > e00480001e00000000000000000000000000000000000000000000004260a681898080
-16:33:43.768:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:43] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:44.279: Check [2367ms]
-16:33:43.775:seproxyhal: printf: currentFieldPos 234 copySize 26
-16:33:43.776:seproxyhal: printf: 
-16:33:43.776:seproxyhal: printf: 
-16:33:43.777:seproxyhal: printf: Incrementing one
-16:33:43.777:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
-[*] patching svc instruction at 0x40000ef0
+172.17.0.1 - - [22/Dec/2022 13:57:36] "POST / HTTP/1.1" 200 -
+< b'e00480009600000000000000000000000000000000000000000000639a6a2800000000000000000000000000000000000000000000000000000000000000030000000000000000000000007ceb23fd6bc0add59e62ac25578270cff1b9f6190000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa841740000000000000000000000001bfd67037b42cf73acf2047067bd4f2c'
+13:57:37.316:apdu: > e00480009600000000000000000000000000000000000000000000639a6a2800000000000000000000000000000000000000000000000000000000000000030000000000000000000000007ceb23fd6bc0add59e62ac25578270cff1b9f6190000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa841740000000000000000000000001bfd67037b42cf73acf2047067bd4f2c
+13:57:37.342:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:37] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:37.857: Check [2350ms]
+13:57:37.356:seproxyhal: printf: currentFieldPos 234 copySize 26
+13:57:37.358:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:37.366:seproxyhal: printf: ===HANDLE: 0 
+13:57:37.373:seproxyhal: printf: === Amount received:536872408 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:43.793:seproxyhal: printf: method: 258
-16:33:43.795:seproxyhal: printf: After customprocessor
-16:33:43.797:seproxyhal: printf: After customprocessor
-16:33:43.798:seproxyhal: printf: Current field: 9
-16:33:43.801:seproxyhal: printf: After customprocessor
-16:33:43.802:seproxyhal: printf: Current field: 10
-16:33:43.802:seproxyhal: printf: After customprocessor
-16:33:43.803:seproxyhal: printf: Current field: 11
-16:33:43.803:seproxyhal: printf: parsing is done
-16:33:43.804:seproxyhal: printf: result: 2
-16:33:44.236:seproxyhal: printf: -- PLUGIN FINALIZE --
-[*] patching svc instruction at 0x40000ef0
-16:33:44.245:seproxyhal: printf: Setting address sent to: 0000000000000000000000000000000000000003
-16:33:44.249:seproxyhal: printf: ETH attached to tx when token being swapped is 0000000000000000000000000000000000000003
+13:57:37.383:seproxyhal: printf: method: 258
+13:57:37.384:seproxyhal: printf: After customprocessor
+13:57:37.388:seproxyhal: printf: currentFieldPos 260 copySize 32
+13:57:37.391:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:37.397:seproxyhal: printf: ===HANDLE: 0 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:44.254:seproxyhal: printf: Setting address receiving to: 000000000000000000000000000000003D42ADBC
-16:33:44.257:seproxyhal: printf: method: 259
-16:33:44.265:seproxyhal: printf: Lookup1: 0000000000000000000000000000000000000003
-[*] patching svc instruction at 0x40000ef0
-16:33:44.270:seproxyhal: printf: Lookup2: 000000000000000000000000000000003D42ADBC
-16:33:44.270:seproxyhal: printf: -- PLUGIN PROVIDE INFO --
-16:33:44.273:seproxyhal: printf: PARASWAP plugin provide token: 0x0, 0x0
+13:57:37.406:seproxyhal: printf: method: 258
+13:57:37.407:seproxyhal: printf: After customprocessor
+13:57:37.410:seproxyhal: printf: currentFieldPos 292 copySize 32
+13:57:37.413:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:37.419:seproxyhal: printf: ===HANDLE: 0 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:44.285:seproxyhal: printf: method: 260
-16:33:44.287:seproxyhal: printf: RESULT: 4
-16:33:44.306:seproxyhal: printf: Gas price 3B9ACA00
-16:33:44.309:seproxyhal: printf: Gas limit 5208
-16:33:44.310:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:44] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:44.824: Check [2909ms]
-16:33:44.327:seproxyhal: printf: Fees displayed: MATIC 0.000021
-16:33:44.329:seproxyhal: printf: Network: Polygon
-16:33:44.893:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:44] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:44.899: Screen changed
-[ZEMU] 16:33:44.900: ---------------------------
-[ZEMU] 16:33:44.900: Start        /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00000.png
-16:33:44.934:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:44] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:44.938: Instructions 12,0
-16:33:44.963:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:44] "GET /screenshot HTTP/1.1" 200 -
-16:33:45.087:seproxyhal: printf: -- PLUGIN QUERY CONTRACT ID --
-[*] patching svc instruction at 0x40000ef0
+13:57:37.430:seproxyhal: printf: method: 258
+13:57:37.431:seproxyhal: printf: After customprocessor
+13:57:37.434:seproxyhal: printf: currentFieldPos 324 copySize 32
+13:57:37.437:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:37.443:seproxyhal: printf: ===HANDLE: 0 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:45.101:seproxyhal: printf: method: 261
-16:33:45.188:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 16:33:45.193: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00001.png
-16:33:45.218:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
-16:33:45.246:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
-16:33:45.275:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
-16:33:45.399:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
-[*] patching svc instruction at 0x40000ef0
+13:57:37.452:seproxyhal: printf: method: 258
+13:57:37.453:seproxyhal: printf: After customprocessor
+13:57:37.455:seproxyhal: printf: currentFieldPos 356 copySize 28
+13:57:37.458:seproxyhal: printf: After customprocessor
+13:57:37.459:seproxyhal: printf: Command length done
+13:57:37.459:seproxyhal: printf: result: 0
+13:57:37.462:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:37.468:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:37] "POST / HTTP/1.1" 200 -
+< b'e00480009647d9bfd6000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000010964e584883b70000000000000000000000000000000000000000000000000000000000585c8a7b00000000000000000000000000000000000000000000000000000000005f6aeb000000000000000000000000000000000000'
+13:57:37.900:apdu: > e00480009647d9bfd6000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000010964e584883b70000000000000000000000000000000000000000000000000000000000585c8a7b00000000000000000000000000000000000000000000000000000000005f6aeb000000000000000000000000000000000000
+13:57:37.932:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:37] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:38.444: Check [2937ms]
+13:57:37.935:seproxyhal: printf: currentFieldPos 384 copySize 4
+13:57:37.938:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:37.945:seproxyhal: printf: ===HANDLE: 0 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:45.418:seproxyhal: printf: method: 262
-16:33:45.493:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 16:33:45.495: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00002.png
-16:33:45.519:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
-16:33:45.541:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
-16:33:45.566:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
-16:33:45.692:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
-[*] patching svc instruction at 0x40000ef0
+13:57:37.955:seproxyhal: printf: method: 258
+13:57:37.956:seproxyhal: printf: After customprocessor
+13:57:37.959:seproxyhal: printf: currentFieldPos 388 copySize 32
+13:57:37.963:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:37.969:seproxyhal: printf: ===HANDLE: 0 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:45.726:seproxyhal: printf: method: 262
-16:33:45.788:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 16:33:45.792: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00003.png
-16:33:45.815:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
-16:33:45.842:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
-16:33:45.872:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:45] "GET /screenshot HTTP/1.1" 200 -
-16:33:45.995:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
-[*] patching svc instruction at 0x40000ef0
+13:57:37.978:seproxyhal: printf: method: 258
+13:57:37.979:seproxyhal: printf: After customprocessor
+13:57:37.982:seproxyhal: printf: currentFieldPos 420 copySize 32
+13:57:37.985:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:37.990:seproxyhal: printf: ===HANDLE: 0 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:46.016:seproxyhal: printf: method: 262
-16:33:46.088:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 16:33:46.090: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00004.png
-16:33:46.112:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
-16:33:46.134:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
-16:33:46.158:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
-16:33:46.277:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
-[*] patching svc instruction at 0x40000ef0
+13:57:37.999:seproxyhal: printf: method: 258
+13:57:38.000:seproxyhal: printf: After customprocessor
+13:57:38.003:seproxyhal: printf: currentFieldPos 452 copySize 32
+13:57:38.006:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:38.013:seproxyhal: printf: ===HANDLE: 0 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:46.307:seproxyhal: printf: method: 262
-16:33:46.370:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 16:33:46.375: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00005.png
-16:33:46.397:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
-16:33:46.422:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
-16:33:46.447:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
-16:33:46.660:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 16:33:46.665: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00006.png
-16:33:46.696:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
-16:33:46.723:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
-16:33:46.749:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
-16:33:46.874:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
-[*] patching svc instruction at 0x40000ef0
+13:57:38.022:seproxyhal: printf: method: 258
+13:57:38.023:seproxyhal: printf: After customprocessor
+13:57:38.026:seproxyhal: printf: currentFieldPos 484 copySize 32
+13:57:38.029:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:38.035:seproxyhal: printf: ===HANDLE: 0 
 [*] patching svc instruction at 0x40006f9a
 [*] patching svc instruction at 0x40006fa8
-16:33:46.894:seproxyhal: printf: method: 262
-16:33:46.969:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 16:33:46.973: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00007.png
-16:33:46.996:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:46] "GET /screenshot HTTP/1.1" 200 -
-16:33:47.024:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
-16:33:47.054:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:47.278: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00008.png
-16:33:47.275:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "POST /button/right HTTP/1.1" 200 -
-16:33:47.305:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
-16:33:47.333:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
-16:33:47.361:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
-16:33:47.580:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 16:33:47.585: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00009.png
-16:33:47.617:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
-16:33:47.644:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
-16:33:47.671:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
-16:33:47.893:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 16:33:47.896: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00010.png
-16:33:47.926:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
-16:33:47.953:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
-16:33:47.980:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:47] "GET /screenshot HTTP/1.1" 200 -
-16:33:48.205:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 16:33:48.210: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00011.png
-16:33:48.242:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
-16:33:48.269:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
-16:33:48.296:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
-16:33:48.518:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "POST /button/right HTTP/1.1" 200 -
-[ZEMU] 16:33:48.524: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00012.png
-16:33:48.555:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
-16:33:48.578:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
-16:33:48.606:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
-16:33:48.828:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "POST /button/both HTTP/1.1" 200 -
-[ZEMU] 16:33:48.830: Click /button/both -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00013.png
-16:33:48.856:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:48.857: sleep
-16:33:48.990:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:48] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:48.994: sleep
-16:33:49.124:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:49] "GET /screenshot HTTP/1.1" 200 -
-[ZEMU] 16:33:49.127: sleep
-16:33:49.184:apdu: < 35a8f6f7314026ca73c677ed7b7fc2f90364915d25a8fc7d45b1b8b05500037f3d6c7aaac4d6e0bc8e38afefb6f2dd722af248e08c363513e62ba2acfb49083e099000
-> b'35a8f6f7314026ca73c677ed7b7fc2f90364915d25a8fc7d45b1b8b05500037f3d6c7aaac4d6e0bc8e38afefb6f2dd722af248e08c363513e62ba2acfb49083e099000'
-172.17.0.1 - - [21/Dec/2022 16:33:49] "POST / HTTP/1.1" 200 -
-16:33:49.263:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:49] "GET /screenshot HTTP/1.1" 200 -
-16:33:49.295:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:49] "GET /screenshot HTTP/1.1" 200 -
-16:33:49.310:werkzeug: 172.17.0.1 - - [21/Dec/2022 16:33:49] "GET /events HTTP/1.1" 200 -
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Application","x":35,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"is ready","x":44,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Review","x":41,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"transaction","x":41,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Swaap","x":47,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"2Deposit via 0x","x":25,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"WARNING","x":39,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Unknown token","x":22,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Send","x":51,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"0.8297601560097184","x":11,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"WARNING","x":39,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Unknown token","x":22,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Receive (1/2)","x":32,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"0.00000000000435011","x":8,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Receive (2/2)","x":32,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"8","x":61,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Beneficiary (1/3)","x":23,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"0x00000000000000000","x":7,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Beneficiary (2/3)","x":23,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"0000000000000000000","x":7,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Beneficiary (3/3)","x":23,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"0000","x":52,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Network","x":42,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Polygon","x":43,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Max Fees","x":40,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"MATIC 0.000021","x":23,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Accept","x":41,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"and send","x":41,"y":17}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"Application","x":35,"y":3}
-[ZEMU] 16:33:49.313: [ZEMU] {"text":"is ready","x":44,"y":17}
-[ZEMU] 16:33:49.313: golden      /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots/polygon_nanos_join_pool
-[ZEMU] 16:33:49.314: tmp         /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool
-[ZEMU] 16:33:49.314: Start comparison
-[ZEMU] 16:33:49.314: Checked     /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00000.png
-[ZEMU] 16:33:49.320: Checked     /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00001.png
-[ZEMU] 16:33:49.323: Close
+13:57:38.044:seproxyhal: printf: method: 258
+13:57:38.045:seproxyhal: printf: After customprocessor
+13:57:38.048:seproxyhal: printf: currentFieldPos 516 copySize 18
+13:57:38.050:seproxyhal: printf: After customprocessor
+13:57:38.050:seproxyhal: printf: Command length done
+13:57:38.051:seproxyhal: printf: result: 0
+13:57:38.053:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:38.059:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:38] "POST / HTTP/1.1" 200 -
+< b'e004800096000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000aa0000000000000000000000000000000000000000000000000000000005d0290530000000000000000000000007ceb23fd6bc0add59e62ac25578270cff1b9f6190000000000000000'
+13:57:38.480:apdu: > e004800096000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000aa0000000000000000000000000000000000000000000000000000000005d0290530000000000000000000000007ceb23fd6bc0add59e62ac25578270cff1b9f6190000000000000000
+13:57:38.520:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:38] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:39.035: Check [3529ms]
+13:57:38.524:seproxyhal: printf: currentFieldPos 534 copySize 14
+13:57:38.525:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:38.533:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:38.543:seproxyhal: printf: method: 258
+13:57:38.544:seproxyhal: printf: After customprocessor
+13:57:38.547:seproxyhal: printf: currentFieldPos 548 copySize 32
+13:57:38.550:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:38.556:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:38.565:seproxyhal: printf: method: 258
+13:57:38.566:seproxyhal: printf: After customprocessor
+13:57:38.569:seproxyhal: printf: currentFieldPos 580 copySize 32
+13:57:38.572:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:38.578:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:38.587:seproxyhal: printf: method: 258
+13:57:38.589:seproxyhal: printf: After customprocessor
+13:57:38.592:seproxyhal: printf: currentFieldPos 612 copySize 32
+13:57:38.596:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:38.602:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:38.611:seproxyhal: printf: method: 258
+13:57:38.612:seproxyhal: printf: After customprocessor
+13:57:38.615:seproxyhal: printf: currentFieldPos 644 copySize 32
+13:57:38.618:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:38.624:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:38.634:seproxyhal: printf: method: 258
+13:57:38.635:seproxyhal: printf: After customprocessor
+13:57:38.638:seproxyhal: printf: currentFieldPos 676 copySize 8
+13:57:38.640:seproxyhal: printf: After customprocessor
+13:57:38.640:seproxyhal: printf: Command length done
+13:57:38.641:seproxyhal: printf: result: 0
+13:57:38.643:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:38.649:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:38] "POST / HTTP/1.1" 200 -
+< b'e0048000960000000000000000000000000000000010783b5642389500000000000000000000000000def1c0ded9bec7f1a1670819833240f027b25eff00000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000988415565b00000000000000000000000002791bca1f2de4661ed88a30c99a7'
+13:57:39.082:apdu: > e0048000960000000000000000000000000000000010783b5642389500000000000000000000000000def1c0ded9bec7f1a1670819833240f027b25eff00000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000988415565b00000000000000000000000002791bca1f2de4661ed88a30c99a7
+13:57:39.107:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:39] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:39.621: Check [4114ms]
+13:57:39.117:seproxyhal: printf: currentFieldPos 684 copySize 24
+13:57:39.118:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:39.126:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:39.137:seproxyhal: printf: method: 258
+13:57:39.138:seproxyhal: printf: After customprocessor
+13:57:39.142:seproxyhal: printf: currentFieldPos 708 copySize 32
+13:57:39.145:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:39.151:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:39.159:seproxyhal: printf: method: 258
+13:57:39.160:seproxyhal: printf: After customprocessor
+13:57:39.163:seproxyhal: printf: currentFieldPos 740 copySize 32
+13:57:39.167:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:39.173:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:39.183:seproxyhal: printf: method: 258
+13:57:39.184:seproxyhal: printf: After customprocessor
+13:57:39.187:seproxyhal: printf: currentFieldPos 772 copySize 32
+13:57:39.190:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:39.196:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:39.205:seproxyhal: printf: method: 258
+13:57:39.206:seproxyhal: printf: After customprocessor
+13:57:39.209:seproxyhal: printf: currentFieldPos 804 copySize 30
+13:57:39.210:seproxyhal: printf: After customprocessor
+13:57:39.211:seproxyhal: printf: Command length done
+13:57:39.212:seproxyhal: printf: result: 0
+13:57:39.214:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:39.220:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:39] "POST / HTTP/1.1" 200 -
+< b'e004800096a9449aa841740000000000000000000000007ceb23fd6bc0add59e62ac25578270cff1b9f619000000000000000000000000000000000000000000000000000000005d02905300000000000000000000000000000000000000000000000010783b56423895b300000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000'
+13:57:39.666:apdu: > e004800096a9449aa841740000000000000000000000007ceb23fd6bc0add59e62ac25578270cff1b9f619000000000000000000000000000000000000000000000000000000005d02905300000000000000000000000000000000000000000000000010783b56423895b300000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000
+13:57:39.688:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:39] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:40.203: Check [4696ms]
+13:57:39.703:seproxyhal: printf: currentFieldPos 834 copySize 2
+13:57:39.705:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:39.713:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:39.725:seproxyhal: printf: method: 258
+13:57:39.726:seproxyhal: printf: After customprocessor
+13:57:39.729:seproxyhal: printf: currentFieldPos 836 copySize 32
+13:57:39.733:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:39.739:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:39.748:seproxyhal: printf: method: 258
+13:57:39.749:seproxyhal: printf: After customprocessor
+13:57:39.752:seproxyhal: printf: currentFieldPos 868 copySize 32
+13:57:39.756:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:39.762:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:39.772:seproxyhal: printf: method: 258
+13:57:39.773:seproxyhal: printf: After customprocessor
+13:57:39.776:seproxyhal: printf: currentFieldPos 900 copySize 32
+13:57:39.782:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:39.788:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:39.799:seproxyhal: printf: method: 258
+13:57:39.800:seproxyhal: printf: After customprocessor
+13:57:39.803:seproxyhal: printf: currentFieldPos 932 copySize 32
+13:57:39.806:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:39.813:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:39.822:seproxyhal: printf: method: 258
+13:57:39.823:seproxyhal: printf: After customprocessor
+13:57:39.826:seproxyhal: printf: currentFieldPos 964 copySize 20
+13:57:39.827:seproxyhal: printf: After customprocessor
+13:57:39.828:seproxyhal: printf: Command length done
+13:57:39.829:seproxyhal: printf: result: 0
+13:57:39.831:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:39.837:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:39] "POST / HTTP/1.1" 200 -
+< b'e00480009600000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000003800000000000000000000000000000000000000000000000000000000000000720000000000000000000000000000000000000000000000000000000000000000f000000000000'
+13:57:40.245:apdu: > e00480009600000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000003800000000000000000000000000000000000000000000000000000000000000720000000000000000000000000000000000000000000000000000000000000000f000000000000
+13:57:40.283:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:40] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:40.797: Check [5291ms]
+13:57:40.287:seproxyhal: printf: currentFieldPos 984 copySize 12
+13:57:40.289:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:40.296:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:40.307:seproxyhal: printf: method: 258
+13:57:40.308:seproxyhal: printf: After customprocessor
+13:57:40.311:seproxyhal: printf: currentFieldPos 996 copySize 32
+13:57:40.314:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:40.320:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:40.329:seproxyhal: printf: method: 258
+13:57:40.330:seproxyhal: printf: After customprocessor
+13:57:40.333:seproxyhal: printf: currentFieldPos 1028 copySize 32
+13:57:40.337:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:40.342:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:40.353:seproxyhal: printf: method: 258
+13:57:40.354:seproxyhal: printf: After customprocessor
+13:57:40.357:seproxyhal: printf: currentFieldPos 1060 copySize 32
+13:57:40.360:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:40.366:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:40.374:seproxyhal: printf: method: 258
+13:57:40.375:seproxyhal: printf: After customprocessor
+13:57:40.379:seproxyhal: printf: currentFieldPos 1092 copySize 32
+13:57:40.382:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:40.387:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:40.396:seproxyhal: printf: method: 258
+13:57:40.397:seproxyhal: printf: After customprocessor
+13:57:40.400:seproxyhal: printf: currentFieldPos 1124 copySize 10
+13:57:40.402:seproxyhal: printf: After customprocessor
+13:57:40.403:seproxyhal: printf: Command length done
+13:57:40.404:seproxyhal: printf: result: 0
+13:57:40.406:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:40.412:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:40] "POST / HTTP/1.1" 200 -
+< b'e004800096000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000002c0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002791bca1f2de4661ed88a30c99a7a944'
+13:57:40.836:apdu: > e004800096000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000002c0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002791bca1f2de4661ed88a30c99a7a944
+13:57:40.874:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:40] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:41.388: Check [5881ms]
+13:57:40.879:seproxyhal: printf: currentFieldPos 1134 copySize 22
+13:57:40.880:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:40.888:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:40.899:seproxyhal: printf: method: 258
+13:57:40.900:seproxyhal: printf: After customprocessor
+13:57:40.904:seproxyhal: printf: currentFieldPos 1156 copySize 32
+13:57:40.908:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:40.914:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:40.922:seproxyhal: printf: method: 258
+13:57:40.923:seproxyhal: printf: After customprocessor
+13:57:40.926:seproxyhal: printf: currentFieldPos 1188 copySize 32
+13:57:40.930:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:40.937:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:40.946:seproxyhal: printf: method: 258
+13:57:40.947:seproxyhal: printf: After customprocessor
+13:57:40.950:seproxyhal: printf: currentFieldPos 1220 copySize 32
+13:57:40.953:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:40.959:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:40.968:seproxyhal: printf: method: 258
+13:57:40.969:seproxyhal: printf: After customprocessor
+13:57:40.972:seproxyhal: printf: currentFieldPos 1252 copySize 32
+13:57:40.975:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:40.980:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:40.989:seproxyhal: printf: method: 258
+13:57:40.990:seproxyhal: printf: After customprocessor
+13:57:40.991:seproxyhal: printf: Command length done
+13:57:40.992:seproxyhal: printf: result: 0
+13:57:40.995:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:41.001:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:41] "POST / HTTP/1.1" 200 -
+< b'e0048000969aa841740000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000002800000000000000000000000000000000000000000000000000000000000000280000000000000000000000000000000000000'
+13:57:41.411:apdu: > e0048000969aa841740000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000002800000000000000000000000000000000000000000000000000000000000000280000000000000000000000000000000000000
+13:57:41.468:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:41] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:41.982: Check [6475ms]
+13:57:41.470:seproxyhal: printf: currentFieldPos 1284 copySize 32
+[*] patching svc instruction at 0x40000f10
+13:57:41.471:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+13:57:41.477:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:41.488:seproxyhal: printf: method: 258
+13:57:41.489:seproxyhal: printf: After customprocessor
+13:57:41.493:seproxyhal: printf: currentFieldPos 1316 copySize 32
+13:57:41.496:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:41.502:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:41.511:seproxyhal: printf: method: 258
+13:57:41.512:seproxyhal: printf: After customprocessor
+13:57:41.515:seproxyhal: printf: currentFieldPos 1348 copySize 32
+13:57:41.520:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:41.526:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:41.535:seproxyhal: printf: method: 258
+13:57:41.537:seproxyhal: printf: After customprocessor
+13:57:41.540:seproxyhal: printf: currentFieldPos 1380 copySize 32
+13:57:41.543:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:41.549:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:41.558:seproxyhal: printf: method: 258
+13:57:41.559:seproxyhal: printf: After customprocessor
+13:57:41.562:seproxyhal: printf: currentFieldPos 1412 copySize 22
+13:57:41.564:seproxyhal: printf: After customprocessor
+13:57:41.565:seproxyhal: printf: Command length done
+13:57:41.565:seproxyhal: printf: result: 0
+13:57:41.568:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:41.574:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:41] "POST / HTTP/1.1" 200 -
+< b'e0048000960000000000000000000000000240000000000000000000000000000000000000000000000000000000005d0290530000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000028000000000000000000000000000000000000000000000000000000000000000010000000000000000'
+13:57:42.022:apdu: > e0048000960000000000000000000000000240000000000000000000000000000000000000000000000000000000005d0290530000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000028000000000000000000000000000000000000000000000000000000000000000010000000000000000
+13:57:42.055:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:42] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:42.568: Check [7062ms]
+13:57:42.063:seproxyhal: printf: currentFieldPos 1434 copySize 10
+13:57:42.064:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:42.073:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:42.083:seproxyhal: printf: method: 258
+13:57:42.084:seproxyhal: printf: After customprocessor
+13:57:42.088:seproxyhal: printf: currentFieldPos 1444 copySize 32
+13:57:42.092:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:42.097:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:42.106:seproxyhal: printf: method: 258
+13:57:42.107:seproxyhal: printf: After customprocessor
+13:57:42.111:seproxyhal: printf: currentFieldPos 1476 copySize 32
+13:57:42.114:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:42.120:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:42.130:seproxyhal: printf: method: 258
+13:57:42.131:seproxyhal: printf: After customprocessor
+13:57:42.134:seproxyhal: printf: currentFieldPos 1508 copySize 32
+13:57:42.138:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:42.143:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:42.152:seproxyhal: printf: method: 258
+13:57:42.153:seproxyhal: printf: After customprocessor
+13:57:42.156:seproxyhal: printf: currentFieldPos 1540 copySize 32
+13:57:42.159:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:42.165:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:42.174:seproxyhal: printf: method: 258
+13:57:42.175:seproxyhal: printf: After customprocessor
+13:57:42.178:seproxyhal: printf: currentFieldPos 1572 copySize 12
+13:57:42.180:seproxyhal: printf: After customprocessor
+13:57:42.180:seproxyhal: printf: Command length done
+13:57:42.181:seproxyhal: printf: result: 0
+13:57:42.183:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:42.189:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:42] "POST / HTTP/1.1" 200 -
+< b'e0048000960000000000000000000000000000000000000000000000200000000000000000000000000000001f574f4f46690000000000000000000000000000000000000000000000000000000000000000000000000000005d0290530000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
+13:57:42.596:apdu: > e0048000960000000000000000000000000000000000000000000000200000000000000000000000000000001f574f4f46690000000000000000000000000000000000000000000000000000000000000000000000000000005d0290530000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+13:57:42.642:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:42] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:43.154: Check [7648ms]
+13:57:42.647:seproxyhal: printf: currentFieldPos 1584 copySize 20
+13:57:42.648:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:42.656:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:42.667:seproxyhal: printf: method: 258
+13:57:42.668:seproxyhal: printf: After customprocessor
+13:57:42.672:seproxyhal: printf: currentFieldPos 1604 copySize 32
+13:57:42.675:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:42.681:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:42.691:seproxyhal: printf: method: 258
+13:57:42.692:seproxyhal: printf: After customprocessor
+13:57:42.695:seproxyhal: printf: currentFieldPos 1636 copySize 32
+13:57:42.699:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:42.705:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:42.715:seproxyhal: printf: method: 258
+13:57:42.716:seproxyhal: printf: After customprocessor
+13:57:42.720:seproxyhal: printf: currentFieldPos 1668 copySize 32
+13:57:42.723:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:42.728:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:42.738:seproxyhal: printf: method: 258
+13:57:42.739:seproxyhal: printf: After customprocessor
+13:57:42.742:seproxyhal: printf: currentFieldPos 1700 copySize 32
+13:57:42.746:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:42.752:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:42.761:seproxyhal: printf: method: 258
+13:57:42.762:seproxyhal: printf: After customprocessor
+13:57:42.765:seproxyhal: printf: currentFieldPos 1732 copySize 2
+13:57:42.767:seproxyhal: printf: After customprocessor
+13:57:42.767:seproxyhal: printf: Command length done
+13:57:42.768:seproxyhal: printf: result: 0
+13:57:42.770:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:42.778:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:42] "POST / HTTP/1.1" 200 -
+< b'e004800096008000000000000000000000000000000000000000000000000000000000000000200000000000000000000000007400b665c8f4f3a951a99f1ee9872efb8778723d000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
+13:57:43.203:apdu: > e004800096008000000000000000000000000000000000000000000000000000000000000000200000000000000000000000007400b665c8f4f3a951a99f1ee9872efb8778723d000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+13:57:43.236:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:43] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:43.749: Check [8243ms]
+13:57:43.247:seproxyhal: printf: currentFieldPos 1734 copySize 30
+13:57:43.248:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:43.256:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:43.266:seproxyhal: printf: method: 258
+13:57:43.267:seproxyhal: printf: After customprocessor
+13:57:43.270:seproxyhal: printf: currentFieldPos 1764 copySize 32
+13:57:43.273:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:43.279:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:43.289:seproxyhal: printf: method: 258
+13:57:43.289:seproxyhal: printf: After customprocessor
+13:57:43.293:seproxyhal: printf: currentFieldPos 1796 copySize 32
+13:57:43.298:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:43.304:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:43.313:seproxyhal: printf: method: 258
+13:57:43.314:seproxyhal: printf: After customprocessor
+13:57:43.317:seproxyhal: printf: currentFieldPos 1828 copySize 32
+13:57:43.321:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:43.327:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:43.336:seproxyhal: printf: method: 258
+13:57:43.337:seproxyhal: printf: After customprocessor
+13:57:43.340:seproxyhal: printf: currentFieldPos 1860 copySize 24
+13:57:43.342:seproxyhal: printf: After customprocessor
+13:57:43.343:seproxyhal: printf: Command length done
+13:57:43.343:seproxyhal: printf: result: 0
+13:57:43.346:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:43.352:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:43] "POST / HTTP/1.1" 200 -
+< b'e004800096000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000340000000000000000000000000000000000000000000000000000000000000002000000000000000000000'
+13:57:43.770:apdu: > e004800096000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000340000000000000000000000000000000000000000000000000000000000000002000000000000000000000
+13:57:43.816:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:43] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:44.330: Check [8823ms]
+13:57:43.820:seproxyhal: printf: currentFieldPos 1884 copySize 8
+13:57:43.821:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:43.828:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:43.838:seproxyhal: printf: method: 258
+13:57:43.839:seproxyhal: printf: After customprocessor
+13:57:43.842:seproxyhal: printf: currentFieldPos 1892 copySize 32
+13:57:43.846:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:43.852:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:43.861:seproxyhal: printf: method: 258
+13:57:43.862:seproxyhal: printf: After customprocessor
+13:57:43.865:seproxyhal: printf: currentFieldPos 1924 copySize 32
+13:57:43.868:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:43.874:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:43.887:seproxyhal: printf: method: 258
+13:57:43.888:seproxyhal: printf: After customprocessor
+13:57:43.891:seproxyhal: printf: currentFieldPos 1956 copySize 32
+13:57:43.894:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:43.900:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:43.909:seproxyhal: printf: method: 258
+13:57:43.910:seproxyhal: printf: After customprocessor
+13:57:43.913:seproxyhal: printf: currentFieldPos 1988 copySize 32
+13:57:43.917:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:43.923:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:43.932:seproxyhal: printf: method: 258
+13:57:43.933:seproxyhal: printf: After customprocessor
+13:57:43.936:seproxyhal: printf: currentFieldPos 2020 copySize 14
+13:57:43.938:seproxyhal: printf: After customprocessor
+13:57:43.938:seproxyhal: printf: Command length done
+13:57:43.938:seproxyhal: printf: result: 0
+13:57:43.941:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:43.947:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:43] "POST / HTTP/1.1" 200 -
+< b'e004800096000000000000000000000000000000000000000000000000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000007ceb23fd6bc0add59e62ac25578270cff1b9f61900000000000000000000000000000000000000000000000000000000000001400000000000000000000000000000000000000000000000000000000000000300'
+13:57:44.375:apdu: > e004800096000000000000000000000000000000000000000000000000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000007ceb23fd6bc0add59e62ac25578270cff1b9f61900000000000000000000000000000000000000000000000000000000000001400000000000000000000000000000000000000000000000000000000000000300
+13:57:44.398:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:44] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:44.910: Check [9404ms]
+13:57:44.407:seproxyhal: printf: currentFieldPos 2034 copySize 18
+13:57:44.408:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:44.416:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:44.427:seproxyhal: printf: method: 258
+13:57:44.428:seproxyhal: printf: After customprocessor
+13:57:44.431:seproxyhal: printf: currentFieldPos 2052 copySize 32
+13:57:44.435:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:44.440:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:44.449:seproxyhal: printf: method: 258
+13:57:44.451:seproxyhal: printf: After customprocessor
+13:57:44.454:seproxyhal: printf: currentFieldPos 2084 copySize 32
+13:57:44.457:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:44.463:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:44.474:seproxyhal: printf: method: 258
+13:57:44.475:seproxyhal: printf: After customprocessor
+13:57:44.478:seproxyhal: printf: currentFieldPos 2116 copySize 32
+13:57:44.482:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:44.488:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:44.497:seproxyhal: printf: method: 258
+13:57:44.498:seproxyhal: printf: After customprocessor
+13:57:44.501:seproxyhal: printf: currentFieldPos 2148 copySize 32
+13:57:44.504:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:44.510:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:44.519:seproxyhal: printf: method: 258
+13:57:44.520:seproxyhal: printf: After customprocessor
+13:57:44.523:seproxyhal: printf: currentFieldPos 2180 copySize 4
+13:57:44.525:seproxyhal: printf: After customprocessor
+13:57:44.525:seproxyhal: printf: Command length done
+13:57:44.527:seproxyhal: printf: result: 0
+13:57:44.528:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:44.535:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:44] "POST / HTTP/1.1" 200 -
+< b'e004800096000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000000000000000002c0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
+13:57:44.933:apdu: > e004800096000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000000000000000002c0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+13:57:44.948:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:44] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:45.460: Check [9955ms]
+13:57:44.956:seproxyhal: printf: currentFieldPos 2184 copySize 28
+13:57:44.957:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:44.963:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:44.972:seproxyhal: printf: method: 258
+13:57:44.973:seproxyhal: printf: After customprocessor
+13:57:44.976:seproxyhal: printf: currentFieldPos 2212 copySize 32
+13:57:44.979:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:44.985:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:44.994:seproxyhal: printf: method: 258
+13:57:44.995:seproxyhal: printf: After customprocessor
+13:57:44.998:seproxyhal: printf: currentFieldPos 2244 copySize 32
+13:57:45.003:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:45.009:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:45.018:seproxyhal: printf: method: 258
+13:57:45.019:seproxyhal: printf: After customprocessor
+13:57:45.022:seproxyhal: printf: currentFieldPos 2276 copySize 32
+13:57:45.025:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:45.031:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:45.040:seproxyhal: printf: method: 258
+13:57:45.041:seproxyhal: printf: After customprocessor
+13:57:45.043:seproxyhal: printf: currentFieldPos 2308 copySize 26
+13:57:45.045:seproxyhal: printf: After customprocessor
+13:57:45.046:seproxyhal: printf: Command length done
+13:57:45.046:seproxyhal: printf: result: 0
+13:57:45.049:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:45.054:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:45] "POST / HTTP/1.1" 200 -
+< b'e004800096000000000000000003000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000012556e6973776170563300000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000'
+13:57:45.506:apdu: > e004800096000000000000000003000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000012556e6973776170563300000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000
+13:57:45.536:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:45] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:46.048: Check [10542ms]
+13:57:45.544:seproxyhal: printf: currentFieldPos 2334 copySize 6
+13:57:45.546:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:45.554:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:45.564:seproxyhal: printf: method: 258
+13:57:45.565:seproxyhal: printf: After customprocessor
+13:57:45.568:seproxyhal: printf: currentFieldPos 2340 copySize 32
+13:57:45.571:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:45.578:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:45.587:seproxyhal: printf: method: 258
+13:57:45.588:seproxyhal: printf: After customprocessor
+13:57:45.591:seproxyhal: printf: currentFieldPos 2372 copySize 32
+13:57:45.594:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:45.600:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:45.611:seproxyhal: printf: method: 258
+13:57:45.612:seproxyhal: printf: After customprocessor
+13:57:45.615:seproxyhal: printf: currentFieldPos 2404 copySize 32
+13:57:45.618:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:45.624:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:45.633:seproxyhal: printf: method: 258
+13:57:45.634:seproxyhal: printf: After customprocessor
+13:57:45.637:seproxyhal: printf: currentFieldPos 2436 copySize 32
+13:57:45.640:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:45.646:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:45.656:seproxyhal: printf: method: 258
+13:57:45.657:seproxyhal: printf: After customprocessor
+13:57:45.660:seproxyhal: printf: currentFieldPos 2468 copySize 16
+13:57:45.662:seproxyhal: printf: After customprocessor
+13:57:45.662:seproxyhal: printf: Command length done
+13:57:45.663:seproxyhal: printf: result: 0
+13:57:45.665:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:45.671:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:45] "POST / HTTP/1.1" 200 -
+< b'e00480009600000000000000000000000010783b56423895b3000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000e592427a0aece92de3edee1f18e0157c0586156400000000000000000000000000000000000000000000000000000000000000400000'
+13:57:46.082:apdu: > e00480009600000000000000000000000010783b56423895b3000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000e592427a0aece92de3edee1f18e0157c0586156400000000000000000000000000000000000000000000000000000000000000400000
+13:57:46.118:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:46] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:46.631: Check [11124ms]
+13:57:46.122:seproxyhal: printf: currentFieldPos 2484 copySize 16
+13:57:46.124:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:46.132:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:46.143:seproxyhal: printf: method: 258
+13:57:46.145:seproxyhal: printf: After customprocessor
+13:57:46.148:seproxyhal: printf: currentFieldPos 2500 copySize 32
+13:57:46.152:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:46.157:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:46.167:seproxyhal: printf: method: 258
+13:57:46.168:seproxyhal: printf: After customprocessor
+13:57:46.171:seproxyhal: printf: currentFieldPos 2532 copySize 32
+13:57:46.175:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:46.182:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:46.191:seproxyhal: printf: method: 258
+13:57:46.192:seproxyhal: printf: After customprocessor
+13:57:46.195:seproxyhal: printf: currentFieldPos 2564 copySize 32
+13:57:46.198:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:46.204:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:46.213:seproxyhal: printf: method: 258
+13:57:46.214:seproxyhal: printf: After customprocessor
+13:57:46.217:seproxyhal: printf: currentFieldPos 2596 copySize 32
+13:57:46.220:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:46.226:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:46.235:seproxyhal: printf: method: 258
+13:57:46.236:seproxyhal: printf: After customprocessor
+13:57:46.239:seproxyhal: printf: currentFieldPos 2628 copySize 6
+13:57:46.241:seproxyhal: printf: After customprocessor
+13:57:46.241:seproxyhal: printf: Command length done
+13:57:46.241:seproxyhal: printf: result: 0
+13:57:46.244:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:46.251:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:46] "POST / HTTP/1.1" 200 -
+< b'e00480009600000000000000000000000000000000000000000000000000000000002b0d500b1d8e8ef31e21c99d1db9a6444d3adf12700001f47ceb23fd6bc0add59e62ac25578270cff1b9f6190000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000'
+13:57:46.670:apdu: > e00480009600000000000000000000000000000000000000000000000000000000002b0d500b1d8e8ef31e21c99d1db9a6444d3adf12700001f47ceb23fd6bc0add59e62ac25578270cff1b9f6190000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000
+13:57:46.702:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:46] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:47.216: Check [11709ms]
+13:57:46.707:seproxyhal: printf: currentFieldPos 2634 copySize 26
+13:57:46.708:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:46.716:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:46.727:seproxyhal: printf: method: 258
+13:57:46.728:seproxyhal: printf: After customprocessor
+13:57:46.731:seproxyhal: printf: currentFieldPos 2660 copySize 32
+13:57:46.735:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:46.740:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:46.750:seproxyhal: printf: method: 258
+13:57:46.751:seproxyhal: printf: After customprocessor
+13:57:46.754:seproxyhal: printf: currentFieldPos 2692 copySize 32
+13:57:46.758:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:46.764:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:46.773:seproxyhal: printf: method: 258
+13:57:46.774:seproxyhal: printf: After customprocessor
+13:57:46.777:seproxyhal: printf: currentFieldPos 2724 copySize 32
+13:57:46.780:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:46.786:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:46.795:seproxyhal: printf: method: 258
+13:57:46.796:seproxyhal: printf: After customprocessor
+13:57:46.799:seproxyhal: printf: currentFieldPos 2756 copySize 28
+13:57:46.801:seproxyhal: printf: After customprocessor
+13:57:46.801:seproxyhal: printf: Command length done
+13:57:46.802:seproxyhal: printf: result: 0
+13:57:46.804:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:46.810:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:46] "POST / HTTP/1.1" 200 -
+< b'e00480009600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000'
+13:57:47.242:apdu: > e00480009600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000
+13:57:47.283:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:47] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:47.793: Check [12286ms]
+13:57:47.288:seproxyhal: printf: currentFieldPos 2784 copySize 4
+13:57:47.289:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:47.297:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:47.309:seproxyhal: printf: method: 258
+13:57:47.310:seproxyhal: printf: After customprocessor
+13:57:47.313:seproxyhal: printf: currentFieldPos 2788 copySize 32
+13:57:47.318:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:47.323:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:47.333:seproxyhal: printf: method: 258
+13:57:47.334:seproxyhal: printf: After customprocessor
+13:57:47.338:seproxyhal: printf: currentFieldPos 2820 copySize 32
+13:57:47.341:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:47.347:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:47.358:seproxyhal: printf: method: 258
+13:57:47.359:seproxyhal: printf: After customprocessor
+13:57:47.362:seproxyhal: printf: currentFieldPos 2852 copySize 32
+13:57:47.365:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:47.371:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:47.380:seproxyhal: printf: method: 258
+13:57:47.381:seproxyhal: printf: After customprocessor
+13:57:47.384:seproxyhal: printf: currentFieldPos 2884 copySize 32
+13:57:47.388:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:47.393:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:47.403:seproxyhal: printf: method: 258
+13:57:47.403:seproxyhal: printf: After customprocessor
+13:57:47.407:seproxyhal: printf: currentFieldPos 2916 copySize 18
+13:57:47.408:seproxyhal: printf: After customprocessor
+13:57:47.409:seproxyhal: printf: Command length done
+13:57:47.410:seproxyhal: printf: result: 0
+13:57:47.412:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:47.418:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:47] "POST / HTTP/1.1" 200 -
+< b'e004800096000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000000030000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa8417400000000'
+13:57:47.828:apdu: > e004800096000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000000030000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa8417400000000
+13:57:47.868:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:47] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:48.380: Check [12874ms]
+13:57:47.871:seproxyhal: printf: currentFieldPos 2934 copySize 14
+13:57:47.873:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:47.881:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:47.892:seproxyhal: printf: method: 258
+13:57:47.893:seproxyhal: printf: After customprocessor
+13:57:47.897:seproxyhal: printf: currentFieldPos 2948 copySize 32
+13:57:47.900:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:47.906:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:47.915:seproxyhal: printf: method: 258
+13:57:47.916:seproxyhal: printf: After customprocessor
+13:57:47.919:seproxyhal: printf: currentFieldPos 2980 copySize 32
+13:57:47.922:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:47.929:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:47.938:seproxyhal: printf: method: 258
+13:57:47.939:seproxyhal: printf: After customprocessor
+13:57:47.942:seproxyhal: printf: currentFieldPos 3012 copySize 32
+13:57:47.945:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:47.951:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:47.960:seproxyhal: printf: method: 258
+13:57:47.961:seproxyhal: printf: After customprocessor
+13:57:47.964:seproxyhal: printf: currentFieldPos 3044 copySize 32
+13:57:47.967:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:47.973:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:47.982:seproxyhal: printf: method: 258
+13:57:47.983:seproxyhal: printf: After customprocessor
+13:57:47.986:seproxyhal: printf: currentFieldPos 3076 copySize 8
+13:57:47.988:seproxyhal: printf: After customprocessor
+13:57:47.988:seproxyhal: printf: Command length done
+13:57:47.989:seproxyhal: printf: result: 0
+13:57:47.991:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:47.998:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:47] "POST / HTTP/1.1" 200 -
+< b'e00480009600000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee0000000000000000000000000000000000000000000000000000000000000000869584cd000000000000000000000000100000000000000000000000000000000000001100000000000000000000000000000000000000000000'
+13:57:48.421:apdu: > e00480009600000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee0000000000000000000000000000000000000000000000000000000000000000869584cd000000000000000000000000100000000000000000000000000000000000001100000000000000000000000000000000000000000000
+13:57:48.456:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:48] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:48.967: Check [13461ms]
+13:57:48.458:seproxyhal: printf: currentFieldPos 3084 copySize 24
+13:57:48.460:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:48.467:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:48.478:seproxyhal: printf: method: 258
+13:57:48.479:seproxyhal: printf: After customprocessor
+13:57:48.483:seproxyhal: printf: currentFieldPos 3108 copySize 32
+13:57:48.486:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:48.492:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:48.501:seproxyhal: printf: method: 258
+13:57:48.502:seproxyhal: printf: After customprocessor
+13:57:48.506:seproxyhal: printf: currentFieldPos 3140 copySize 32
+13:57:48.510:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:48.515:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:48.524:seproxyhal: printf: method: 258
+13:57:48.525:seproxyhal: printf: After customprocessor
+13:57:48.528:seproxyhal: printf: currentFieldPos 3172 copySize 32
+13:57:48.531:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:48.537:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:48.546:seproxyhal: printf: method: 258
+13:57:48.547:seproxyhal: printf: After customprocessor
+13:57:48.549:seproxyhal: printf: currentFieldPos 3204 copySize 30
+13:57:48.552:seproxyhal: printf: After customprocessor
+13:57:48.552:seproxyhal: printf: Command length done
+13:57:48.553:seproxyhal: printf: result: 0
+13:57:48.555:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:48.561:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:48] "POST / HTTP/1.1" 200 -
+< b'e004800096007b9277e723639a631d0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000042369c260000000000000000000000001bfd67037b42cf73acf2047067bd4f2c47d9bfd600000000000000000000000000000000000000000000000000000000005ebe85000000000000000000000000def1c0ded9bec7f1'
+13:57:49.008:apdu: > e004800096007b9277e723639a631d0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000042369c260000000000000000000000001bfd67037b42cf73acf2047067bd4f2c47d9bfd600000000000000000000000000000000000000000000000000000000005ebe85000000000000000000000000def1c0ded9bec7f1
+13:57:49.045:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:49] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:49.556: Check [14050ms]
+13:57:49.049:seproxyhal: printf: currentFieldPos 3234 copySize 2
+13:57:49.051:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:49.058:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:49.068:seproxyhal: printf: method: 258
+13:57:49.069:seproxyhal: printf: After customprocessor
+13:57:49.072:seproxyhal: printf: currentFieldPos 3236 copySize 32
+13:57:49.076:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:49.081:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:49.090:seproxyhal: printf: method: 258
+13:57:49.091:seproxyhal: printf: After customprocessor
+13:57:49.094:seproxyhal: printf: currentFieldPos 3268 copySize 32
+13:57:49.097:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:49.102:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:49.115:seproxyhal: printf: method: 258
+13:57:49.116:seproxyhal: printf: After customprocessor
+13:57:49.119:seproxyhal: printf: currentFieldPos 3300 copySize 32
+13:57:49.122:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:49.128:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:49.136:seproxyhal: printf: method: 258
+13:57:49.137:seproxyhal: printf: After customprocessor
+13:57:49.140:seproxyhal: printf: currentFieldPos 3332 copySize 32
+13:57:49.144:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:49.149:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:49.158:seproxyhal: printf: method: 258
+13:57:49.159:seproxyhal: printf: After customprocessor
+13:57:49.162:seproxyhal: printf: currentFieldPos 3364 copySize 20
+13:57:49.164:seproxyhal: printf: After customprocessor
+13:57:49.164:seproxyhal: printf: Command length done
+13:57:49.165:seproxyhal: printf: result: 0
+13:57:49.167:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:49.173:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:49] "POST / HTTP/1.1" 200 -
+< b'e004800096a1670819833240f027b25eff00000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000009a8415565b00000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa841740000000000000000000000001bfd67037b42cf73acf2047067bd4f2c47d9bfd6000000000000'
+13:57:49.590:apdu: > e004800096a1670819833240f027b25eff00000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000009a8415565b00000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa841740000000000000000000000001bfd67037b42cf73acf2047067bd4f2c47d9bfd6000000000000
+13:57:49.632:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:49] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:50.145: Check [14638ms]
+13:57:49.637:seproxyhal: printf: currentFieldPos 3384 copySize 12
+13:57:49.639:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:49.647:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:49.658:seproxyhal: printf: method: 258
+13:57:49.659:seproxyhal: printf: After customprocessor
+13:57:49.662:seproxyhal: printf: currentFieldPos 3396 copySize 32
+13:57:49.665:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:49.671:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:49.680:seproxyhal: printf: method: 258
+13:57:49.681:seproxyhal: printf: After customprocessor
+13:57:49.684:seproxyhal: printf: currentFieldPos 3428 copySize 32
+13:57:49.688:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:49.696:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:49.704:seproxyhal: printf: method: 258
+13:57:49.705:seproxyhal: printf: After customprocessor
+13:57:49.709:seproxyhal: printf: currentFieldPos 3460 copySize 32
+13:57:49.712:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:49.718:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:49.727:seproxyhal: printf: method: 258
+13:57:49.728:seproxyhal: printf: After customprocessor
+13:57:49.731:seproxyhal: printf: currentFieldPos 3492 copySize 32
+13:57:49.734:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:49.740:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:49.750:seproxyhal: printf: method: 258
+13:57:49.751:seproxyhal: printf: After customprocessor
+13:57:49.754:seproxyhal: printf: currentFieldPos 3524 copySize 10
+13:57:49.756:seproxyhal: printf: After customprocessor
+13:57:49.757:seproxyhal: printf: Command length done
+13:57:49.764:seproxyhal: printf: result: 0
+13:57:49.765:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:49.768:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:49] "POST / HTTP/1.1" 200 -
+< b'e0048000960000000000000000000000000000000000000000000042369c2600000000000000000000000000000000000000000000000000000000005ebe2600000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000'
+13:57:50.191:apdu: > e0048000960000000000000000000000000000000000000000000042369c2600000000000000000000000000000000000000000000000000000000005ebe2600000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000
+13:57:50.218:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:50] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:50.730: Check [15224ms]
+13:57:50.228:seproxyhal: printf: currentFieldPos 3534 copySize 22
+13:57:50.229:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:50.237:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:50.246:seproxyhal: printf: method: 258
+13:57:50.248:seproxyhal: printf: After customprocessor
+13:57:50.251:seproxyhal: printf: currentFieldPos 3556 copySize 32
+13:57:50.255:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:50.261:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:50.270:seproxyhal: printf: method: 258
+13:57:50.271:seproxyhal: printf: After customprocessor
+13:57:50.275:seproxyhal: printf: currentFieldPos 3588 copySize 32
+13:57:50.278:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:50.284:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:50.294:seproxyhal: printf: method: 258
+13:57:50.295:seproxyhal: printf: After customprocessor
+13:57:50.298:seproxyhal: printf: currentFieldPos 3620 copySize 32
+13:57:50.302:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:50.308:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:50.340:seproxyhal: printf: method: 258
+13:57:50.341:seproxyhal: printf: After customprocessor
+13:57:50.344:seproxyhal: printf: currentFieldPos 3652 copySize 32
+13:57:50.348:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:50.361:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:50.370:seproxyhal: printf: method: 258
+13:57:50.371:seproxyhal: printf: After customprocessor
+13:57:50.372:seproxyhal: printf: Command length done
+13:57:50.373:seproxyhal: printf: result: 0
+13:57:50.376:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:50.382:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:50] "POST / HTTP/1.1" 200 -
+< b'e0048000960000006000000000000000000000000000000000000000000000000000000000000003800000000000000000000000000000000000000000000000000000000000000740000000000000000000000000000000000000000000000000000000000000000f0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000'
+13:57:50.773:apdu: > e0048000960000006000000000000000000000000000000000000000000000000000000000000003800000000000000000000000000000000000000000000000000000000000000740000000000000000000000000000000000000000000000000000000000000000f0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000
+13:57:50.809:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:50] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:51.322: Check [15816ms]
+13:57:50.815:seproxyhal: printf: currentFieldPos 3684 copySize 32
+13:57:50.817:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:50.824:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:50.835:seproxyhal: printf: method: 258
+13:57:50.836:seproxyhal: printf: After customprocessor
+13:57:50.839:seproxyhal: printf: currentFieldPos 3716 copySize 32
+13:57:50.842:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:50.848:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:50.857:seproxyhal: printf: method: 258
+13:57:50.858:seproxyhal: printf: After customprocessor
+13:57:50.861:seproxyhal: printf: currentFieldPos 3748 copySize 32
+13:57:50.866:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:50.871:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:50.880:seproxyhal: printf: method: 258
+13:57:50.881:seproxyhal: printf: After customprocessor
+13:57:50.884:seproxyhal: printf: currentFieldPos 3780 copySize 32
+13:57:50.887:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:50.893:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:50.902:seproxyhal: printf: method: 258
+13:57:50.903:seproxyhal: printf: After customprocessor
+13:57:50.906:seproxyhal: printf: currentFieldPos 3812 copySize 22
+13:57:50.908:seproxyhal: printf: After customprocessor
+13:57:50.908:seproxyhal: printf: Command length done
+13:57:50.909:seproxyhal: printf: result: 0
+13:57:50.911:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:50.917:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:50] "POST / HTTP/1.1" 200 -
+< b'e00480009600000000000000000000000002c0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa841740000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000'
+13:57:51.373:apdu: > e00480009600000000000000000000000002c0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa841740000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000
+13:57:51.414:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:51] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:51.928: Check [16422ms]
+13:57:51.417:seproxyhal: printf: currentFieldPos 3834 copySize 10
+13:57:51.419:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:51.426:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:51.436:seproxyhal: printf: method: 258
+13:57:51.437:seproxyhal: printf: After customprocessor
+13:57:51.441:seproxyhal: printf: currentFieldPos 3844 copySize 32
+13:57:51.444:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:51.449:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:51.458:seproxyhal: printf: method: 258
+13:57:51.459:seproxyhal: printf: After customprocessor
+13:57:51.462:seproxyhal: printf: currentFieldPos 3876 copySize 32
+13:57:51.466:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:51.471:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:51.480:seproxyhal: printf: method: 258
+13:57:51.482:seproxyhal: printf: After customprocessor
+13:57:51.485:seproxyhal: printf: currentFieldPos 3908 copySize 32
+13:57:51.488:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:51.494:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:51.504:seproxyhal: printf: method: 258
+13:57:51.505:seproxyhal: printf: After customprocessor
+13:57:51.508:seproxyhal: printf: currentFieldPos 3940 copySize 32
+13:57:51.511:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:51.517:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:51.526:seproxyhal: printf: method: 258
+13:57:51.527:seproxyhal: printf: After customprocessor
+13:57:51.530:seproxyhal: printf: currentFieldPos 3972 copySize 12
+13:57:51.532:seproxyhal: printf: After customprocessor
+13:57:51.532:seproxyhal: printf: Command length done
+13:57:51.533:seproxyhal: printf: result: 0
+13:57:51.535:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:51.541:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:51] "POST / HTTP/1.1" 200 -
+< b'e004800096000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000028000000000000000000000000000000000000000000000000000000000000002800000000000000000000000000000000000000000000000000000000000000240000000000000000000000000000000000000000000000000000000004236'
+13:57:51.964:apdu: > e004800096000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000028000000000000000000000000000000000000000000000000000000000000002800000000000000000000000000000000000000000000000000000000000000240000000000000000000000000000000000000000000000000000000004236
+13:57:52.004:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:52] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:52.516: Check [17010ms]
+13:57:52.009:seproxyhal: printf: currentFieldPos 3984 copySize 20
+13:57:52.010:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:52.018:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:52.029:seproxyhal: printf: method: 258
+13:57:52.030:seproxyhal: printf: After customprocessor
+13:57:52.033:seproxyhal: printf: currentFieldPos 4004 copySize 32
+13:57:52.037:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:52.043:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:52.052:seproxyhal: printf: method: 258
+13:57:52.053:seproxyhal: printf: After customprocessor
+13:57:52.056:seproxyhal: printf: currentFieldPos 4036 copySize 32
+13:57:52.059:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:52.065:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:52.074:seproxyhal: printf: method: 258
+13:57:52.075:seproxyhal: printf: After customprocessor
+13:57:52.078:seproxyhal: printf: currentFieldPos 4068 copySize 32
+13:57:52.081:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:52.087:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:52.095:seproxyhal: printf: method: 258
+13:57:52.096:seproxyhal: printf: After customprocessor
+13:57:52.099:seproxyhal: printf: currentFieldPos 4100 copySize 32
+13:57:52.102:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:52.108:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:52.117:seproxyhal: printf: method: 258
+13:57:52.118:seproxyhal: printf: After customprocessor
+13:57:52.121:seproxyhal: printf: currentFieldPos 4132 copySize 2
+13:57:52.122:seproxyhal: printf: After customprocessor
+13:57:52.123:seproxyhal: printf: Command length done
+13:57:52.123:seproxyhal: printf: result: 0
+13:57:52.125:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:52.131:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:52] "POST / HTTP/1.1" 200 -
+< b'e0048000969c2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000280000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000001f574f4f46'
+13:57:52.559:apdu: > e0048000969c2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000280000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000001f574f4f46
+13:57:52.595:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:52] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:53.107: Check [17601ms]
+13:57:52.600:seproxyhal: printf: currentFieldPos 4134 copySize 30
+13:57:52.601:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:52.609:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:52.620:seproxyhal: printf: method: 258
+13:57:52.621:seproxyhal: printf: After customprocessor
+13:57:52.624:seproxyhal: printf: currentFieldPos 4164 copySize 32
+13:57:52.628:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:52.634:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:52.643:seproxyhal: printf: method: 258
+13:57:52.644:seproxyhal: printf: After customprocessor
+13:57:52.647:seproxyhal: printf: currentFieldPos 4196 copySize 32
+13:57:52.650:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:52.656:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:52.665:seproxyhal: printf: method: 258
+13:57:52.666:seproxyhal: printf: After customprocessor
+13:57:52.668:seproxyhal: printf: currentFieldPos 4228 copySize 32
+13:57:52.672:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:52.677:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:52.686:seproxyhal: printf: method: 258
+13:57:52.687:seproxyhal: printf: After customprocessor
+13:57:52.690:seproxyhal: printf: currentFieldPos 4260 copySize 24
+13:57:52.691:seproxyhal: printf: After customprocessor
+13:57:52.692:seproxyhal: printf: Command length done
+13:57:52.692:seproxyhal: printf: result: 0
+13:57:52.695:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:52.701:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:52] "POST / HTTP/1.1" 200 -
+< b'e0048000966900000000000000000000000000000000000000000000000000000000000000000000000000000042369c2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000002000000000000000000000'
+13:57:53.159:apdu: > e0048000966900000000000000000000000000000000000000000000000000000000000000000000000000000042369c2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000002000000000000000000000
+13:57:53.186:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:53] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:53.698: Check [18191ms]
+13:57:53.194:seproxyhal: printf: currentFieldPos 4284 copySize 8
+13:57:53.195:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:53.202:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:53.213:seproxyhal: printf: method: 258
+13:57:53.215:seproxyhal: printf: After customprocessor
+13:57:53.218:seproxyhal: printf: currentFieldPos 4292 copySize 32
+13:57:53.222:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:53.228:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:53.238:seproxyhal: printf: method: 258
+13:57:53.239:seproxyhal: printf: After customprocessor
+13:57:53.242:seproxyhal: printf: currentFieldPos 4324 copySize 32
+13:57:53.245:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:53.250:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:53.259:seproxyhal: printf: method: 258
+13:57:53.261:seproxyhal: printf: After customprocessor
+13:57:53.263:seproxyhal: printf: currentFieldPos 4356 copySize 32
+13:57:53.266:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:53.272:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:53.281:seproxyhal: printf: method: 258
+13:57:53.282:seproxyhal: printf: After customprocessor
+13:57:53.284:seproxyhal: printf: currentFieldPos 4388 copySize 32
+13:57:53.288:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:53.293:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:53.302:seproxyhal: printf: method: 258
+13:57:53.303:seproxyhal: printf: After customprocessor
+13:57:53.307:seproxyhal: printf: currentFieldPos 4420 copySize 14
+13:57:53.308:seproxyhal: printf: After customprocessor
+13:57:53.309:seproxyhal: printf: Command length done
+13:57:53.309:seproxyhal: printf: result: 0
+13:57:53.312:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:53.317:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:53] "POST / HTTP/1.1" 200 -
+< b'e00480009600007400b665c8f4f3a951a99f1ee9872efb8778723d000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f'
+13:57:53.740:apdu: > e00480009600007400b665c8f4f3a951a99f1ee9872efb8778723d000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f
+13:57:53.781:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:53] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:54.294: Check [18788ms]
+13:57:53.786:seproxyhal: printf: currentFieldPos 4434 copySize 18
+13:57:53.788:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:53.795:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:53.805:seproxyhal: printf: method: 258
+13:57:53.806:seproxyhal: printf: After customprocessor
+13:57:53.809:seproxyhal: printf: currentFieldPos 4452 copySize 32
+13:57:53.812:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:53.818:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:53.828:seproxyhal: printf: method: 258
+13:57:53.829:seproxyhal: printf: After customprocessor
+13:57:53.832:seproxyhal: printf: currentFieldPos 4484 copySize 32
+13:57:53.835:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:53.841:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:53.850:seproxyhal: printf: method: 258
+13:57:53.851:seproxyhal: printf: After customprocessor
+13:57:53.854:seproxyhal: printf: currentFieldPos 4516 copySize 32
+13:57:53.857:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:53.863:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:53.872:seproxyhal: printf: method: 258
+13:57:53.873:seproxyhal: printf: After customprocessor
+13:57:53.876:seproxyhal: printf: currentFieldPos 4548 copySize 32
+13:57:53.880:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:53.885:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:53.894:seproxyhal: printf: method: 258
+13:57:53.895:seproxyhal: printf: After customprocessor
+13:57:53.898:seproxyhal: printf: currentFieldPos 4580 copySize 4
+13:57:53.899:seproxyhal: printf: After customprocessor
+13:57:53.900:seproxyhal: printf: Command length done
+13:57:53.900:seproxyhal: printf: result: 0
+13:57:53.903:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:53.908:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:53] "POST / HTTP/1.1" 200 -
+< b'e00480009600000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000360000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d500b1d8e8ef31e21c9'
+13:57:54.329:apdu: > e00480009600000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000360000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d500b1d8e8ef31e21c9
+13:57:54.361:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:54] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:54.870: Check [19364ms]
+13:57:54.366:seproxyhal: printf: currentFieldPos 4584 copySize 28
+13:57:54.367:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:54.376:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:54.387:seproxyhal: printf: method: 258
+13:57:54.388:seproxyhal: printf: After customprocessor
+13:57:54.391:seproxyhal: printf: currentFieldPos 4612 copySize 32
+13:57:54.394:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:54.400:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:54.410:seproxyhal: printf: method: 258
+13:57:54.411:seproxyhal: printf: After customprocessor
+13:57:54.414:seproxyhal: printf: currentFieldPos 4644 copySize 32
+13:57:54.418:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:54.424:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:54.433:seproxyhal: printf: method: 258
+13:57:54.434:seproxyhal: printf: After customprocessor
+13:57:54.437:seproxyhal: printf: currentFieldPos 4676 copySize 32
+13:57:54.440:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:54.446:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:54.455:seproxyhal: printf: method: 258
+13:57:54.456:seproxyhal: printf: After customprocessor
+13:57:54.459:seproxyhal: printf: currentFieldPos 4708 copySize 26
+13:57:54.461:seproxyhal: printf: After customprocessor
+13:57:54.462:seproxyhal: printf: Command length done
+13:57:54.463:seproxyhal: printf: result: 0
+13:57:54.465:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:54.471:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:54] "POST / HTTP/1.1" 200 -
+< b'e0048000969d1db9a6444d3adf12700000000000000000000000001bfd67037b42cf73acf2047067bd4f2c47d9bfd6000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000003200000000000000000000000000000000000000000000000000000000000000320000000000000000000000000'
+13:57:54.888:apdu: > e0048000969d1db9a6444d3adf12700000000000000000000000001bfd67037b42cf73acf2047067bd4f2c47d9bfd6000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000003200000000000000000000000000000000000000000000000000000000000000320000000000000000000000000
+13:57:54.907:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:54] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:55.419: Check [19912ms]
+13:57:54.916:seproxyhal: printf: currentFieldPos 4734 copySize 6
+13:57:54.917:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:54.923:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:54.932:seproxyhal: printf: method: 258
+13:57:54.933:seproxyhal: printf: After customprocessor
+13:57:54.936:seproxyhal: printf: currentFieldPos 4740 copySize 32
+13:57:54.939:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:54.944:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:54.954:seproxyhal: printf: method: 258
+13:57:54.955:seproxyhal: printf: After customprocessor
+13:57:54.958:seproxyhal: printf: currentFieldPos 4772 copySize 32
+13:57:54.961:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:54.966:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:54.975:seproxyhal: printf: method: 258
+13:57:54.976:seproxyhal: printf: After customprocessor
+13:57:54.979:seproxyhal: printf: currentFieldPos 4804 copySize 32
+13:57:54.982:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:54.988:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:54.996:seproxyhal: printf: method: 258
+13:57:54.997:seproxyhal: printf: After customprocessor
+13:57:55.000:seproxyhal: printf: currentFieldPos 4836 copySize 32
+13:57:55.004:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:55.010:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:55.018:seproxyhal: printf: method: 258
+13:57:55.019:seproxyhal: printf: After customprocessor
+13:57:55.022:seproxyhal: printf: currentFieldPos 4868 copySize 16
+13:57:55.024:seproxyhal: printf: After customprocessor
+13:57:55.024:seproxyhal: printf: Command length done
+13:57:55.025:seproxyhal: printf: result: 0
+13:57:55.027:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:55.033:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:55] "POST / HTTP/1.1" 200 -
+< b'e00480009600000000000000000000000000000000000002e0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000032000000000000000000000000000000000000000000000000000000000000000010000'
+13:57:55.461:apdu: > e00480009600000000000000000000000000000000000002e0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000032000000000000000000000000000000000000000000000000000000000000000010000
+13:57:55.494:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:55] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:56.003: Check [20497ms]
+13:57:55.501:seproxyhal: printf: currentFieldPos 4884 copySize 16
+13:57:55.502:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:55.510:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:55.521:seproxyhal: printf: method: 258
+13:57:55.523:seproxyhal: printf: After customprocessor
+13:57:55.526:seproxyhal: printf: currentFieldPos 4900 copySize 32
+13:57:55.529:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:55.535:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:55.544:seproxyhal: printf: method: 258
+13:57:55.545:seproxyhal: printf: After customprocessor
+13:57:55.548:seproxyhal: printf: currentFieldPos 4932 copySize 32
+13:57:55.551:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:55.557:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:55.566:seproxyhal: printf: method: 258
+13:57:55.567:seproxyhal: printf: After customprocessor
+13:57:55.571:seproxyhal: printf: currentFieldPos 4964 copySize 32
+13:57:55.574:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:55.580:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:55.590:seproxyhal: printf: method: 258
+13:57:55.591:seproxyhal: printf: After customprocessor
+13:57:55.593:seproxyhal: printf: currentFieldPos 4996 copySize 32
+13:57:55.597:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:55.602:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:55.611:seproxyhal: printf: method: 258
+13:57:55.612:seproxyhal: printf: After customprocessor
+13:57:55.616:seproxyhal: printf: currentFieldPos 5028 copySize 6
+13:57:55.617:seproxyhal: printf: After customprocessor
+13:57:55.617:seproxyhal: printf: Command length done
+13:57:55.618:seproxyhal: printf: result: 0
+13:57:55.620:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:55.626:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:55] "POST / HTTP/1.1" 200 -
+< b'e00480009600000000000000000000000000000000000000000000000000000000002000000000000000000000000000000012556e6973776170563300000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000005ebe25000000000000000000000000000000000000000000000000'
+13:57:56.042:apdu: > e00480009600000000000000000000000000000000000000000000000000000000002000000000000000000000000000000012556e6973776170563300000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000005ebe25000000000000000000000000000000000000000000000000
+13:57:56.079:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:56] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:56.591: Check [21085ms]
+13:57:56.083:seproxyhal: printf: currentFieldPos 5034 copySize 26
+13:57:56.084:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:56.093:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:56.104:seproxyhal: printf: method: 258
+13:57:56.105:seproxyhal: printf: After customprocessor
+13:57:56.109:seproxyhal: printf: currentFieldPos 5060 copySize 32
+13:57:56.112:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:56.118:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:56.127:seproxyhal: printf: method: 258
+13:57:56.128:seproxyhal: printf: After customprocessor
+13:57:56.131:seproxyhal: printf: currentFieldPos 5092 copySize 32
+13:57:56.135:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:56.141:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:56.150:seproxyhal: printf: method: 258
+13:57:56.151:seproxyhal: printf: After customprocessor
+13:57:56.154:seproxyhal: printf: currentFieldPos 5124 copySize 32
+13:57:56.158:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:56.164:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:56.173:seproxyhal: printf: method: 258
+13:57:56.174:seproxyhal: printf: After customprocessor
+13:57:56.177:seproxyhal: printf: currentFieldPos 5156 copySize 28
+13:57:56.179:seproxyhal: printf: After customprocessor
+13:57:56.179:seproxyhal: printf: Command length done
+13:57:56.180:seproxyhal: printf: result: 0
+13:57:56.182:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:56.188:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:56] "POST / HTTP/1.1" 200 -
+< b'e004800096000000000000008000000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000e592427a0aece92de3edee1f18e0157c05861564000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000420d500b1d8e8ef31e21c99d1db9a6'
+13:57:56.631:apdu: > e004800096000000000000008000000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000e592427a0aece92de3edee1f18e0157c05861564000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000420d500b1d8e8ef31e21c99d1db9a6
+13:57:56.668:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:56] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:57.181: Check [21675ms]
+13:57:56.675:seproxyhal: printf: currentFieldPos 5184 copySize 4
+13:57:56.677:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:56.684:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:56.695:seproxyhal: printf: method: 258
+13:57:56.696:seproxyhal: printf: After customprocessor
+13:57:56.699:seproxyhal: printf: currentFieldPos 5188 copySize 32
+13:57:56.702:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:56.708:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:56.717:seproxyhal: printf: method: 258
+13:57:56.718:seproxyhal: printf: After customprocessor
+13:57:56.721:seproxyhal: printf: currentFieldPos 5220 copySize 32
+13:57:56.724:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:56.730:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:56.740:seproxyhal: printf: method: 258
+13:57:56.741:seproxyhal: printf: After customprocessor
+13:57:56.744:seproxyhal: printf: currentFieldPos 5252 copySize 32
+13:57:56.748:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:56.754:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:56.763:seproxyhal: printf: method: 258
+13:57:56.764:seproxyhal: printf: After customprocessor
+13:57:56.767:seproxyhal: printf: currentFieldPos 5284 copySize 32
+13:57:56.770:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:56.776:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:56.785:seproxyhal: printf: method: 258
+13:57:56.787:seproxyhal: printf: After customprocessor
+13:57:56.790:seproxyhal: printf: currentFieldPos 5316 copySize 18
+13:57:56.791:seproxyhal: printf: After customprocessor
+13:57:56.792:seproxyhal: printf: Command length done
+13:57:56.793:seproxyhal: printf: result: 0
+13:57:56.795:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:56.801:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:56] "POST / HTTP/1.1" 200 -
+< b'e004800096444d3adf12700001f47ceb23fd6bc0add59e62ac25578270cff1b9f6190001f41bfd67037b42cf73acf2047067bd4f2c47d9bfd60000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000'
+13:57:57.229:apdu: > e004800096444d3adf12700001f47ceb23fd6bc0add59e62ac25578270cff1b9f6190001f41bfd67037b42cf73acf2047067bd4f2c47d9bfd60000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000
+13:57:57.261:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:57] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:57.773: Check [22267ms]
+13:57:57.267:seproxyhal: printf: currentFieldPos 5334 copySize 14
+13:57:57.268:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:57.276:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:57.286:seproxyhal: printf: method: 258
+13:57:57.287:seproxyhal: printf: After customprocessor
+13:57:57.291:seproxyhal: printf: currentFieldPos 5348 copySize 32
+13:57:57.294:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:57.300:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:57.309:seproxyhal: printf: method: 258
+13:57:57.310:seproxyhal: printf: After customprocessor
+13:57:57.312:seproxyhal: printf: currentFieldPos 5380 copySize 32
+13:57:57.316:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:57.322:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:57.331:seproxyhal: printf: method: 258
+13:57:57.332:seproxyhal: printf: After customprocessor
+13:57:57.335:seproxyhal: printf: currentFieldPos 5412 copySize 32
+13:57:57.338:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:57.344:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:57.354:seproxyhal: printf: method: 258
+13:57:57.355:seproxyhal: printf: After customprocessor
+13:57:57.358:seproxyhal: printf: currentFieldPos 5444 copySize 32
+13:57:57.361:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:57.367:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:57.377:seproxyhal: printf: method: 258
+13:57:57.378:seproxyhal: printf: After customprocessor
+13:57:57.381:seproxyhal: printf: currentFieldPos 5476 copySize 8
+13:57:57.383:seproxyhal: printf: After customprocessor
+13:57:57.384:seproxyhal: printf: Command length done
+13:57:57.385:seproxyhal: printf: result: 0
+13:57:57.387:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:57.393:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:57] "POST / HTTP/1.1" 200 -
+< b'e00480009600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000'
+13:57:57.809:apdu: > e00480009600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000
+13:57:57.853:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:57] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:58.365: Check [22858ms]
+13:57:57.855:seproxyhal: printf: currentFieldPos 5484 copySize 24
+13:57:57.857:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:57.864:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:57.875:seproxyhal: printf: method: 258
+13:57:57.876:seproxyhal: printf: After customprocessor
+13:57:57.879:seproxyhal: printf: currentFieldPos 5508 copySize 32
+13:57:57.883:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:57.889:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:57.897:seproxyhal: printf: method: 258
+13:57:57.898:seproxyhal: printf: After customprocessor
+13:57:57.901:seproxyhal: printf: currentFieldPos 5540 copySize 32
+13:57:57.904:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:57.910:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:57.919:seproxyhal: printf: method: 258
+13:57:57.920:seproxyhal: printf: After customprocessor
+13:57:57.923:seproxyhal: printf: currentFieldPos 5572 copySize 32
+13:57:57.926:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:57.932:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:57.940:seproxyhal: printf: method: 258
+13:57:57.942:seproxyhal: printf: After customprocessor
+13:57:57.944:seproxyhal: printf: currentFieldPos 5604 copySize 30
+13:57:57.946:seproxyhal: printf: After customprocessor
+13:57:57.947:seproxyhal: printf: Command length done
+13:57:57.948:seproxyhal: printf: result: 0
+13:57:57.950:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:57.956:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:57] "POST / HTTP/1.1" 200 -
+< b'e004800096000000000020000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000000030000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa841740000000000000000000000000d500b1d'
+13:57:58.408:apdu: > e004800096000000000020000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000000030000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa841740000000000000000000000000d500b1d
+13:57:58.443:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:58] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:58.956: Check [23450ms]
+13:57:58.448:seproxyhal: printf: currentFieldPos 5634 copySize 2
+13:57:58.449:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:58.457:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:58.468:seproxyhal: printf: method: 258
+13:57:58.469:seproxyhal: printf: After customprocessor
+13:57:58.472:seproxyhal: printf: currentFieldPos 5636 copySize 32
+13:57:58.476:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:58.482:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:58.491:seproxyhal: printf: method: 258
+13:57:58.492:seproxyhal: printf: After customprocessor
+13:57:58.495:seproxyhal: printf: currentFieldPos 5668 copySize 32
+13:57:58.499:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:58.505:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:58.514:seproxyhal: printf: method: 258
+13:57:58.515:seproxyhal: printf: After customprocessor
+13:57:58.518:seproxyhal: printf: currentFieldPos 5700 copySize 32
+13:57:58.521:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:58.528:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:58.537:seproxyhal: printf: method: 258
+13:57:58.538:seproxyhal: printf: After customprocessor
+13:57:58.541:seproxyhal: printf: currentFieldPos 5732 copySize 32
+13:57:58.544:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:58.550:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:58.559:seproxyhal: printf: method: 258
+13:57:58.561:seproxyhal: printf: After customprocessor
+13:57:58.564:seproxyhal: printf: currentFieldPos 5764 copySize 20
+13:57:58.565:seproxyhal: printf: After customprocessor
+13:57:58.566:seproxyhal: printf: Command length done
+13:57:58.566:seproxyhal: printf: result: 0
+13:57:58.569:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:58.575:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:58] "POST / HTTP/1.1" 200 -
+< b'e0048000968e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee0000000000000000000000000000000000000000000000000000000000000000869584cd00000000000000000000000010000000000000000000000000000000000000110000000000000000000000000000000000000000000000e5ee4ea5d9639a631d0000'
+13:57:58.997:apdu: > e0048000968e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee0000000000000000000000000000000000000000000000000000000000000000869584cd00000000000000000000000010000000000000000000000000000000000000110000000000000000000000000000000000000000000000e5ee4ea5d9639a631d0000
+13:57:59.011:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:59] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:57:59.520: Check [24014ms]
+13:57:59.022:seproxyhal: printf: currentFieldPos 5784 copySize 12
+13:57:59.023:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:59.030:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:59.039:seproxyhal: printf: method: 258
+13:57:59.040:seproxyhal: printf: After customprocessor
+13:57:59.043:seproxyhal: printf: currentFieldPos 5796 copySize 32
+13:57:59.046:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:59.052:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:59.061:seproxyhal: printf: method: 258
+13:57:59.062:seproxyhal: printf: After customprocessor
+13:57:59.065:seproxyhal: printf: currentFieldPos 5828 copySize 32
+13:57:59.068:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:59.074:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:59.083:seproxyhal: printf: method: 258
+13:57:59.084:seproxyhal: printf: After customprocessor
+13:57:59.088:seproxyhal: printf: currentFieldPos 5860 copySize 32
+13:57:59.091:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:59.097:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:59.106:seproxyhal: printf: method: 258
+13:57:59.107:seproxyhal: printf: After customprocessor
+13:57:59.110:seproxyhal: printf: currentFieldPos 5892 copySize 32
+13:57:59.114:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:59.120:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:59.129:seproxyhal: printf: method: 258
+13:57:59.130:seproxyhal: printf: After customprocessor
+13:57:59.133:seproxyhal: printf: currentFieldPos 5924 copySize 10
+13:57:59.135:seproxyhal: printf: After customprocessor
+13:57:59.135:seproxyhal: printf: Command length done
+13:57:59.136:seproxyhal: printf: result: 0
+13:57:59.138:seproxyhal: printf: exception[36864]: LR=0x40000FC9
+13:57:59.144:apdu: < 9000
+> b'9000'
+172.17.0.1 - - [22/Dec/2022 13:57:59] "POST / HTTP/1.1" 200 -
+< b'e00480001a0000000000000000000000000000000000000000000081898080'
+13:57:59.561:apdu: > e00480001a0000000000000000000000000000000000000000000081898080
+13:57:59.592:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:57:59] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:00.102: Check [24595ms]
+13:57:59.600:seproxyhal: printf: currentFieldPos 5934 copySize 22
+13:57:59.601:seproxyhal: printf: 
+13:57:59.601:seproxyhal: printf: 
+13:57:59.601:seproxyhal: printf: Incrementing one
+13:57:59.603:seproxyhal: printf: -- PLUGIN PROVIDE PARAMETER --
+[*] patching svc instruction at 0x40000f10
+13:57:59.610:seproxyhal: printf: ===HANDLE: 0 
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:57:59.621:seproxyhal: printf: method: 258
+13:57:59.622:seproxyhal: printf: After customprocessor
+13:57:59.625:seproxyhal: printf: After customprocessor
+13:57:59.626:seproxyhal: printf: Current field: 9
+13:57:59.628:seproxyhal: printf: After customprocessor
+13:57:59.629:seproxyhal: printf: Current field: 10
+13:57:59.629:seproxyhal: printf: After customprocessor
+13:57:59.630:seproxyhal: printf: Current field: 11
+13:57:59.630:seproxyhal: printf: parsing is done
+13:57:59.631:seproxyhal: printf: result: 2
+13:58:00.107:seproxyhal: printf: -- PLUGIN FINALIZE --
+[*] patching svc instruction at 0x40000f10
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:58:00.134:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:00] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:00.647: Check [25141ms]
+13:58:00.138:seproxyhal: printf: Setting address sent to: 00000000000000000000000000000000F7520E56
+13:58:00.144:seproxyhal: printf: ETH attached to tx when token being swapped is 00000000000000000000000000000000F7520E56
+[*] patching svc instruction at 0x40000f10
+13:58:00.148:seproxyhal: printf: Setting address receiving to: 0000000000000000000000008A3252541767C800
+13:58:00.149:seproxyhal: printf: method: 259
+13:58:00.153:seproxyhal: printf: Lookup1: 00000000000000000000000000000000F7520E56
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:58:00.157:seproxyhal: printf: Lookup2: 0000000000000000000000008A3252541767C800
+13:58:00.158:seproxyhal: printf: -- PLUGIN PROVIDE INFO --
+13:58:00.158:seproxyhal: printf: PARASWAP plugin provide token: 0x0, 0x0
+13:58:00.161:seproxyhal: printf: method: 260
+13:58:00.163:seproxyhal: printf: RESULT: 4
+13:58:00.174:seproxyhal: printf: Gas price 3B9ACA00
+13:58:00.174:seproxyhal: printf: Gas limit 5208
+13:58:00.199:seproxyhal: printf: Fees displayed: MATIC 0.000021
+13:58:00.201:seproxyhal: printf: Network: Polygon
+13:58:00.723:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:00] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:00.732: Screen changed
+[ZEMU] 13:58:00.732: ---------------------------
+[ZEMU] 13:58:00.732: Start        /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00000.png
+13:58:00.763:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:00] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:00.767: Instructions 9,0
+13:58:00.789:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:00] "GET /screenshot HTTP/1.1" 200 -
+13:58:00.916:seproxyhal: printf: -- PLUGIN QUERY CONTRACT ID --
+[*] patching svc instruction at 0x40000f10
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:58:00.935:seproxyhal: printf: method: 261
+13:58:01.014:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 13:58:01.016: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00001.png
+13:58:01.042:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "GET /screenshot HTTP/1.1" 200 -
+13:58:01.069:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "GET /screenshot HTTP/1.1" 200 -
+13:58:01.098:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "GET /screenshot HTTP/1.1" 200 -
+13:58:01.221:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
+[*] patching svc instruction at 0x40000f10
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:58:01.239:seproxyhal: printf: method: 262
+13:58:01.319:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 13:58:01.321: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00002.png
+13:58:01.347:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "GET /screenshot HTTP/1.1" 200 -
+13:58:01.373:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "GET /screenshot HTTP/1.1" 200 -
+13:58:01.401:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "GET /screenshot HTTP/1.1" 200 -
+13:58:01.523:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
+[*] patching svc instruction at 0x40000f10
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:58:01.559:seproxyhal: printf: method: 262
+13:58:01.619:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 13:58:01.623: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00003.png
+13:58:01.646:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "GET /screenshot HTTP/1.1" 200 -
+13:58:01.673:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "GET /screenshot HTTP/1.1" 200 -
+13:58:01.701:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "GET /screenshot HTTP/1.1" 200 -
+13:58:01.924:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 13:58:01.927: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00004.png
+13:58:01.961:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "GET /screenshot HTTP/1.1" 200 -
+13:58:01.987:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:01] "GET /screenshot HTTP/1.1" 200 -
+13:58:02.012:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "GET /screenshot HTTP/1.1" 200 -
+13:58:02.230:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 13:58:02.232: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00005.png
+13:58:02.260:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "GET /screenshot HTTP/1.1" 200 -
+13:58:02.286:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "GET /screenshot HTTP/1.1" 200 -
+13:58:02.314:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "GET /screenshot HTTP/1.1" 200 -
+13:58:02.438:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
+[*] patching svc instruction at 0x40000f10
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:58:02.458:seproxyhal: printf: method: 262
+13:58:02.531:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 13:58:02.535: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00006.png
+13:58:02.559:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "GET /screenshot HTTP/1.1" 200 -
+13:58:02.586:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "GET /screenshot HTTP/1.1" 200 -
+13:58:02.614:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "GET /screenshot HTTP/1.1" 200 -
+13:58:02.740:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
+[*] patching svc instruction at 0x40000f10
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:58:02.772:seproxyhal: printf: method: 262
+13:58:02.832:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 13:58:02.835: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00007.png
+13:58:02.860:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "GET /screenshot HTTP/1.1" 200 -
+13:58:02.886:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "GET /screenshot HTTP/1.1" 200 -
+13:58:02.913:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:02] "GET /screenshot HTTP/1.1" 200 -
+13:58:03.136:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:03] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 13:58:03.140: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00008.png
+13:58:03.171:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:03] "GET /screenshot HTTP/1.1" 200 -
+13:58:03.199:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:03] "GET /screenshot HTTP/1.1" 200 -
+13:58:03.227:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:03] "GET /screenshot HTTP/1.1" 200 -
+13:58:03.350:seproxyhal: printf: -- PLUGIN QUERY CONTRACT UI --
+[*] patching svc instruction at 0x40000f10
+[*] patching svc instruction at 0x40006f9a
+[*] patching svc instruction at 0x40006fa8
+13:58:03.372:seproxyhal: printf: method: 262
+13:58:03.444:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:03] "POST /button/right HTTP/1.1" 200 -
+[ZEMU] 13:58:03.446: Click /button/right -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00009.png
+13:58:03.470:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:03] "GET /screenshot HTTP/1.1" 200 -
+13:58:03.495:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:03] "GET /screenshot HTTP/1.1" 200 -
+13:58:03.521:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:03] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:03.757: Click /button/both -> /Users/nicolaszozol/code/ledger/app-plugin-paraswap/tests/snapshots-tmp/polygon_nanos_join_pool/00010.png
+13:58:03.748:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:03] "POST /button/both HTTP/1.1" 200 -
+13:58:03.802:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:03] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:03.805: sleep
+13:58:03.956:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:03] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:03.961: sleep
+13:58:04.116:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:04] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:04.119: sleep
+13:58:04.281:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:04] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:04.286: sleep
+13:58:04.450:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:04] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:04.454: sleep
+13:58:04.611:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:04] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:04.613: sleep
+13:58:04.775:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:04] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:04.779: sleep
+13:58:04.916:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:04] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:04.917: sleep
+[ZEMU] 13:58:05.064: sleep
+13:58:05.061:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:05] "GET /screenshot HTTP/1.1" 200 -
+13:58:05.221:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:05] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:05.226: sleep
+13:58:05.390:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:05] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:05.397: sleep
+13:58:05.551:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:05] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:05.554: sleep
+13:58:05.713:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:05] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:05.718: sleep
+13:58:05.882:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:05] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:05.885: sleep
+13:58:06.046:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:06] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:06.052: sleep
+13:58:06.208:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:06] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:06.213: sleep
+13:58:06.368:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:06] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:06.372: sleep
+13:58:06.533:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:06] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:06.539: sleep
+13:58:06.695:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:06] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:06.698: sleep
+13:58:06.854:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:06] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:06.859: sleep
+13:58:07.016:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:07] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:07.019: sleep
+13:58:07.177:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:07] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:07.182: sleep
+13:58:07.344:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:07] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:07.350: sleep
+13:58:07.512:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:07] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:07.518: sleep
+13:58:07.677:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:07] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:07.683: sleep
+13:58:07.844:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:07] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:07.849: sleep
+13:58:08.012:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:08] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:08.017: sleep
+13:58:08.183:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:08] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:08.188: sleep
+13:58:08.350:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:08] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:08.352: sleep
+13:58:08.519:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:08] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:08.524: sleep
+13:58:08.687:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:08] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:08.693: sleep
+13:58:08.849:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:08] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:08.852: sleep
+13:58:09.006:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:09] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:09.009: sleep
+13:58:09.171:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:09] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:09.174: sleep
+13:58:09.336:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:09] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:09.338: sleep
+13:58:09.502:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:09] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:09.506: sleep
+13:58:09.666:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:09] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:09.670: sleep
+13:58:09.812:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:09] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:09.816: sleep
+13:58:09.958:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:09] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:09.959: sleep
+13:58:10.110:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:10] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:10.112: sleep
+[ZEMU] 13:58:10.267: sleep
+13:58:10.265:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:10] "GET /screenshot HTTP/1.1" 200 -
+13:58:10.427:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:10] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:10.430: sleep
+13:58:10.586:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:10] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:10.589: sleep
+13:58:10.748:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:10] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:10.753: sleep
+13:58:10.919:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:10] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:10.925: sleep
+13:58:11.080:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:11] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:11.084: sleep
+13:58:11.245:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:11] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:11.252: sleep
+13:58:11.419:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:11] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:11.424: sleep
+13:58:11.579:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:11] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:11.582: sleep
+13:58:11.745:werkzeug: 172.17.0.1 - - [22/Dec/2022 13:58:11] "GET /screenshot HTTP/1.1" 200 -
+[ZEMU] 13:58:11.749: sleep
+[ZEMU] 13:58:11.852: Close
 [ZEMU] Stopping container
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
