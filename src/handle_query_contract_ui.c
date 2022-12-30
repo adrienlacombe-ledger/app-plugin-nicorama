@@ -21,14 +21,14 @@ static void set_send_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *contex
     }
 
     // Added from paraswap plugin, was not on Quickswap plugin
-    if (ADDRESS_IS_NETWORK_TOKEN(context->contract_address_sent)) {
-        strlcpy(context->ticker_sent, msg->network_ticker, sizeof(context->ticker_sent));
+    if (ADDRESS_IS_NETWORK_TOKEN(context->token_address_a)) {
+        strlcpy(context->ticker_a, msg->network_ticker, sizeof(context->ticker_a));
     }
 
-        amountToString(context->amount_sent,
-                       sizeof(context->amount_sent),
-                       context->decimals_sent,
-                       context->ticker_sent,
+        amountToString(context->amount_a,
+                       sizeof(context->amount_a),
+                       context->decimals_a,
+                       context->ticker_a,
                        msg->msg,
                        msg->msgLength);
 }
@@ -52,14 +52,14 @@ static void set_receive_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *con
     }
 
     // Added from paraswap plugin, was not on Quickswap plugin
-    if (ADDRESS_IS_NETWORK_TOKEN(context->contract_address_received)) {
-            strlcpy(context->ticker_received, msg->network_ticker, sizeof(context->ticker_received));
+    if (ADDRESS_IS_NETWORK_TOKEN(context->token_address_b)) {
+            strlcpy(context->ticker_b, msg->network_ticker, sizeof(context->ticker_b));
     }
 
-    amountToString(context->amount_received,
-                   sizeof(context->amount_received),
-                   context->decimals_received,
-                   context->ticker_received,
+    amountToString(context->amount_b,
+                   sizeof(context->amount_b),
+                   context->decimals_b,
+                   context->ticker_b,
                    msg->msg,
                    msg->msgLength);
 }
@@ -76,7 +76,7 @@ static screens_t get_screen(const ethQueryContractUI_t *msg, const paraswap_para
 
 
     PRINTF("=== get_screen: Current screen index %d \n", index);
-    //PRINTF("=== token_sent_found %d \n", token_sent_found);
+    //PRINTF("=== token_a_found %d \n", token_a_found);
     PRINTF("=== ### token_a_found %d \n", token_a_found);
     //PRINTF("=== both_tokens_found %d \n", both_tokens_found);
     //PRINTF("=== both_tokens_not_found %d \n", both_tokens_not_found);

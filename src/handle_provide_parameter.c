@@ -1,15 +1,15 @@
 #include "paraswap_plugin.h"
 
-// Copy amount sent parameter to amount_sent
-static void handle_amount_sent(const ethPluginProvideParameter_t *msg,
+// Copy amount sent parameter to amount_a
+static void handle_amount_a(const ethPluginProvideParameter_t *msg,
                                paraswap_parameters_t *context) {
-    copy_parameter(context->amount_sent, msg->parameter, sizeof(context->amount_sent));
+    copy_parameter(context->amount_a, msg->parameter, sizeof(context->amount_a));
 }
 
-// Copy amount sent parameter to amount_received
-static void handle_amount_received(const ethPluginProvideParameter_t *msg,
+// Copy amount sent parameter to amount_b
+static void handle_amount_b(const ethPluginProvideParameter_t *msg,
                                    paraswap_parameters_t *context) {
-    copy_parameter(context->amount_received, msg->parameter, sizeof(context->amount_received));
+    copy_parameter(context->amount_b, msg->parameter, sizeof(context->amount_b));
 }
 
 
@@ -19,35 +19,27 @@ static void handle_array_len(const ethPluginProvideParameter_t *msg,
     PRINTF("LIST LEN: %d\n", context->array_len);
 }
 
-static void contract_address_sent(const ethPluginProvideParameter_t *msg,
+
+static void handle_token_a(const ethPluginProvideParameter_t *msg,
                               paraswap_parameters_t *context) {
-    memset(context->contract_address_sent, 0, sizeof(context->contract_address_sent));
-    memcpy(context->contract_address_sent,
+    memset(context->token_address_a, 0, sizeof(context->token_address_a));
+    memcpy(context->token_address_a,
            &msg->parameter[PARAMETER_LENGTH - ADDRESS_LENGTH],
-           sizeof(context->contract_address_sent));
-    PRINTF("=== CONTRACT SENT: %.*H\n", ADDRESS_LENGTH, context->contract_address_sent);
+           sizeof(context->token_address_a));
+    PRINTF("=== TOKEN SENT: %.*H\n", ADDRESS_LENGTH, context->token_address_a);
 }
 
-static void handle_token_sent(const ethPluginProvideParameter_t *msg,
-                              paraswap_parameters_t *context) {
-    memset(context->contract_address_sent, 0, sizeof(context->contract_address_sent));
-    memcpy(context->contract_address_sent,
-           &msg->parameter[PARAMETER_LENGTH - ADDRESS_LENGTH],
-           sizeof(context->contract_address_sent));
-    PRINTF("=== TOKEN SENT: %.*H\n", ADDRESS_LENGTH, context->contract_address_sent);
-}
-
-static void handle_token_received(const ethPluginProvideParameter_t *msg,
+static void handle_token_b(const ethPluginProvideParameter_t *msg,
                                   paraswap_parameters_t *context) {
-    memset(context->contract_address_received, 0, sizeof(context->contract_address_received));
-    memcpy(context->contract_address_received,
+    memset(context->token_address_b, 0, sizeof(context->token_address_b));
+    memcpy(context->token_address_b,
            &msg->parameter[PARAMETER_LENGTH - ADDRESS_LENGTH],
-           sizeof(context->contract_address_received));
-    PRINTF("=== TOKEN RECEIVED: %.*H\n", ADDRESS_LENGTH, context->contract_address_received);
+           sizeof(context->token_address_b));
+    PRINTF("=== TOKEN RECEIVED: %.*H\n", ADDRESS_LENGTH, context->token_address_b);
 }
 
 
-static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
+static void handle_0x_deposit(ethPluginProvideParameter_t *msg,
                                         paraswap_parameters_t *context) {
 
     switch (context->next_param) {
@@ -62,12 +54,12 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
             break;
 
         case TOKEN_A:  // tokenA
-            handle_token_sent(msg, context);
+            handle_token_a(msg, context);
             context->next_param = AMOUNT_DEPOSIT;
             break;
         case AMOUNT_DEPOSIT:  // TokenA Min Amount
-            handle_amount_sent(msg, context);
-            PRINTF("=== Amount sent:%d \n", context->amount_sent);
+            handle_amount_a(msg, context);
+            PRINTF("=== Amount sent:%d \n", context->amount_a);
             context->next_param = NONE;
             break;
         case NONE:
@@ -82,12 +74,14 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
 static void handle_exit(ethPluginProvideParameter_t *msg,
                                             paraswap_parameters_t *context) {
     switch (context->next_param) {
+
+    // We don't need to show how much is exited, so we are skipping SLP
         case TOKEN_B:  // Pool token
-            handle_token_received(msg, context);
+            handle_token_b(msg, context);
             context->next_param = AMOUNT_EXITED;
             break;
         case AMOUNT_EXITED:  // Amount of SPT
-            handle_amount_received(msg, context);
+            handle_amount_b(msg, context);
             context->next_param = NONE;
             break;
         case NONE:
@@ -124,7 +118,7 @@ void handle_provide_parameter(void *parameters) {
         switch (context->selectorIndex) {
 
                     case JOIN_POOL_VIA_0X:
-                        handle_add_remove_liquidity(msg, context);
+                        handle_0x_deposit(msg, context);
                         break;
 
                     case EXIT:
