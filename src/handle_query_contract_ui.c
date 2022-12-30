@@ -2,6 +2,7 @@
 
 // Set UI for the "Send" screen.
 static void set_send_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *context) {
+    PRINTF("=== ### set_send_ui");
     switch (context->selectorIndex) {
 
         case JOIN_POOL_VIA_0X:
@@ -22,8 +23,8 @@ static void set_send_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *contex
 
     // Added from paraswap plugin, was not on Quickswap plugin
     if (ADDRESS_IS_NETWORK_TOKEN(context->contract_address_sent)) {
-            strlcpy(context->ticker_sent, msg->network_ticker, sizeof(context->ticker_sent));
-        }
+        strlcpy(context->ticker_sent, msg->network_ticker, sizeof(context->ticker_sent));
+    }
 
         amountToString(context->amount_sent,
                        sizeof(context->amount_sent),
@@ -54,14 +55,14 @@ static void set_receive_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *con
     // Added from paraswap plugin, was not on Quickswap plugin
     if (ADDRESS_IS_NETWORK_TOKEN(context->contract_address_received)) {
             strlcpy(context->ticker_received, msg->network_ticker, sizeof(context->ticker_received));
-        }
+    }
 
-        amountToString(context->amount_received,
-                       sizeof(context->amount_received),
-                       context->decimals_received,
-                       context->ticker_received,
-                       msg->msg,
-                       msg->msgLength);
+    amountToString(context->amount_received,
+                   sizeof(context->amount_received),
+                   context->decimals_received,
+                   context->ticker_received,
+                   msg->msg,
+                   msg->msgLength);
 }
 
 

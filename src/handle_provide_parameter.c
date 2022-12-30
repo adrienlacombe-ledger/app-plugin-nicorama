@@ -96,11 +96,11 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
             // For the moment we ignore the beneficiary
             context->next_param = NONE;
             break;
-        case BENEFICIARY:  // to
+        /*case BENEFICIARY:  // to
             PRINTF("=== Beneficiary case, should not happen \n");
             handle_beneficiary(msg, context);
             context->next_param = NONE;
-            break;
+            break;*/
         case NONE:
             break;
         default:
@@ -110,24 +110,15 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
     }
 }
 
-static void handle_add_remove_liquidity_eth(ethPluginProvideParameter_t *msg,
+static void handle_exit(ethPluginProvideParameter_t *msg,
                                             paraswap_parameters_t *context) {
     switch (context->next_param) {
-        case TOKEN_SENT:  // tokenA
-            handle_token_sent(msg, context);
+        case TOKEN_RECEIVED:  // Pool token
+            handle_token_received(msg, context);
             context->next_param = AMOUNT_RECEIVED;
-            //context->skip = 1;
             break;
-        case AMOUNT_RECEIVED:  // TokenA Min Amount
+        case AMOUNT_RECEIVED:  // Amount of SPT
             handle_amount_received(msg, context);
-            context->next_param = AMOUNT_SENT;
-            break;
-        case AMOUNT_SENT:  // ETH Min Amount
-            handle_amount_sent(msg, context);
-            context->next_param = BENEFICIARY;
-            break;
-        case BENEFICIARY:  // to
-            handle_beneficiary(msg, context);
             context->next_param = NONE;
             break;
         case NONE:
@@ -164,14 +155,13 @@ void handle_provide_parameter(void *parameters) {
         switch (context->selectorIndex) {
 
                     case JOIN_POOL_VIA_0X:
-                    //case REMOVE_LIQUIDITY:
                         handle_add_remove_liquidity(msg, context);
                         break;
 
-                    /*case JOIN_POOL_VIA_0X:_ETH:
-                        handle_add_remove_liquidity_eth(msg, context);
+                    case EXIT:
+                        handle_exit(msg, context);
                         break;
-                    */
+
                     default:
                         PRINTF("Selector Index %d not supported\n", context->selectorIndex);
                         msg->result = ETH_PLUGIN_RESULT_ERROR;

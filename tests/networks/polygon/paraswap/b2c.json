@@ -9,6 +9,13 @@
                     "erc20OfInterest": ["joiningAsset", "pool"],
                     "method": "joinPoolVia0x",
                     "plugin": "Paraswap"
+                },
+                "0x2d56810c": {
+                    "erc20OfInterest": [
+                        "tokens.0",
+                        "tokens.-1"],
+                    "method": "exitPool",
+                    "plugin": "Paraswap"
                 }
             }
         }

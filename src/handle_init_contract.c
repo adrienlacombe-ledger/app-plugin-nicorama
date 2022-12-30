@@ -34,9 +34,10 @@ void handle_init_contract(void *parameters) {
     // Set `next_param` to be the first field we expect to parse.
     switch (context->selectorIndex) {
         case JOIN_POOL_VIA_0X:
-            //case JOIN_POOL_VIA_0X_ETH:
-            //case REMOVE_LIQUIDITY:
             context->next_param = INITIAL_OFFSET;
+            break;
+        case EXIT:
+            context->next_param = TOKEN_RECEIVED;
             break;
         default:
             PRINTF("Missing selectorIndex\n");

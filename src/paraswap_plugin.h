@@ -28,9 +28,8 @@ extern const uint8_t NULL_ETH_ADDRESS[ADDRESS_LENGTH];
 #define ADDRESS_IS_NETWORK_TOKEN(_addr) (!memcmp(_addr, PARASWAP_ETH_ADDRESS, ADDRESS_LENGTH))
 
 typedef enum {
-    JOIN_POOL_VIA_0X
-    //JOIN_POOL_VIA_0X_ETH,
-    // REMOVE_LIQUIDITY
+    JOIN_POOL_VIA_0X,
+    EXIT
 } paraswapSelector_t;
 
 extern const uint8_t *const PARASWAP_SELECTORS[NUM_PARASWAP_SELECTORS];
@@ -53,10 +52,10 @@ typedef enum {
     4  // Path of the different asseths that will get swapped during the trade. First and last
        // tokens are the ones we care about.
 #define BENEFICIARY           5  // Address to which the contract will send the tokens.
-#define INITIAL_OFFSET                6
+#define INITIAL_OFFSET        6
 #define PATHS_OFFSET          7
 #define PATHS_LEN             8
-#define MEGA_PATHS_OFFSET     9
+#define TOKENS_LENGTH         9
 #define MEGA_PATHS_LEN        10
 #define FIRST_MEGAPATH_OFFSET 11
 #define FIRST_MEGAPATH        12
