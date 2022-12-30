@@ -35,10 +35,9 @@ typedef enum {
 extern const uint8_t *const PARASWAP_SELECTORS[NUM_PARASWAP_SELECTORS];
 
 typedef enum {
-    SEND_SCREEN,
-    RECEIVE_SCREEN,
-    WARN_SCREEN,
-    //BENEFICIARY_SCREEN,
+    DEPOSIT_SCREEN, // Deposit and exit screen can be looped to display two
+    EXIT_SCREEN,
+    MORE_SCREEN, // when the pool has more than two tokens
     ERROR,
 } screens_t;
 
@@ -46,19 +45,10 @@ typedef enum {
 // `uint8_t`.
 #define AMOUNT_SENT     0  // Amount sent by the user to the contract.
 #define AMOUNT_RECEIVED 1  // Amount sent by the contract to the user.
-#define TOKEN_SENT      2  // Address of the token the user is sending.
-#define TOKEN_RECEIVED  3  // Address of the token sent to the user.
-#define PATH \
-    4  // Path of the different asseths that will get swapped during the trade. First and last
-       // tokens are the ones we care about.
-#define BENEFICIARY           5  // Address to which the contract will send the tokens.
+#define TOKEN_A      2  // Address of first token
+#define TOKEN_B  3  // Address of the second token
 #define INITIAL_OFFSET        6
-#define PATHS_OFFSET          7
-#define PATHS_LEN             8
 #define TOKENS_LENGTH         9
-#define MEGA_PATHS_LEN        10
-#define FIRST_MEGAPATH_OFFSET 11
-#define FIRST_MEGAPATH        12
 #define NONE                  13  // Placeholder variant to be set when parsing is done but data is still being sent.
 
 // Number of decimals used when the token wasn't found in the CAL.
@@ -71,8 +61,7 @@ typedef enum {
 typedef struct paraswap_parameters_t {
     uint8_t amount_sent[INT256_LENGTH];     // 32 bytes aka one line
     uint8_t amount_received[INT256_LENGTH];
-    char beneficiary[ADDRESS_LENGTH];   // 20 bytes
-    uint8_t contract_address_sent[ADDRESS_LENGTH];
+    uint8_t contract_address_sent[ADDRESS_LENGTH]; // 20 bytes
     uint8_t contract_address_received[ADDRESS_LENGTH];
     char ticker_sent[MAX_TICKER_LEN];
     char ticker_received[MAX_TICKER_LEN];  // 12 bytes

@@ -37,7 +37,7 @@ void handle_init_contract(void *parameters) {
             context->next_param = INITIAL_OFFSET;
             break;
         case EXIT:
-            context->next_param = TOKEN_RECEIVED;
+            context->next_param = TOKEN_B;
             break;
         default:
             PRINTF("Missing selectorIndex\n");

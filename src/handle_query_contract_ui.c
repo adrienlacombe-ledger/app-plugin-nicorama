@@ -2,7 +2,6 @@
 
 // Set UI for the "Send" screen.
 static void set_send_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *context) {
-    PRINTF("=== ### set_send_ui");
     switch (context->selectorIndex) {
 
         case JOIN_POOL_VIA_0X:
@@ -66,13 +65,6 @@ static void set_receive_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *con
 }
 
 
-// Set UI for "Warning" screen.
-static void set_warning_ui(ethQueryContractUI_t *msg,
-                           const paraswap_parameters_t *context __attribute__((unused))) {
-    strlcpy(msg->title, "WARNING", msg->titleLength);
-    strlcpy(msg->msg, "Unknown token", msg->msgLength);
-}
-
 // Helper function that returns the enum corresponding to the screen that should be displayed.
 static screens_t get_screen(const ethQueryContractUI_t *msg, const paraswap_parameters_t *context) {
     uint8_t index = msg->screenIndex;
@@ -85,66 +77,22 @@ static screens_t get_screen(const ethQueryContractUI_t *msg, const paraswap_para
 
     PRINTF("=== get_screen: Current screen index %d \n", index);
     //PRINTF("=== token_sent_found %d \n", token_sent_found);
-    PRINTF("=== token_received_found %d \n", token_received_found);
+    PRINTF("=== ### token_sent_found %d \n", token_sent_found);
     //PRINTF("=== both_tokens_found %d \n", both_tokens_found);
     //PRINTF("=== both_tokens_not_found %d \n", both_tokens_not_found);
 
-    // SEND_SCREEN  0
-    // RECEIVE_SCREEN 1
+    // DEPOSIT_SCREEN  0
+    // EXIT_SCREEN 1
     // WARN_SCREEN  2
     // ERROR  3
     switch (index) {
         case 0:
             if (token_sent_found) {
-                return SEND_SCREEN;
+                return DEPOSIT_SCREEN;
             } else{
-                return WARN_SCREEN;
+                return ERROR;
             }
             break;
-        case 1:
-            if (token_sent_found) {
-                if (token_received_found){
-                    return RECEIVE_SCREEN;
-                } else {
-                    return WARN_SCREEN;
-                }
-            } else {
-                return SEND_SCREEN;
-            }
-            break;
-
-        case 2:
-           if (token_sent_found) {
-               if (token_received_found){
-                   PRINTF("=== Error, we already made all screen");
-                   return ERROR; // we made all screen
-               } else {
-                   return RECEIVE_SCREEN;
-               }
-           } else {
-               if (token_received_found){
-                  return RECEIVE_SCREEN;
-              } else {
-                  return WARN_SCREEN;
-              }
-           }
-           break;
-        case 3:
-           if (token_sent_found) {
-               PRINTF("=== index 3, found sent. Error, we already made all screen");
-               return ERROR; // we made all screen
-           } else {
-               if (token_received_found){
-                  PRINTF("=== index 3, found receive. Error, we already made all screen");
-                  return ERROR;
-              } else {
-                  return RECEIVE_SCREEN;
-              }
-           }
-           break;
-        case 4:
-            PRINTF("=== Screen index 4, should not happen");
-            return ERROR;
         default:
             return ERROR;
             break;
@@ -176,14 +124,11 @@ void handle_query_contract_ui(void *parameters) {
     screens_t screen = get_screen(msg, context);
     PRINTF("=== Found screen: %d\n", screen);
     switch (screen) {
-        case SEND_SCREEN:
+        case DEPOSIT_SCREEN:
             set_send_ui(msg, context);
             break;
-        case RECEIVE_SCREEN:
+        case EXIT_SCREEN:
             set_receive_ui(msg, context);
-            break;
-        case WARN_SCREEN:
-            set_warning_ui(msg, context);
             break;
         default:
             PRINTF("=== Received an invalid screenIndex\n");

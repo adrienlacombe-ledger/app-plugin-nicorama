@@ -8,17 +8,10 @@ void handle_finalize(void *parameters) {
         /**
         * NUMBER OF SCREENS
         */
-        msg->numScreens = 3;
-
-        // If there are some cases with more or less screens
-        if ((context->selectorIndex == JOIN_POOL_VIA_0X) &&
-            (strncmp(context->beneficiary, (const char *) NULL_ETH_ADDRESS, ADDRESS_LENGTH) != 0)) {
-            // An additional screen is required to display the `beneficiary` field.
-            msg->numScreens += 0;
-        }
+        msg->numScreens = 1;
 
         /**
-        * INFORMATIONS OF TOKENS
+        * INFORMATIONS OF TOKENS : swaap team didn't touch that part, directly from Paraswap plugin
         */
         if (!ADDRESS_IS_NETWORK_TOKEN(context->contract_address_sent)) {
             // Address is not network token (0xeee...) so we will need to look up the token in the
