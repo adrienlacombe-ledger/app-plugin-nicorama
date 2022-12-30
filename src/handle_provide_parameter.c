@@ -63,9 +63,9 @@ static void handle_add_remove_liquidity(ethPluginProvideParameter_t *msg,
 
         case TOKEN_A:  // tokenA
             handle_token_sent(msg, context);
-            context->next_param = AMOUNT_SENT;
+            context->next_param = AMOUNT_DEPOSIT;
             break;
-        case AMOUNT_SENT:  // TokenA Min Amount
+        case AMOUNT_DEPOSIT:  // TokenA Min Amount
             handle_amount_sent(msg, context);
             PRINTF("=== Amount sent:%d \n", context->amount_sent);
             context->next_param = NONE;
@@ -84,9 +84,9 @@ static void handle_exit(ethPluginProvideParameter_t *msg,
     switch (context->next_param) {
         case TOKEN_B:  // Pool token
             handle_token_received(msg, context);
-            context->next_param = AMOUNT_RECEIVED;
+            context->next_param = AMOUNT_EXITED;
             break;
-        case AMOUNT_RECEIVED:  // Amount of SPT
+        case AMOUNT_EXITED:  // Amount of SPT
             handle_amount_received(msg, context);
             context->next_param = NONE;
             break;

@@ -43,8 +43,8 @@ typedef enum {
 
 // Would've loved to make this an enum but we don't have enough room because enums are `int` and not
 // `uint8_t`.
-#define AMOUNT_SENT     0  // Amount sent by the user to the contract.
-#define AMOUNT_RECEIVED 1  // Amount sent by the contract to the user.
+#define AMOUNT_DEPOSIT     0  // Amount sent by the user to the contract.
+#define AMOUNT_EXITED 1  // Amount sent by the contract to the user.
 #define TOKEN_A      2  // Address of first token
 #define TOKEN_B  3  // Address of the second token
 #define INITIAL_OFFSET        6

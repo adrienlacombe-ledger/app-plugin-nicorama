@@ -69,15 +69,15 @@ static void set_receive_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *con
 static screens_t get_screen(const ethQueryContractUI_t *msg, const paraswap_parameters_t *context) {
     uint8_t index = msg->screenIndex;
 
-    bool token_sent_found = context->tokens_found & TOKEN_SENT_FOUND;
+    bool token_a_found = context->tokens_found & TOKEN_SENT_FOUND;
 
-    bool token_received_found = context->tokens_found & TOKEN_RECEIVED_FOUND;
+    bool token_b_found = context->tokens_found & TOKEN_RECEIVED_FOUND;
 
 
 
     PRINTF("=== get_screen: Current screen index %d \n", index);
     //PRINTF("=== token_sent_found %d \n", token_sent_found);
-    PRINTF("=== ### token_sent_found %d \n", token_sent_found);
+    PRINTF("=== ### token_a_found %d \n", token_a_found);
     //PRINTF("=== both_tokens_found %d \n", both_tokens_found);
     //PRINTF("=== both_tokens_not_found %d \n", both_tokens_not_found);
 
@@ -87,7 +87,7 @@ static screens_t get_screen(const ethQueryContractUI_t *msg, const paraswap_para
     // ERROR  3
     switch (index) {
         case 0:
-            if (token_sent_found) {
+            if (token_a_found) {
                 return DEPOSIT_SCREEN;
             } else{
                 return ERROR;

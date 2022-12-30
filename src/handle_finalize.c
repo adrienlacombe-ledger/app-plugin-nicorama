@@ -43,6 +43,7 @@ void handle_finalize(void *parameters) {
             msg->tokenLookup2 = context->contract_address_received;
         } else {
             msg->tokenLookup2 = NULL;
+            // We have MATIC and 18
         }
 
         msg->uiType = ETH_UI_TYPE_GENERIC;
