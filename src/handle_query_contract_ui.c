@@ -5,8 +5,8 @@ static void set_send_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *contex
     switch (context->selectorIndex) {
 
         case JOIN_POOL_VIA_0X:
-        //case JOIN_POOL_VIA_0X_ETH:
-            strlcpy(msg->title, "Send", msg->titleLength);
+        case JOIN_POOL_VIA_SWAAP:
+            strlcpy(msg->title, "Deposit", msg->titleLength);
             break;
 
         /*case REMOVE_LIQUIDITY:
@@ -37,7 +37,7 @@ static void set_receive_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *con
     switch (context->selectorIndex) {
         case JOIN_POOL_VIA_0X:
         //case JOIN_POOL_VIA_0X_ETH:
-            strlcpy(msg->title, "Receive min", msg->titleLength);
+            strlcpy(msg->title, "Exit", msg->titleLength);
             break;
 
         /*case REMOVE_LIQUIDITY:

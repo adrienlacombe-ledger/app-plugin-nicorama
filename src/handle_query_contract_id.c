@@ -8,12 +8,12 @@ void handle_query_contract_id(void *parameters) {
 
     switch (context->selectorIndex) {
         case JOIN_POOL_VIA_0X:
-        //case JOIN_POOL_VIA_0X_ETH:
-            strlcpy(msg->version, "Deposit via 0x", msg->versionLength);
+        case JOIN_POOL_VIA_SWAAP:
+            strlcpy(msg->version, "Deposit", msg->versionLength);
             break;
-        /*case REMOVE_LIQUIDITY:
-            strlcpy(msg->version, "Withdraw", msg->versionLength);
-            break;*/
+        case EXIT:
+            strlcpy(msg->version, "Exit", msg->versionLength);
+            break;
         default:
             PRINTF("Selector Index :%d not supported\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;

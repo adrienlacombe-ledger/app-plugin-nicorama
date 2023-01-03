@@ -34,6 +34,7 @@ void handle_init_contract(void *parameters) {
     // Set `next_param` to be the first field we expect to parse.
     switch (context->selectorIndex) {
         case JOIN_POOL_VIA_0X:
+        case JOIN_POOL_VIA_SWAAP:
             context->next_param = INITIAL_OFFSET;
             break;
         case EXIT:

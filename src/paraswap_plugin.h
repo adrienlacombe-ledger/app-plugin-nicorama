@@ -9,11 +9,13 @@
 
 #define RUN_APPLICATION 1
 
-#define NUM_PARASWAP_SELECTORS 1
+#define NUM_PARASWAP_SELECTORS 2
 #define SELECTOR_SIZE          4
 
 #define PLUGIN_NAME "Swaap"
 
+// These are Token_A and TOKEN_B, but we keep using this semantic because the algorithm
+// did not change
 #define TOKEN_SENT_FOUND     1
 #define TOKEN_RECEIVED_FOUND 1 << 1
 
@@ -29,6 +31,7 @@ extern const uint8_t NULL_ETH_ADDRESS[ADDRESS_LENGTH];
 
 typedef enum {
     JOIN_POOL_VIA_0X,
+    JOIN_POOL_VIA_SWAAP,
     EXIT
 } paraswapSelector_t;
 

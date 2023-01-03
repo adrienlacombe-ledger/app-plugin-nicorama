@@ -8,7 +8,19 @@ void handle_finalize(void *parameters) {
         /**
         * NUMBER OF SCREENS
         */
-        msg->numScreens = 1;
+        switch (context->selectorIndex) {
+                case JOIN_POOL_VIA_0X:
+                case JOIN_POOL_VIA_SWAAP:
+                    msg->numScreens = 1;
+                    break;
+                case EXIT:
+                    msg->numScreens = 0;
+                    break;
+                default:
+                    PRINTF("Missing selectorIndex\n");
+                    msg->result = ETH_PLUGIN_RESULT_ERROR;
+                    return;
+            }
 
         /**
         * INFORMATIONS OF TOKENS : swaap team didn't touch that part, directly from Paraswap plugin

@@ -16,6 +16,12 @@
                         "tokens.-1"],
                     "method": "exitPool",
                     "plugin": "Paraswap"
+                },
+                "0x52dd2ee6": {
+                    "erc20OfInterest": [
+                        "tokenIn"],
+                    "method": "joinswapExternAmountIn",
+                    "plugin": "Paraswap"
                 }
             }
         }
