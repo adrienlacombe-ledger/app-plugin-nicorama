@@ -5,7 +5,7 @@ import * as fs from "fs";
 const contractName = "Paraswap";
 
 const testLabel = "joinPoolVia0x"; // <= Name of the test
-const testDirSuffix = "join_pool"; // <= directory to compare device snapshots to
+const testDirSuffix = "join_pool_0x"; // <= directory to compare device snapshots to
 const testNetwork = "polygon";
 const signedPlugin = false;
 
@@ -32,7 +32,7 @@ const devices = [
     {
         name: "nanos",
         label: "Nano S",
-        steps: 2, // <= Define the number of steps for this test case and this device
+        steps: 4, // <= Define the number of steps for this test case and this device
     },
     /*{
         name: "nanox",

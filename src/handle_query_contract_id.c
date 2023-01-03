@@ -8,8 +8,10 @@ void handle_query_contract_id(void *parameters) {
 
     switch (context->selectorIndex) {
         case JOIN_POOL_VIA_0X:
-        case JOIN_POOL_VIA_SWAAP:
             strlcpy(msg->version, "Deposit", msg->versionLength);
+            break;
+        case JOIN_POOL_VIA_SWAAP:
+            strlcpy(msg->version, "Deposit with Swaap", msg->versionLength);
             break;
         case EXIT:
             strlcpy(msg->version, "Exit", msg->versionLength);
@@ -21,4 +23,5 @@ void handle_query_contract_id(void *parameters) {
     }
 
     msg->result = ETH_PLUGIN_RESULT_OK;
+    PRINTF("=== finishing handle_query_contract_id \n");
 }

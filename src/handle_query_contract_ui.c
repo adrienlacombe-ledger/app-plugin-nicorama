@@ -107,6 +107,7 @@ void handle_deposit_screen(){
 
 
 void handle_query_contract_ui(void *parameters) {
+    PRINTF("=== start handle_query_contract_ui");
     ethQueryContractUI_t *msg = (ethQueryContractUI_t *) parameters;
     paraswap_parameters_t *context = (paraswap_parameters_t *) msg->pluginContext;
 

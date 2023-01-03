@@ -21,7 +21,7 @@ void handle_finalize(void *parameters) {
                     msg->result = ETH_PLUGIN_RESULT_ERROR;
                     return;
             }
-
+        PRINTF("=== finalize screen %d\n", msg->numScreens);
         /**
         * INFORMATIONS OF TOKENS : swaap team didn't touch that part, directly from Paraswap plugin
         */
