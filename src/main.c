@@ -26,21 +26,20 @@
 #include "paraswap_plugin.h"
 #include "debug.h"
 
-
 // Function: joinPoolVia0x(address tokenA, address tokenB, uint256 amountADesired, uint256
 // amountBDesired, uint256 amountAMin, uint256 amountBMin, address to, uint256 deadline)
 // MethodID: 0x75fed9a0
 static const uint8_t JOIN_POOL_VIA_0X_SELECTOR[SELECTOR_SIZE] = {0x75, 0xfe, 0xd9, 0xa0};
 
-// Function: joinswapExternAmountIn(address pool,address tokenIn,uint256 tokenAmountIn,uint256 minPoolAmountOut,uint256 deadline)
-// MethodID: 0x52dd2ee6
+// Function: joinswapExternAmountIn(address pool,address tokenIn,uint256 tokenAmountIn,uint256
+// minPoolAmountOut,uint256 deadline) MethodID: 0x52dd2ee6
 static const uint8_t JOIN_POOL_VIA_SWAAP_SELECTOR[SELECTOR_SIZE] = {0x52, 0xdd, 0x2e, 0xe6};
 
 // ---------- End Paraswap V4 -------------
 
 // Array of all the different paraswap selectors.
-const uint8_t *const PARASWAP_SELECTORS[NUM_PARASWAP_SELECTORS] = {
-    JOIN_POOL_VIA_0X_SELECTOR, JOIN_POOL_VIA_SWAAP_SELECTOR};
+const uint8_t *const PARASWAP_SELECTORS[NUM_PARASWAP_SELECTORS] = {JOIN_POOL_VIA_0X_SELECTOR,
+                                                                   JOIN_POOL_VIA_SWAAP_SELECTOR};
 
 // Paraswap uses `0xeeeee` as a dummy address to represent ETH.
 const uint8_t PARASWAP_ETH_ADDRESS[ADDRESS_LENGTH] = {0xee, 0xee, 0xee, 0xee, 0xee, 0xee, 0xee,

@@ -10,9 +10,7 @@ void handle_provide_token(void *parameters) {
         context->tokens_found |= TOKEN_SENT_FOUND;
     } else if (msg->item1 != NULL) {
         context->decimals_a = msg->item1->token.decimals;
-        strlcpy(context->ticker_a,
-                (char *) msg->item1->token.ticker,
-                sizeof(context->ticker_a));
+        strlcpy(context->ticker_a, (char *) msg->item1->token.ticker, sizeof(context->ticker_a));
         context->tokens_found |= TOKEN_SENT_FOUND;
     } else {
         // CAL did not find the token and token is not ETH.
@@ -26,9 +24,7 @@ void handle_provide_token(void *parameters) {
         context->tokens_found |= TOKEN_RECEIVED_FOUND;
     } else if (msg->item2 != NULL) {
         context->decimals_b = msg->item2->token.decimals;
-        strlcpy(context->ticker_b,
-                (char *) msg->item2->token.ticker,
-                sizeof(context->ticker_b));
+        strlcpy(context->ticker_b, (char *) msg->item2->token.ticker, sizeof(context->ticker_b));
         context->tokens_found |= TOKEN_RECEIVED_FOUND;
     } else {
         // CAL did not find the token and token is not ETH.

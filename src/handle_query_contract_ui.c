@@ -3,16 +3,15 @@
 // Set UI for the "Send" screen.
 static void set_send_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *context) {
     switch (context->selectorIndex) {
-
         case JOIN_POOL_VIA_0X:
         case JOIN_POOL_VIA_SWAAP:
             strlcpy(msg->title, "Deposit", msg->titleLength);
             break;
 
-        /*case REMOVE_LIQUIDITY:
-            strlcpy(msg->title, "Send Max", msg->titleLength);
-            break;
-            */
+            /*case REMOVE_LIQUIDITY:
+                strlcpy(msg->title, "Send Max", msg->titleLength);
+                break;
+                */
 
         default:
             PRINTF("Unhandled selector Index: %d\n", context->selectorIndex);
@@ -25,25 +24,25 @@ static void set_send_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *contex
         strlcpy(context->ticker_a, msg->network_ticker, sizeof(context->ticker_a));
     }
 
-        amountToString(context->amount_a,
-                       sizeof(context->amount_a),
-                       context->decimals_a,
-                       context->ticker_a,
-                       msg->msg,
-                       msg->msgLength);
+    amountToString(context->amount_a,
+                   sizeof(context->amount_a),
+                   context->decimals_a,
+                   context->ticker_a,
+                   msg->msg,
+                   msg->msgLength);
 }
 // Set UI for "Receive" screen.
 static void set_receive_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *context) {
     switch (context->selectorIndex) {
         case JOIN_POOL_VIA_0X:
-        //case JOIN_POOL_VIA_0X_ETH:
+            // case JOIN_POOL_VIA_0X_ETH:
             strlcpy(msg->title, "Exit", msg->titleLength);
             break;
 
-        /*case REMOVE_LIQUIDITY:
-            strlcpy(msg->title, "Receive min", msg->titleLength);
-            break;
-            */
+            /*case REMOVE_LIQUIDITY:
+                strlcpy(msg->title, "Receive min", msg->titleLength);
+                break;
+                */
 
         default:
             PRINTF("Unhandled selector Index: %d\n", context->selectorIndex);
@@ -53,7 +52,7 @@ static void set_receive_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *con
 
     // Added from paraswap plugin, was not on Quickswap plugin
     if (ADDRESS_IS_NETWORK_TOKEN(context->token_address_b)) {
-            strlcpy(context->ticker_b, msg->network_ticker, sizeof(context->ticker_b));
+        strlcpy(context->ticker_b, msg->network_ticker, sizeof(context->ticker_b));
     }
 
     amountToString(context->amount_b,
@@ -64,7 +63,6 @@ static void set_receive_ui(ethQueryContractUI_t *msg, paraswap_parameters_t *con
                    msg->msgLength);
 }
 
-
 // Helper function that returns the enum corresponding to the screen that should be displayed.
 static screens_t get_screen(const ethQueryContractUI_t *msg, const paraswap_parameters_t *context) {
     uint8_t index = msg->screenIndex;
@@ -73,13 +71,11 @@ static screens_t get_screen(const ethQueryContractUI_t *msg, const paraswap_para
 
     bool token_b_found = context->tokens_found & TOKEN_RECEIVED_FOUND;
 
-
-
     PRINTF("=== get_screen: Current screen index %d \n", index);
-    //PRINTF("=== token_a_found %d \n", token_a_found);
+    // PRINTF("=== token_a_found %d \n", token_a_found);
     PRINTF("=== ### token_a_found %d \n", token_a_found);
-    //PRINTF("=== both_tokens_found %d \n", both_tokens_found);
-    //PRINTF("=== both_tokens_not_found %d \n", both_tokens_not_found);
+    // PRINTF("=== both_tokens_found %d \n", both_tokens_found);
+    // PRINTF("=== both_tokens_not_found %d \n", both_tokens_not_found);
 
     // DEPOSIT_SCREEN  0
     // EXIT_SCREEN 1
@@ -89,7 +85,7 @@ static screens_t get_screen(const ethQueryContractUI_t *msg, const paraswap_para
         case 0:
             if (token_a_found) {
                 return DEPOSIT_SCREEN;
-            } else{
+            } else {
                 return ERROR;
             }
             break;
@@ -100,11 +96,8 @@ static screens_t get_screen(const ethQueryContractUI_t *msg, const paraswap_para
     return ERROR;
 }
 
-void handle_deposit_screen(){
-
-
+void handle_deposit_screen() {
 }
-
 
 void handle_query_contract_ui(void *parameters) {
     PRINTF("=== start handle_query_contract_ui");

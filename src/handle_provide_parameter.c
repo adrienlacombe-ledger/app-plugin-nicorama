@@ -2,16 +2,15 @@
 
 // Copy amount sent parameter to amount_a
 static void handle_amount_a(const ethPluginProvideParameter_t *msg,
-                               paraswap_parameters_t *context) {
+                            paraswap_parameters_t *context) {
     copy_parameter(context->amount_a, msg->parameter, sizeof(context->amount_a));
 }
 
 // Copy amount sent parameter to amount_b
 static void handle_amount_b(const ethPluginProvideParameter_t *msg,
-                                   paraswap_parameters_t *context) {
+                            paraswap_parameters_t *context) {
     copy_parameter(context->amount_b, msg->parameter, sizeof(context->amount_b));
 }
-
 
 static void handle_array_len(const ethPluginProvideParameter_t *msg,
                              paraswap_parameters_t *context) {
@@ -19,9 +18,7 @@ static void handle_array_len(const ethPluginProvideParameter_t *msg,
     PRINTF("LIST LEN: %d\n", context->array_len);
 }
 
-
-static void handle_token_a(const ethPluginProvideParameter_t *msg,
-                              paraswap_parameters_t *context) {
+static void handle_token_a(const ethPluginProvideParameter_t *msg, paraswap_parameters_t *context) {
     memset(context->token_address_a, 0, sizeof(context->token_address_a));
     memcpy(context->token_address_a,
            &msg->parameter[PARAMETER_LENGTH - ADDRESS_LENGTH],
@@ -29,8 +26,7 @@ static void handle_token_a(const ethPluginProvideParameter_t *msg,
     PRINTF("=== TOKEN SENT: %.*H\n", ADDRESS_LENGTH, context->token_address_a);
 }
 
-static void handle_token_b(const ethPluginProvideParameter_t *msg,
-                                  paraswap_parameters_t *context) {
+static void handle_token_b(const ethPluginProvideParameter_t *msg, paraswap_parameters_t *context) {
     memset(context->token_address_b, 0, sizeof(context->token_address_b));
     memcpy(context->token_address_b,
            &msg->parameter[PARAMETER_LENGTH - ADDRESS_LENGTH],
@@ -38,19 +34,17 @@ static void handle_token_b(const ethPluginProvideParameter_t *msg,
     PRINTF("=== TOKEN RECEIVED: %.*H\n", ADDRESS_LENGTH, context->token_address_b);
 }
 
-
-static void handle_0x_deposit(ethPluginProvideParameter_t *msg,
-                                        paraswap_parameters_t *context) {
-
+static void handle_0x_deposit(ethPluginProvideParameter_t *msg, paraswap_parameters_t *context) {
     switch (context->next_param) {
         case INITIAL_OFFSET:
-            // To skip the 3 first lines, we need to put context->skip=2 because we are already at the first line
-            context->skip=2;
+            // To skip the 3 first lines, we need to put context->skip=2 because we are already at
+            // the first line
+            context->skip = 2;
             PRINTF("=== Skipping: %d \n", context->skip);
             context->next_param = TOKEN_A;
 
-            //context->next_param = NONE;
-            //context->go_to_offset = true;
+            // context->next_param = NONE;
+            // context->go_to_offset = true;
             break;
 
         case TOKEN_A:  // tokenA
@@ -71,13 +65,12 @@ static void handle_0x_deposit(ethPluginProvideParameter_t *msg,
     }
 }
 
-static void handle_Swaap_deposit(ethPluginProvideParameter_t *msg,
-                                        paraswap_parameters_t *context) {
-
+static void handle_Swaap_deposit(ethPluginProvideParameter_t *msg, paraswap_parameters_t *context) {
     switch (context->next_param) {
         case INITIAL_OFFSET:
-            // To skip the 1 first lines, we need to put context->skip=0 because we are already at the first line
-            context->skip=0;
+            // To skip the 1 first lines, we need to put context->skip=0 because we are already at
+            // the first line
+            context->skip = 0;
             PRINTF("=== Skipping: %d \n", context->skip);
             context->next_param = TOKEN_A;
             break;
@@ -100,11 +93,9 @@ static void handle_Swaap_deposit(ethPluginProvideParameter_t *msg,
     }
 }
 
-static void handle_exit(ethPluginProvideParameter_t *msg,
-                                            paraswap_parameters_t *context) {
+static void handle_exit(ethPluginProvideParameter_t *msg, paraswap_parameters_t *context) {
     switch (context->next_param) {
-
-    // We don't need to show how much is exited, so we are skipping SLP
+            // We don't need to show how much is exited, so we are skipping SLP
         case TOKEN_B:  // Pool token
             handle_token_b(msg, context);
             context->next_param = AMOUNT_EXITED;
@@ -122,7 +113,6 @@ static void handle_exit(ethPluginProvideParameter_t *msg,
     }
 }
 
-
 void handle_provide_parameter(void *parameters) {
     ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
     paraswap_parameters_t *context = (paraswap_parameters_t *) msg->pluginContext;
@@ -131,7 +121,7 @@ void handle_provide_parameter(void *parameters) {
 
     if (context->skip) {
         // Skip this step, and don't forget to decrease skipping counter.
-//        PRINTF("===# Skipping %d\n", context->skip);
+        //        PRINTF("===# Skipping %d\n", context->skip);
         context->skip--;
         PRINTF("=== Skipping\n");
 
@@ -145,21 +135,20 @@ void handle_provide_parameter(void *parameters) {
         }
         context->offset = 0;  // Reset offset
         switch (context->selectorIndex) {
+            case JOIN_POOL_VIA_0X:
+                handle_0x_deposit(msg, context);
+                break;
+            case JOIN_POOL_VIA_SWAAP:
+                handle_Swaap_deposit(msg, context);
+                break;
+            case EXIT:
+                handle_exit(msg, context);
+                break;
 
-                    case JOIN_POOL_VIA_0X:
-                        handle_0x_deposit(msg, context);
-                        break;
-                    case JOIN_POOL_VIA_SWAAP:
-                        handle_Swaap_deposit(msg, context);
-                        break;
-                    case EXIT:
-                        handle_exit(msg, context);
-                        break;
-
-                    default:
-                        PRINTF("Selector Index %d not supported\n", context->selectorIndex);
-                        msg->result = ETH_PLUGIN_RESULT_ERROR;
-                        break;
-                }
+            default:
+                PRINTF("Selector Index %d not supported\n", context->selectorIndex);
+                msg->result = ETH_PLUGIN_RESULT_ERROR;
+                break;
+        }
     }
 }

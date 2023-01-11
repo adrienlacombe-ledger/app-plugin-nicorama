@@ -12,7 +12,7 @@
 #define NUM_PARASWAP_SELECTORS 2
 #define SELECTOR_SIZE          4
 
-#define PLUGIN_NAME "Swaap"
+#define PLUGIN_NAME "Paraswap"
 
 // These are Token_A and TOKEN_B, but we keep using this semantic because the algorithm
 // did not change
@@ -29,30 +29,26 @@ extern const uint8_t NULL_ETH_ADDRESS[ADDRESS_LENGTH];
 // etc.. are 0xeeeee...).
 #define ADDRESS_IS_NETWORK_TOKEN(_addr) (!memcmp(_addr, PARASWAP_ETH_ADDRESS, ADDRESS_LENGTH))
 
-typedef enum {
-    JOIN_POOL_VIA_0X,
-    JOIN_POOL_VIA_SWAAP,
-    EXIT
-} paraswapSelector_t;
+typedef enum { JOIN_POOL_VIA_0X, JOIN_POOL_VIA_SWAAP, EXIT } paraswapSelector_t;
 
 extern const uint8_t *const PARASWAP_SELECTORS[NUM_PARASWAP_SELECTORS];
 
 typedef enum {
-    DEPOSIT_SCREEN, // Deposit and exit screen can be looped to display two
+    DEPOSIT_SCREEN,  // Deposit and exit screen can be looped to display two
     EXIT_SCREEN,
-    MORE_SCREEN, // when the pool has more than two tokens
+    MORE_SCREEN,  // when the pool has more than two tokens
     ERROR,
 } screens_t;
 
 // Would've loved to make this an enum but we don't have enough room because enums are `int` and not
 // `uint8_t`.
-#define AMOUNT_DEPOSIT     0  // Amount sent by the user to the contract.
-#define AMOUNT_EXITED 1  // Amount sent by the contract to the user.
-#define TOKEN_A      2  // Address of first token
-#define TOKEN_B  3  // Address of the second token
-#define INITIAL_OFFSET        6
-#define TOKENS_LENGTH         9
-#define NONE                  13  // Placeholder variant to be set when parsing is done but data is still being sent.
+#define AMOUNT_DEPOSIT 0  // Amount sent by the user to the contract.
+#define AMOUNT_EXITED  1  // Amount sent by the contract to the user.
+#define TOKEN_A        2  // Address of first token
+#define TOKEN_B        3  // Address of the second token
+#define INITIAL_OFFSET 6
+#define TOKENS_LENGTH  9
+#define NONE           13  // Placeholder variant to be set when parsing is done but data is still being sent.
 
 // Number of decimals used when the token wasn't found in the CAL.
 #define DEFAULT_DECIMAL WEI_TO_ETHER
@@ -62,10 +58,10 @@ typedef enum {
 
 // Shared global memory with Ethereum app. Must be at most 5 * 32 bytes.
 typedef struct paraswap_parameters_t {
-    uint8_t amount_a[INT256_LENGTH];     // 32 bytes aka one line
+    uint8_t amount_a[INT256_LENGTH];  // 32 bytes aka one line
     uint8_t amount_b[INT256_LENGTH];
     // Maybe we don't need address
-    uint8_t token_address_a[ADDRESS_LENGTH]; // 20 bytes
+    uint8_t token_address_a[ADDRESS_LENGTH];  // 20 bytes
     uint8_t token_address_b[ADDRESS_LENGTH];
     char ticker_a[MAX_TICKER_LEN];
     char ticker_b[MAX_TICKER_LEN];  // 12 bytes
